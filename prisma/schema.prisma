@@ -1,0 +1,81 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Model Katalog Produk
+model Product {
+  id          String      @id @default(cuid())
+  name        String      @default("Glam & Glow Lulur Badda Lotong")
+  slug        String      @unique @default("glam-and-glow-lulur-badda-lotong")
+  tagline     String      @default("Perawatan Alami Kulit Cantik & Lembut Tradisi Bugis")
+  description String      @db.Text
+  price       Int         @default(35000)
+  weightGram  Int         @default(400)
+  stock       Int         @default(150)
+  imageUrl    String?
+  isFeatured  Boolean     @default(true)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  orderItems  OrderItem[]
+}
+
+// Model Transaksi Pesanan Masuk
+model Order {
+  id              String      @id @default(cuid())
+  orderNumber     String      @unique
+  customerName    String
+  customerPhone   String
+  customerEmail   String?
+  shippingAddress String      @db.Text
+  cityOrDistrict  String?
+  notes           String?     @db.Text
+  totalAmount     Int
+  status          OrderStatus @default(PENDING)
+  channel         OrderSource @default(WHATSAPP)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  items           OrderItem[]
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  quantity  Int      @default(1)
+  unitPrice Int      @default(35000)
+  subtotal  Int
+}
+
+// Model Pesan Kontak / Pertanyaan Konsumen
+model ContactInquiry {
+  id        String   @id @default(cuid())
+  name      String
+  email     String?
+  phone     String?
+  message   String   @db.Text
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+enum OrderStatus {
+  PENDING       // Menunggu konfirmasi penjual
+  CONFIRMED     // Sudah dikonfirmasi via WA/DM
+  PAID          // Pembayaran terverifikasi
+  SHIPPED       // Paket dalam pengiriman
+  COMPLETED     // Pesanan selesai
+  CANCELLED     // Dibatalkan
+}
+
+enum OrderSource {
+  WHATSAPP
+  INSTAGRAM_DM
+  DIRECT_WEB
+}
+

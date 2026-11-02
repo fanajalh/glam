@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-sand: #F1E6D8;
+  --bg-olive: #2D3622;
+  --bg-card: #D7D1C3;
+  --color-coffee: #32160C;
+  --color-gold: #D4A359;
+}
+
+html {
+  background-color: #F1E6D8;
+  color: #261C18;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  background-color: #F1E6D8;
+  font-family: var(--font-manrope), 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: clip;
+}
+
+/* Completely Hide Scrollbars across all browsers */
+* {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Glassmorphism Pill */
+.glass-pill {
+  background: rgba(241, 230, 216, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.glass-pill-dark {
+  background: rgba(45, 54, 34, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Card Fan Angles (Matching exact Figma SVG angles) */
+.rotate-deck-left-far {
+  transform: rotate(-18.83deg);
+}
+.rotate-deck-left {
+  transform: rotate(-8.77deg);
+}
+.rotate-deck-center {
+  transform: rotate(0deg);
+}
+.rotate-deck-right {
+  transform: rotate(8.77deg);
+}
+.rotate-deck-right-far {
+  transform: rotate(18.83deg);
+}
+
+/* Texture Pattern Overlay */
+.bg-subtle-noise {
+  background-image: radial-gradient(rgba(50, 22, 12, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
