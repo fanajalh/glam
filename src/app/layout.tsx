@@ -7,6 +7,8 @@ import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
 import { ScrollProgressBar } from "@/components/ui/Animations";
 import { PRODUCT_INFO } from "@/lib/constants";
 import { CartProvider } from "@/context/CartContext";
+import { SiteContentProvider } from "@/context/SiteContentContext";
+import { getSiteContent } from "@/lib/site-content";
 import CartDrawer from "@/components/common/CartDrawer";
 import SearchModal from "@/components/common/SearchModal";
 import SmoothScroll from "@/components/common/SmoothScroll";
@@ -31,20 +33,22 @@ export const metadata: Metadata = {
   keywords: [
     "Lulur Badda Lotong",
     "Glam & Glow",
-    "Lulur Tradisional Bugis",
-    "Lulur Hitam Rempah",
+    "Lulur Berbahan Alami",
     "Body Scrub Alami",
     "Beras Ketan Putih",
-    "Mencerahkan Kulit Alami",
+    "Daun Pandan",
+    "Jeruk Nipis",
+    "Kunyit",
+    "Cengkeh",
   ],
   openGraph: {
-    title: `${PRODUCT_INFO.name} • Rp35.000 / 400g`,
+    title: `${PRODUCT_INFO.name} • Rp35.000 / Pot (400g)`,
     description: PRODUCT_INFO.description,
     url: "https://glamandglow.id",
     siteName: PRODUCT_INFO.name,
     images: [
       {
-        url: "/images/product-hero.png",
+        url: "/images/glam/jar-ingredients-wood.jpg",
         width: 1200,
         height: 630,
         alt: PRODUCT_INFO.name,
@@ -55,27 +59,31 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteContent = await getSiteContent();
+
   return (
     <html lang="id" className={`${manrope.variable} ${inter.variable}`}>
       <body className="antialiased min-h-screen flex flex-col bg-[#F1E6D8] text-[#261C18] font-sans">
-        <SmoothScroll>
-          <CartProvider>
-            <PageTransitionProvider>
-              <ScrollProgressBar />
-              <Navbar />
-              <main className="flex-grow">{children}</main>
-              <CartDrawer />
-              <SearchModal />
-              <FloatingWhatsApp />
-              <Footer />
-            </PageTransitionProvider>
-          </CartProvider>
-        </SmoothScroll>
+        <SiteContentProvider value={siteContent}>
+          <SmoothScroll>
+            <CartProvider>
+              <PageTransitionProvider>
+                <ScrollProgressBar />
+                <Navbar />
+                <main className="flex-grow">{children}</main>
+                <CartDrawer />
+                <SearchModal />
+                <FloatingWhatsApp />
+                <Footer />
+              </PageTransitionProvider>
+            </CartProvider>
+          </SmoothScroll>
+        </SiteContentProvider>
       </body>
     </html>
   );

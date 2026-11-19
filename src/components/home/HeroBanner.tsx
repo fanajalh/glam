@@ -10,10 +10,12 @@ import {
   CharReveal,
   Reveal,
 } from "@/components/ui/Animations";
+import { useSiteContent } from "@/context/SiteContentContext";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function HeroBanner() {
+  const { home } = useSiteContent();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -41,14 +43,14 @@ export default function HeroBanner() {
           className="absolute inset-0 z-0"
         >
           <Image
-            src="/images/orveli/hero-bg.png"
-            alt="Gentle on Skin, Gentle on Nature"
+            src="/images/glam/jar-batik-spices.jpg"
+            alt="Glam & Glow Lulur Badda Lotong Berbahan Alami"
             fill
             priority
             sizes="(max-width: 1440px) 100vw, 1440px"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-black/45" />
         </motion.div>
 
         {/* Orvéli Centered Vertical Glass Panel */}
@@ -62,23 +64,23 @@ export default function HeroBanner() {
           {/* Main Heading: 2 baris rapi dan simetris */}
           <h1 className="font-sans font-normal text-3xl sm:text-6xl lg:text-[76px] text-[#F1E6D8] tracking-[-0.04em] leading-[1.08] flex flex-col items-center text-center">
             <CharReveal
-              text="Gentle on Skin,"
+              text={home.heroLine1}
               delay={0.1}
               stagger={0.02}
               animateImmediate
             />
             <CharReveal
-              text="Gentle on Nature"
+              text={home.heroLine2}
               delay={0.28}
               stagger={0.02}
               animateImmediate
             />
           </h1>
 
-          {/* Subtitle: Ringkas langsung ke inti */}
+          {/* Subtitle: Sesuai deskripsi resmi produk */}
           <Reveal direction="up" delay={0.42}>
-            <p className="font-sans text-[15px] sm:text-[19px] text-[#F1E6D8]/85 max-w-[460px] mx-auto leading-[1.45] text-center">
-              Lulur rempah alami Bugis. Mencerahkan dan menghaluskan kulit tanpa bahan kimia.
+            <p className="font-sans text-[15px] sm:text-[19px] text-[#F1E6D8]/85 max-w-[480px] mx-auto leading-[1.45] text-center">
+              {home.heroSubtitle}
             </p>
           </Reveal>
 
@@ -94,16 +96,16 @@ export default function HeroBanner() {
                 href="/produk"
                 className="group/roll inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-[#F1E6D8]/20 hover:bg-[#F1E6D8] text-[#F1E6D8] hover:text-[#201914] backdrop-blur-[10px] text-[14px] sm:text-[16px] font-inter font-medium transition-all duration-300"
               >
-                <RollingText text="Lihat Produk" />
+                <RollingText text={home.heroPrimaryCta} />
               </Link>
             </Magnetic>
 
             <Magnetic strength={0.22}>
               <Link
-                href="/pesan"
+                href="/pembelian"
                 className="group/roll inline-flex items-center justify-center px-5 sm:px-7 py-3 sm:py-4 rounded-full bg-black/30 hover:bg-[#F1E6D8]/20 text-[#F1E6D8] backdrop-blur-[10px] text-[14px] sm:text-[16px] font-inter font-medium transition-all duration-300"
               >
-                <RollingText text="Pesan Lulur • Rp 35k" />
+                <RollingText text={home.heroSecondaryCta} />
               </Link>
             </Magnetic>
           </motion.div>

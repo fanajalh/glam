@@ -59,10 +59,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       {
         id: "prod-main",
         name: PRODUCT_INFO.name,
-        subtitle: "Kemasan Pot 400g • Rempah Murni",
+        subtitle: "Berat bersih: 400 gram • Bahan Alami",
         price: PRODUCT_INFO.price,
         quantity: 1,
-        image: "/images/orveli/prod-3.png",
+        image: "/images/glam/jar-studio-pedestal.jpg",
         weightGram: 400,
       },
     ]);

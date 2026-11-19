@@ -4,10 +4,12 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { CharReveal } from "@/components/ui/Animations";
+import { useSiteContent } from "@/context/SiteContentContext";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function StatementPillSection() {
+  const { home } = useSiteContent();
   return (
     <section className="relative w-full max-w-[1560px] mx-auto px-2 sm:px-3 py-1.5">
       {/* Orvéli Statement Section: compact on mobile, r: 24px */}
@@ -24,15 +26,15 @@ export default function StatementPillSection() {
               className="relative w-[68px] sm:w-[125px] h-[46px] sm:h-[86px] rounded-[78px] overflow-hidden shrink-0"
             >
               <Image
-                src="/images/orveli/pill-1.png"
-                alt="Botanical leaf detail"
+                src="/images/glam/jar-ingredients-wood.jpg"
+                alt="Komposisi 5 bahan alami"
                 fill
                 className="object-cover object-center"
               />
             </motion.div>
 
             <span className="font-sans text-xl sm:text-4xl lg:text-[48px] font-normal text-[#F1E6D8] tracking-[-0.02em] leading-[1.15]">
-              <CharReveal text="Koleksi lulur" mode="word" delay={0.12} />
+              <CharReveal text={home.statementRow1Left} mode="word" delay={0.12} />
             </span>
 
             {/* Pill 2 */}
@@ -44,22 +46,22 @@ export default function StatementPillSection() {
               className="relative w-[68px] sm:w-[125px] h-[46px] sm:h-[86px] rounded-[78px] overflow-hidden shrink-0"
             >
               <Image
-                src="/images/orveli/pill-2.png"
-                alt="Natural skincare texture"
+                src="/images/glam/jar-powder-texture.jpg"
+                alt="Tekstur serbuk lulur alami"
                 fill
                 className="object-cover object-center"
               />
             </motion.div>
 
             <span className="font-sans text-xl sm:text-4xl lg:text-[48px] font-normal text-[#F1E6D8] tracking-[-0.02em] leading-[1.15]">
-              <CharReveal text="alami" mode="word" delay={0.28} />
+              <CharReveal text={home.statementRow1Right} mode="word" delay={0.28} />
             </span>
           </div>
 
-          {/* Row 2: "rempah murni Bugis" + [Pill 3] + "setiap hari" */}
+          {/* Row 2: "perawatan kulit" + [Pill 3] + "sederhana & praktis" */}
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-5">
             <span className="font-sans text-xl sm:text-4xl lg:text-[48px] font-normal text-[#F1E6D8] tracking-[-0.02em] leading-[1.15]">
-              <CharReveal text="rempah murni Bugis" mode="word" delay={0.2} />
+              <CharReveal text={home.statementRow2Left} mode="word" delay={0.2} />
             </span>
 
             {/* Pill 3 */}
@@ -71,15 +73,15 @@ export default function StatementPillSection() {
               className="relative w-[68px] sm:w-[125px] h-[46px] sm:h-[86px] rounded-[78px] overflow-hidden shrink-0"
             >
               <Image
-                src="/images/orveli/pill-3.png"
-                alt="Botanical dropper care"
+                src="/images/glam/jar-batik-spices.jpg"
+                alt="Racikan rempah alami"
                 fill
                 className="object-cover object-center"
               />
             </motion.div>
 
             <span className="font-sans text-xl sm:text-4xl lg:text-[48px] font-normal text-[#F1E6D8] tracking-[-0.02em] leading-[1.15]">
-              <CharReveal text="setiap hari" mode="word" delay={0.38} />
+              <CharReveal text={home.statementRow2Right} mode="word" delay={0.38} />
             </span>
           </div>
         </div>

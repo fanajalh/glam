@@ -6,7 +6,6 @@ import FeaturesCollageSection from "@/components/home/FeaturesCollageSection";
 import StatementPillSection from "@/components/home/StatementPillSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import BotanistFundSection from "@/components/home/BotanistFundSection";
-import OrderForm from "@/components/order/OrderForm";
 
 export default function HomePage() {
   return (
@@ -31,14 +30,6 @@ export default function HomePage() {
 
       {/* 7. The Botanist Fund (bg: #2D3622, r: 24px) */}
       <BotanistFundSection />
-
-      {/* 8. Direct Order Form in Orvéli Contact Architecture (bg: #2D3622 + White Card, r: 24px) */}
-      <section
-        id="order-section"
-        className="w-full max-w-[1560px] mx-auto px-2 sm:px-3 py-1.5"
-      >
-        <OrderForm />
-      </section>
     </div>
   );
 }

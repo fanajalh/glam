@@ -9,8 +9,10 @@ import {
   ScrollWordReveal,
   RollingText,
 } from "@/components/ui/Animations";
+import { useSiteContent } from "@/context/SiteContentContext";
 
 export default function MissionSection() {
+  const { home } = useSiteContent();
   const sectionRef = useRef<HTMLDivElement>(null);
 
   // Hook scroll progress for dynamic zoom out & arrow trace
@@ -64,14 +66,14 @@ export default function MissionSection() {
         {/* Top Word-by-Word Scroll Opacity Statement */}
         <div className="relative z-10 w-full">
           <ScrollWordReveal
-            text="Glam & Glow diformulasikan dari beras ketan pilihan, daun pandan, kunyit, kopi, dan rempah tradisi Bugis untuk merawat kulit tanpa bahan kimia sintetik."
+            text={home.missionStatement}
             highlightWords={[
               "Glam",
               "Glow",
-              "rempah",
-              "Bugis",
-              "merawat",
-              "kulit",
+              "alami",
+              "membersihkan",
+              "kelembutan",
+              "kulit.",
             ]}
             className="font-sans text-xl sm:text-3xl lg:text-[36px] leading-[1.3] sm:leading-[1.25] tracking-[-0.01em]"
             activeColor="#F1E6D8"
@@ -85,7 +87,7 @@ export default function MissionSection() {
           <div className="lg:col-span-5 flex flex-col justify-between h-full relative">
             <Reveal direction="up" delay={0.1}>
               <p className="font-sans text-[16px] sm:text-[20px] text-[#F1E6D8]/90 font-normal leading-[1.5] max-w-[340px]">
-                Bebas dari 1.500+ zat kimia berbahaya, pewarna sintetik, paraben, dan merkuri.
+                {home.missionSubnote}
               </p>
             </Reveal>
 
@@ -122,8 +124,8 @@ export default function MissionSection() {
                   className="w-full h-full relative"
                 >
                   <Image
-                    src="/images/orveli/mission-model.png"
-                    alt="Glam & Glow Botanical Skincare"
+                    src="/images/glam/jar-studio-pedestal.jpg"
+                    alt="Glam & Glow Lulur Badda Lotong 400g"
                     fill
                     className="object-cover object-center"
                     sizes="(max-width: 768px) 100vw, 424px"
@@ -132,19 +134,19 @@ export default function MissionSection() {
               </div>
             </div>
 
-            {/* Secondary Column: Product Card (with zoom out) + Rolling Shop Now Link */}
+            {/* Secondary Column: Texture Card (with zoom out) + Rolling Shop Now Link */}
             <div className="w-full sm:w-[200px] flex flex-col justify-between h-auto sm:h-[460px] lg:h-[600px] gap-4">
-              {/* Product Card with Zoom-Out Scale */}
-              <div className="relative w-full h-[180px] sm:h-[240px] rounded-[16px] bg-[#D7D1C3] overflow-hidden flex items-center justify-center p-4 shadow-md">
+              {/* Product Texture Card with Zoom-Out Scale */}
+              <div className="relative w-full h-[180px] sm:h-[240px] rounded-[16px] bg-[#D7D1C3] overflow-hidden shadow-md">
                 <motion.div
                   style={{ scale: productScale }}
-                  className="w-full h-full relative flex items-center justify-center"
+                  className="w-full h-full relative"
                 >
                   <Image
-                    src="/images/orveli/mission-small.png"
-                    alt="Glam & Glow Botanical Formula"
+                    src="/images/glam/jar-powder-texture.jpg"
+                    alt="Tekstur Serbuk Lulur Badda Lotong"
                     fill
-                    className="object-contain object-center p-3 hover:scale-105 transition-transform duration-300"
+                    className="object-cover object-center hover:scale-105 transition-transform duration-300"
                   />
                 </motion.div>
               </div>
@@ -156,7 +158,7 @@ export default function MissionSection() {
                   className="group/roll inline-flex flex-col text-[#F1E6D8] font-inter text-[15px] sm:text-[16px] font-medium"
                 >
                   <span className="pb-1">
-                    <RollingText text="Lihat Produk" />
+                    <RollingText text={home.missionLinkText} />
                   </span>
                   <span className="h-[1.5px] w-full bg-[#F1E6D8]" />
                 </Link>

@@ -18,6 +18,7 @@ import {
   Magnetic,
   RollingText,
 } from "@/components/ui/Animations";
+import { useSiteContent } from "@/context/SiteContentContext";
 
 interface FrostedGlassCardProps {
   icon: LucideIcon;
@@ -97,28 +98,13 @@ export default function FeaturesCollageSection() {
   const smoothY4 = useSpring(y4, { stiffness: 90, damping: 26, restDelta: 0.001 });
   const smoothBottleY = useSpring(bottleY, { stiffness: 90, damping: 26, restDelta: 0.001 });
 
-  const promises = [
-    {
-      icon: Search,
-      title: "Radical Transparency",
-      desc: "100% komposisi rempah asli terbuka tanpa zat kimia tersembunyi.",
-    },
-    {
-      icon: Leaf,
-      title: "Rooted Botanicals",
-      desc: "Bahan nabati murni dari petani lokal Sulawesi Selatan.",
-    },
-    {
-      icon: HeartHandshake,
-      title: "Quiet Responsibility",
-      desc: "Diproduksi higienis, ramah lingkungan, dan tanpa uji hewan.",
-    },
-    {
-      icon: FlaskConical,
-      title: "Proven Performance",
-      desc: "Khasiat lulur tradisional Bugis teruji melembutkan kulit.",
-    },
-  ];
+  const { home } = useSiteContent();
+  const PROMISE_ICONS = [Search, Leaf, HeartHandshake, FlaskConical];
+  const promises = home.promises.map((item, idx) => ({
+    icon: PROMISE_ICONS[idx % PROMISE_ICONS.length],
+    title: item.title,
+    desc: item.desc,
+  }));
 
   return (
     <section className="relative w-full max-w-[1560px] mx-auto px-2 sm:px-3 py-1.5">
@@ -131,14 +117,14 @@ export default function FeaturesCollageSection() {
             <BotanicalMarkDraw />
 
             <ScrollWordReveal
-              text="Four promises in every bottle. Transparansi penuh, rempah nabati murni, produksi etis, dan hasil nyata untuk kulit Anda."
+              text={home.promisesHeading}
               highlightWords={[
-                "promises",
+                "komitmen",
                 "Transparansi",
-                "rempah",
-                "nabati",
-                "etis",
-                "nyata",
+                "alami,",
+                "praktis,",
+                "merawat",
+                "kulit",
               ]}
               className="font-sans text-2xl sm:text-3xl lg:text-[36px] leading-[1.24] tracking-[-0.01em]"
               activeColor="#F1E6D8"
@@ -149,10 +135,10 @@ export default function FeaturesCollageSection() {
           <Reveal direction="up" delay={0.2} className="shrink-0">
             <Magnetic strength={0.22}>
               <Link
-                href="/pesan"
+                href="/pembelian"
                 className="group/roll px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#F1E6D8]/20 hover:bg-[#F1E6D8] text-[#F1E6D8] hover:text-[#201914] backdrop-blur-[10px] font-sans text-[14px] sm:text-[16px] font-medium transition-all duration-300 inline-block"
               >
-                <RollingText text="Pesan Sekarang" />
+                <RollingText text={home.promisesCtaText} />
               </Link>
             </Magnetic>
           </Reveal>
@@ -173,8 +159,8 @@ export default function FeaturesCollageSection() {
                 className="w-[820px] xl:w-[872px] h-[78vh] min-h-[580px] max-h-[860px] rounded-[24px] overflow-hidden bg-[#201914] shadow-2xl relative"
               >
                 <Image
-                  src="/images/orveli/feature-bottle.png"
-                  alt="Four Promises in Every Bottle"
+                  src="/images/glam/jar-ingredients-wood.jpg"
+                  alt="Glam & Glow Lulur Badda Lotong dengan 5 Bahan Alami"
                   fill
                   priority
                   className="object-cover object-center"
@@ -266,8 +252,8 @@ export default function FeaturesCollageSection() {
             <div className="relative w-full max-w-[420px] h-[300px] sm:h-[400px] rounded-[20px] overflow-hidden bg-[#201914] shadow-xl">
               <motion.div style={{ scale: bottleScale }} className="w-full h-full relative">
                 <Image
-                  src="/images/orveli/feature-bottle.png"
-                  alt="Four Promises in Every Bottle"
+                  src="/images/glam/jar-ingredients-wood.jpg"
+                  alt="Glam & Glow Lulur Badda Lotong dengan 5 Bahan Alami"
                   fill
                   priority
                   className="object-cover object-center"

@@ -7,12 +7,22 @@ import { ShoppingBag, Search, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Magnetic, RollingText } from "@/components/ui/Animations";
 import { useCart } from "@/context/CartContext";
+import { useSiteContent } from "@/context/SiteContentContext";
+
+const HERO_ROUTES = new Set([
+  "/",
+  "/tentang-kami",
+  "/produk",
+  "/panduan",
+  "/pesan",
+]);
 
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { totalCount, setIsCartOpen, setIsSearchOpen } = useCart();
+  const { general } = useSiteContent();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 36);
@@ -20,12 +30,19 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
+
+  const hasDarkHeroTop = HERO_ROUTES.has(pathname || "");
+  const useSolidDarkNav = scrolled || !hasDarkHeroTop;
+
   const navLinks = [
     { label: "Beranda", href: "/" },
-    { label: "About", href: "/tentang-kami" },
-    { label: "Shop", href: "/produk" },
+    { label: "Tentang Kami", href: "/tentang-kami" },
+    { label: "Produk", href: "/produk" },
     { label: "Panduan", href: "/panduan" },
-    { label: "Contact & Order", href: "/pesan" },
+    { label: "Kontak & Pesan", href: "/pesan" },
   ];
 
   return (
@@ -33,20 +50,20 @@ export default function Navbar() {
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-3.5 sm:top-5 left-0 right-0 z-50 px-2 sm:px-4 pointer-events-none"
+      className="fixed top-3.5 sm:top-5 left-0 right-0 z-50 px-2 sm:px-4 pointer-events-none print:hidden"
     >
       {/* Orvéli Floating Translucent Pill Header (`framer-1se6ix8`: r:100px, blur:8px, gradient dark, border: none) */}
       <div
-        className={`max-w-[1560px] mx-auto rounded-full px-4 sm:px-8 flex items-center justify-between pointer-events-auto transition-all duration-500 shadow-lg ${
-          scrolled
-            ? "h-[64px] bg-[#201914]/90 backdrop-blur-[16px]"
-            : "h-[68px] sm:h-[72px] bg-gradient-to-b from-black/40 via-black/20 to-black/10 backdrop-blur-[10px]"
+        className={`max-w-[1560px] mx-auto rounded-full px-4 sm:px-8 flex items-center justify-between pointer-events-auto transition-all duration-500 shadow-lg border border-white/[0.08] ${
+          useSolidDarkNav
+            ? "h-[64px] bg-[#201914]/95 backdrop-blur-[16px]"
+            : "h-[68px] sm:h-[72px] bg-[#201914]/55 backdrop-blur-[14px]"
         }`}
       >
         {/* Left: Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
           <span className="font-sans font-semibold text-lg sm:text-[21px] tracking-[0.08em] text-[#F1E6D8] uppercase">
-            GLAM & GLOW
+            {general.brandName}
           </span>
         </Link>
 
@@ -86,7 +103,7 @@ export default function Navbar() {
               className="relative py-1.5 flex items-center gap-1.5 group/roll hover:text-white transition-colors cursor-pointer"
             >
               <Search className="w-4 h-4" />
-              <RollingText text="Search" />
+              <RollingText text="Cari" />
               <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#F1E6D8] scale-x-0 group-hover/roll:scale-x-100 transition-transform duration-300 origin-left" />
             </button>
 
@@ -96,7 +113,7 @@ export default function Navbar() {
               className="relative py-1.5 flex items-center gap-1.5 group/roll hover:text-white transition-colors cursor-pointer"
             >
               <ShoppingBag className="w-4 h-4" />
-              <RollingText text={`Cart (${totalCount})`} />
+              <RollingText text={`Keranjang (${totalCount})`} />
               <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#F1E6D8] scale-x-0 group-hover/roll:scale-x-100 transition-transform duration-300 origin-left" />
             </button>
           </div>
@@ -104,7 +121,7 @@ export default function Navbar() {
           <div className="hidden sm:block">
             <Magnetic strength={0.2}>
               <Link
-                href="/pesan"
+                href="/pembelian"
                 className="px-5 sm:px-6 py-2.5 rounded-full bg-[#F1E6D8]/20 hover:bg-[#F1E6D8] text-[#F1E6D8] hover:text-[#201914] backdrop-blur-md font-inter text-[14px] sm:text-[15px] font-medium transition-all duration-300 flex items-center gap-2 group/roll"
               >
                 <RollingText text="Pesan Sekarang" />
@@ -125,7 +142,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsCartOpen(true)}
               className="p-2 rounded-full text-[#F1E6D8] hover:bg-white/10 transition-colors relative"
-              aria-label="Open Cart"
+              aria-label="Buka Keranjang"
             >
               <ShoppingBag className="w-5 h-5" />
               {totalCount > 0 && (
@@ -138,7 +155,7 @@ export default function Navbar() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-full text-[#F1E6D8] hover:bg-white/10 transition-colors"
-              aria-label="Toggle Menu"
+              aria-label="Buka Menu"
             >
               {mobileMenuOpen ? (
                 <X className="w-5 h-5" />
@@ -158,7 +175,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.97 }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden max-w-[1382px] mx-auto mt-2 rounded-[20px] bg-[#201914]/95 backdrop-blur-xl shadow-2xl p-5 space-y-2 pointer-events-auto"
+            className="md:hidden max-w-[1382px] mx-auto mt-2 rounded-[28px] bg-[#201914]/95 border border-white/[0.08] backdrop-blur-xl shadow-2xl p-5 space-y-2 pointer-events-auto"
           >
             {navLinks.map((link, idx) => (
               <motion.div
@@ -186,10 +203,10 @@ export default function Navbar() {
                 className="w-full py-3 rounded-full bg-white/10 text-[#F1E6D8] font-inter text-[15px] font-medium flex items-center justify-center gap-2"
               >
                 <Search className="w-4 h-4" />
-                <span>Search Products & Formulas</span>
+                <span>Cari Produk & Info</span>
               </button>
               <Link
-                href="/pesan"
+                href="/pembelian"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full py-3.5 px-4 rounded-full bg-[#F1E6D8] text-[#201914] font-inter text-[15px] font-semibold text-center block whitespace-nowrap"
               >

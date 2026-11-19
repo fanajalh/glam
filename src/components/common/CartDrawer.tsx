@@ -3,14 +3,13 @@
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import {
   X,
   Plus,
   Minus,
   Trash2,
   ShoppingBag,
-  MessageCircle,
   ArrowRight,
   Leaf,
   ShieldCheck,
@@ -19,11 +18,9 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "@/context/CartContext";
 import { formatRupiah } from "@/lib/utils";
-import { PRODUCT_INFO } from "@/lib/constants";
 
 export default function CartDrawer() {
   const router = useRouter();
-  const pathname = usePathname();
   const {
     cartItems,
     isCartOpen,
@@ -62,39 +59,9 @@ export default function CartDrawer() {
     };
   }, [isCartOpen, cartItems.length]);
 
-  const handleWhatsAppCheckout = () => {
-    if (cartItems.length === 0) return;
-    const itemList = cartItems
-      .map(
-        (item) =>
-          `• ${item.name} (${item.quantity}x @ ${formatRupiah(item.price)}) = ${formatRupiah(
-            item.price * item.quantity
-          )}`
-      )
-      .join("\n");
-
-    const message = `Halo Admin Glam & Glow, saya ingin checkout pesanan:\n\n*Daftar Produk:*\n${itemList}\n\n*Total Estimasi:* ${formatRupiah(
-      totalAmount
-    )} (${(totalWeightGram / 1000).toFixed(1)} kg)\n\nMohon konfirmasi ketersediaan stok & ongkir. Terima kasih!`;
-
-    window.open(
-      `https://wa.me/${PRODUCT_INFO.defaultWhatsApp}?text=${encodeURIComponent(
-        message
-      )}`,
-      "_blank"
-    );
-  };
-
-  const handleGoToOrderForm = () => {
+  const handleGoToCheckout = () => {
     setIsCartOpen(false);
-    if (pathname === "/") {
-      const orderEl = document.getElementById("order-section");
-      if (orderEl) {
-        orderEl.scrollIntoView({ behavior: "smooth" });
-        return;
-      }
-    }
-    router.push("/pesan");
+    router.push("/pembelian");
   };
 
   return (
@@ -111,13 +78,13 @@ export default function CartDrawer() {
             className="fixed inset-0 bg-black/60 backdrop-blur-sm"
           />
 
-          {/* Slide-over Drawer Panel */}
+          {/* Slide-over Rounded Drawer Panel */}
           <motion.div
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="relative w-full max-w-[460px] h-[100dvh] max-h-screen bg-[#201914] text-[#F1E6D8] shadow-2xl flex flex-col justify-between z-10 overflow-hidden"
+            className="relative m-2 sm:m-3 w-[calc(100%-16px)] max-w-[448px] h-[calc(100dvh-16px)] sm:h-[calc(100dvh-24px)] rounded-[28px] bg-[#201914] text-[#F1E6D8] border border-white/[0.08] shadow-2xl flex flex-col justify-between z-10 overflow-hidden"
             data-lenis-prevent
           >
             {/* 1. Header (Fixed Height, Shrink-0) */}
@@ -125,7 +92,7 @@ export default function CartDrawer() {
               <div className="flex items-center gap-2.5">
                 <ShoppingBag className="w-5 h-5 text-[#D4A359]" />
                 <h2 className="font-sans text-[19px] sm:text-[20px] font-normal tracking-[-0.01em]">
-                  Your Bag ({totalCount})
+                  Keranjang ({totalCount})
                 </h2>
               </div>
               <button
@@ -261,7 +228,7 @@ export default function CartDrawer() {
                   </div>
                   <div className="flex items-center justify-between text-[#F1E6D8]/60">
                     <span>Ongkos Kirim</span>
-                    <span className="text-[#D4A359]">Dihitung saat order</span>
+                    <span className="text-[#D4A359]">Dihitung saat pemesanan</span>
                   </div>
                   <div className="flex items-center justify-between pt-1.5 border-t border-white/[0.06]">
                     <span className="font-sans text-[16px] sm:text-[17px] text-[#F1E6D8]">Subtotal</span>
@@ -271,25 +238,18 @@ export default function CartDrawer() {
                   </div>
                 </div>
 
-                {/* Checkout Actions */}
+                {/* Checkout Action: Dedicated Purchase Page First (Struk before WhatsApp) */}
                 <div className="space-y-2 font-inter">
-                  {/* WhatsApp Quick Order */}
                   <button
-                    onClick={handleWhatsAppCheckout}
-                    className="w-full h-[46px] rounded-full bg-[#2D3622] hover:bg-[#38432a] text-[#F1E6D8] font-medium text-[14px] flex items-center justify-center gap-2 transition-all shadow-md group active:scale-98"
+                    onClick={handleGoToCheckout}
+                    className="w-full h-[48px] rounded-full bg-[#F1E6D8] hover:bg-white text-[#201914] font-semibold text-[14px] flex items-center justify-center gap-2 transition-all shadow-md active:scale-98"
                   >
-                    <MessageCircle className="w-4 h-4 text-[#D4A359] group-hover:scale-110 transition-transform" />
-                    <span>Pesan Cepat via WhatsApp</span>
-                  </button>
-
-                  {/* Complete Order Form Link */}
-                  <button
-                    onClick={handleGoToOrderForm}
-                    className="w-full h-[46px] rounded-full bg-[#F1E6D8] hover:bg-white text-[#201914] font-medium text-[14px] flex items-center justify-center gap-1.5 transition-all shadow-md active:scale-98"
-                  >
-                    <span>Lanjut Isi Form Alamat & Pengiriman</span>
+                    <span>Lanjut ke Halaman Pembelian</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
+                  <p className="text-[11px] text-center text-[#F1E6D8]/55">
+                    Lanjut ke pembayaran &amp; struk resmi sebelum konfirmasi WhatsApp
+                  </p>
                 </div>
 
                 {/* Trust Badges */}

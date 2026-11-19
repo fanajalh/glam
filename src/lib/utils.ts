@@ -39,6 +39,8 @@ export function createWhatsAppOrderLink(params: {
   customerPhone: string;
   address: string;
   cityOrDistrict?: string;
+  shippingMethod?: string;
+  paymentMethod?: string;
   quantity?: number;
   itemsText?: string;
   totalAmount: number;
@@ -49,17 +51,16 @@ export function createWhatsAppOrderLink(params: {
     ? `*DETAIL PESANAN:*\n${params.itemsText}`
     : `*JUMLAH:* ${params.quantity || 1} Pot (400g/pot)`;
 
-  const message = `Halo Admin Glam & Glow, saya ingin memesan produk:
+  const message = `Halo Admin Glam & Glow, saya sudah melakukan pembelian dan mendapatkan struk. Mohon konfirmasi pesanan saya:
 
-*KODE PESANAN:* ${params.orderNumber}
+*NO. STRUK:* ${params.orderNumber}
 *Nama Pemesan:* ${params.customerName}
 *No. WhatsApp:* ${params.customerPhone}
 *Alamat Lengkap:* ${params.address} ${params.cityOrDistrict ? `(${params.cityOrDistrict})` : ""}
-${itemsSection}
-*Total Harga:* ${formatRupiah(params.totalAmount)} (Belum termasuk ongkir)
+${params.shippingMethod ? `*Pengiriman:* ${params.shippingMethod}\n` : ""}${params.paymentMethod ? `*Pembayaran:* ${params.paymentMethod}\n` : ""}${itemsSection}
+*Total Produk:* ${formatRupiah(params.totalAmount)} (Belum termasuk ongkir)
 ${params.notes ? `*Catatan:* ${params.notes}\n` : ""}
-Mohon informasi total ongkir dan nomor rekening pembayaran. Terima kasih!`;
+Mohon konfirmasi total ongkir & detail pembayarannya. Terima kasih!`;
 
   return `https://wa.me/${seller}?text=${encodeURIComponent(message)}`;
 }
-

@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import OrderForm from "@/components/order/OrderForm";
-import { PRODUCT_INFO } from "@/lib/constants";
+import { useSiteContent } from "@/context/SiteContentContext";
 import {
   Reveal,
   CharReveal,
@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/Animations";
 
 export default function PesanPage() {
+  const { pesan, general } = useSiteContent();
   const heroRef = useRef<HTMLDivElement>(null);
   const [subscribed, setSubscribed] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState("");
@@ -54,13 +55,13 @@ export default function PesanPage() {
             className="absolute inset-0 z-0 origin-center"
           >
             <Image
-              src="/images/orveli/shop-hero.png"
-              alt="Contact & Order Glam & Glow"
+              src="/images/glam/jar-ingredients-wood.jpg"
+              alt="Hubungi & Pesan Glam & Glow Lulur Badda Lotong"
               fill
               priority
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-black/35 backdrop-blur-[0.5px]" />
+            <div className="absolute inset-0 bg-black/45 backdrop-blur-[0.5px]" />
           </motion.div>
 
           {/* Centered Vertical Glass Panel */}
@@ -75,18 +76,18 @@ export default function PesanPage() {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.08] text-[#D4A359] font-inter text-[12px] sm:text-[13px] font-medium tracking-wide mx-auto backdrop-blur-sm"
             >
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Pemesanan & Konsultasi Langsung</span>
+              <span>{pesan.heroBadge}</span>
             </motion.div>
 
             <h1 className="font-sans font-normal text-4xl sm:text-6xl lg:text-[76px] text-[#F1E6D8] tracking-[-0.04em] leading-[1.06] flex flex-col items-center">
               <CharReveal
-                text="We’d love to"
+                text={pesan.heroLine1}
                 delay={0.15}
                 stagger={0.02}
                 animateImmediate
               />
               <CharReveal
-                text="hear from you"
+                text={pesan.heroLine2}
                 delay={0.32}
                 stagger={0.02}
                 animateImmediate
@@ -95,8 +96,7 @@ export default function PesanPage() {
 
             <Reveal direction="up" delay={0.45}>
               <p className="font-sans text-[17px] sm:text-[19px] text-[#F1E6D8]/85 max-w-[480px] mx-auto leading-[1.5]">
-                Pesan langsung Lulur Badda Lotong Glam & Glow asli atau hubungi tim
-                kami untuk konsultasi resep & kemitraan.
+                {pesan.heroSubtitle}
               </p>
             </Reveal>
           </div>
@@ -127,14 +127,13 @@ export default function PesanPage() {
           >
             <div className="space-y-3">
               <span className="font-inter text-[12px] uppercase tracking-[0.14em] text-[#2D3622] font-semibold block">
-                Stay Connected
+                {pesan.socialEyebrow}
               </span>
               <h2 className="font-sans text-3xl sm:text-4xl lg:text-[44px] font-normal tracking-[-0.03em] leading-[1.1]">
-                Follow along
+                {pesan.socialTitle}
               </h2>
               <p className="font-sans text-[16px] sm:text-[18px] text-[#201914]/75 max-w-[440px] leading-[1.5]">
-                Behind-the-scenes dari dapur rempah tradisional kami, tips
-                perawatan kulit alami, dan testimoni pelanggan setiap hari.
+                {pesan.socialDesc}
               </p>
             </div>
 
@@ -143,7 +142,7 @@ export default function PesanPage() {
               <motion.a
                 whileHover={{ x: 6 }}
                 whileTap={{ scale: 0.99 }}
-                href={PRODUCT_INFO.instagramUrl}
+                href={general.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group/roll min-h-[56px] py-2.5 px-4 sm:px-6 rounded-full bg-black/[0.06] hover:bg-[#201914] hover:text-[#F1E6D8] flex items-center justify-between gap-2.5 transition-all duration-300"
@@ -155,7 +154,7 @@ export default function PesanPage() {
                   </span>
                 </div>
                 <span className="font-inter text-[12px] sm:text-[14px] opacity-75 flex items-center gap-1 min-w-0 max-w-[170px] sm:max-w-[280px] shrink justify-end">
-                  <span className="truncate">{PRODUCT_INFO.instagram}</span>
+                  <span className="truncate">{general.instagramHandle}</span>
                   <ArrowUpRight className="w-4 h-4 shrink-0" />
                 </span>
               </motion.a>
@@ -163,7 +162,7 @@ export default function PesanPage() {
               <motion.a
                 whileHover={{ x: 6 }}
                 whileTap={{ scale: 0.99 }}
-                href={`https://wa.me/${PRODUCT_INFO.defaultWhatsApp}`}
+                href={`https://wa.me/${general.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group/roll min-h-[56px] py-2.5 px-4 sm:px-6 rounded-full bg-black/[0.06] hover:bg-[#201914] hover:text-[#F1E6D8] flex items-center justify-between gap-2.5 transition-all duration-300"
@@ -171,11 +170,11 @@ export default function PesanPage() {
                 <div className="flex items-center gap-3 shrink-0">
                   <MessageCircle className="w-5 h-5 text-[#D4A359]" />
                   <span className="font-sans text-[15px] sm:text-[16px] font-medium">
-                    <RollingText text="WhatsApp Official" />
+                    <RollingText text="WhatsApp Resmi" />
                   </span>
                 </div>
                 <span className="font-inter text-[12px] sm:text-[14px] opacity-75 flex items-center gap-1 min-w-0 max-w-[170px] sm:max-w-[280px] shrink justify-end">
-                  <span className="truncate">+{PRODUCT_INFO.defaultWhatsApp}</span>
+                  <span className="truncate">+{general.whatsappNumber}</span>
                   <ArrowUpRight className="w-4 h-4 shrink-0" />
                 </span>
               </motion.a>
@@ -183,7 +182,7 @@ export default function PesanPage() {
               <motion.a
                 whileHover={{ x: 6 }}
                 whileTap={{ scale: 0.99 }}
-                href={`mailto:${PRODUCT_INFO.email}`}
+                href={`mailto:${general.email}`}
                 className="group/roll min-h-[56px] py-2.5 px-4 sm:px-6 rounded-full bg-black/[0.06] hover:bg-[#201914] hover:text-[#F1E6D8] flex items-center justify-between gap-2.5 transition-all duration-300"
               >
                 <div className="flex items-center gap-3 shrink-0">
@@ -193,14 +192,14 @@ export default function PesanPage() {
                   </span>
                 </div>
                 <span className="font-inter text-[12px] sm:text-[14px] opacity-75 flex items-center gap-1 min-w-0 max-w-[170px] sm:max-w-[280px] shrink justify-end">
-                  <span className="truncate">{PRODUCT_INFO.email}</span>
+                  <span className="truncate">{general.email}</span>
                   <ArrowUpRight className="w-4 h-4 shrink-0" />
                 </span>
               </motion.a>
             </div>
           </motion.div>
 
-          {/* Right: The Botany Club / Newsletter Card */}
+          {/* Right: Newsletter Card */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -210,15 +209,13 @@ export default function PesanPage() {
           >
             <div className="space-y-4">
               <span className="inline-block px-4 py-1.5 rounded-full bg-white/[0.08] font-inter text-[13px] text-[#D4A359]">
-                The Botany Club • Glam & Glow
+                {pesan.newsletterBadge}
               </span>
               <h2 className="font-sans text-3xl sm:text-4xl lg:text-[44px] font-normal tracking-[-0.03em] leading-[1.1]">
-                Quiet notes from the lab, once a month.
+                {pesan.newsletterTitle}
               </h2>
               <p className="font-sans text-[16px] sm:text-[18px] text-[#F1E6D8]/70 max-w-[460px] leading-[1.5]">
-                Dapatkan info batch segar Lulur Badda Lotong, tips racikan
-                campuran susu beruang & air mawar, serta promo bundling khusus
-                pelanggan tetap.
+                {pesan.newsletterDesc}
               </p>
             </div>
 
@@ -230,7 +227,7 @@ export default function PesanPage() {
                   className="h-[52px] px-6 rounded-full bg-white/[0.12] text-[#D4A359] flex items-center gap-2.5 font-inter text-[14px]"
                 >
                   <CheckCircle2 className="w-5 h-5 text-[#D4A359]" />
-                  <span>Terima kasih! Anda telah terdaftar di The Botany Club.</span>
+                  <span>Terima kasih! Email Anda sudah terdaftar untuk info Glam &amp; Glow.</span>
                 </motion.div>
               ) : (
                 <form

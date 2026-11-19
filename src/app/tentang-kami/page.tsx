@@ -22,49 +22,27 @@ import {
   ScrollWordReveal,
   ExpandLine,
 } from "@/components/ui/Animations";
+import { useSiteContent } from "@/context/SiteContentContext";
 
-const VALUES = [
-  {
-    icon: Search,
-    title: "Radical Transparency",
-    desc: "100% komposisi rempah asli terbuka tanpa zat kimia tersembunyi.",
-  },
-  {
-    icon: Leaf,
-    title: "Rooted Botanicals",
-    desc: "Bahan nabati murni: beras ketan, pandan, kunyit, cengkeh, kopi, dan jeruk nipis.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Quiet Responsibility",
-    desc: "Diproduksi higienis bersama petani lokal dalam kemasan ramah lingkungan.",
-  },
-  {
-    icon: FlaskConical,
-    title: "Proven Performance",
-    desc: "Resep warisan bangsawan Bugis teruji lintas generasi melembutkan kulit.",
-  },
-];
-
-const TEAM = [
-  {
-    name: "Dapur Rempah Tradisi",
-    role: "Sangrai & Formulasi Badda Lotong",
-    image: "/images/orveli/team-1.jpg",
-  },
-  {
-    name: "4 Saudara Kuki Sukses",
-    role: "Pendiri & Kurator Bahan Alami",
-    image: "/images/orveli/team-2.jpg",
-  },
-  {
-    name: "Quality & Customer Care",
-    role: "Pengemasan Higienis & Layanan Pelanggan",
-    image: "/images/orveli/team-3.jpg",
-  },
+const VALUE_ICONS = [Search, Leaf, HeartHandshake, FlaskConical];
+const GALLERY_IMAGES = [
+  "/images/glam/jar-real-hand.jpg",
+  "/images/glam/jar-powder-texture.jpg",
+  "/images/glam/jar-batik-spices.jpg",
 ];
 
 export default function TentangKamiPage() {
+  const { tentangKami } = useSiteContent();
+  const VALUES = tentangKami.values.map((v, idx) => ({
+    icon: VALUE_ICONS[idx % VALUE_ICONS.length],
+    title: v.title,
+    desc: v.desc,
+  }));
+  const TEAM = tentangKami.gallery.map((g, idx) => ({
+    name: g.name,
+    role: g.role,
+    image: GALLERY_IMAGES[idx % GALLERY_IMAGES.length],
+  }));
   const heroRef = useRef<HTMLDivElement>(null);
   const originRef = useRef<HTMLDivElement>(null);
 
@@ -100,13 +78,13 @@ export default function TentangKamiPage() {
             className="absolute inset-0 z-0"
           >
             <Image
-              src="/images/orveli/about-hero.png"
-              alt="Born from the belief that less is more"
+              src="/images/glam/jar-studio-pedestal.jpg"
+              alt="Tentang Glam & Glow Lulur Badda Lotong"
               fill
               priority
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-black/25" />
+            <div className="absolute inset-0 bg-black/45" />
           </motion.div>
 
           {/* Centered Vertical Glass Panel */}
@@ -118,13 +96,13 @@ export default function TentangKamiPage() {
           >
             <h1 className="font-sans font-normal text-4xl sm:text-6xl lg:text-[76px] text-[#F1E6D8] tracking-[-0.04em] leading-[1.06] flex flex-col items-center">
               <CharReveal
-                text="Born from the belief"
+                text={tentangKami.heroLine1}
                 delay={0.1}
                 stagger={0.02}
                 animateImmediate
               />
               <CharReveal
-                text="that less is more"
+                text={tentangKami.heroLine2}
                 delay={0.28}
                 stagger={0.02}
                 animateImmediate
@@ -132,8 +110,7 @@ export default function TentangKamiPage() {
             </h1>
             <Reveal direction="up" delay={0.45}>
               <p className="font-sans text-[17px] sm:text-[19px] text-[#F1E6D8]/85 max-w-[480px] mx-auto leading-[1.5]">
-                Mengangkat rahasia lulur hitam tradisional masyarakat Bugis ke
-                dalam perawatan tubuh modern yang murni, jujur, dan menenangkan.
+                {tentangKami.heroSubtitle}
               </p>
             </Reveal>
           </motion.div>
@@ -154,8 +131,8 @@ export default function TentangKamiPage() {
                 className="w-full h-full relative"
               >
                 <Image
-                  src="/images/orveli/about-origin.png"
-                  alt="Origin of Glam & Glow Badda Lotong"
+                  src="/images/glam/jar-bugis-pinisi.jpg"
+                  alt="Asal usul Glam & Glow Lulur Badda Lotong"
                   fill
                   className="object-cover object-center"
                 />
@@ -168,34 +145,22 @@ export default function TentangKamiPage() {
             <div className="space-y-4">
               <Reveal direction="up" delay={0.05}>
                 <span className="inline-block px-4 py-1.5 rounded-full bg-white/[0.08] font-inter text-[13px] text-[#D4A359]">
-                  Our Origin • Tradisi Sulawesi Selatan
+                  {tentangKami.originBadge}
                 </span>
               </Reveal>
               <Reveal direction="up" delay={0.12}>
                 <h2 className="font-sans text-3xl sm:text-5xl lg:text-[54px] font-normal text-[#F1E6D8] tracking-[-0.03em] leading-[1.08]">
-                  Started at a kitchen table, rooted in Bugis heritage
+                  {tentangKami.originTitle}
                 </h2>
               </Reveal>
             </div>
 
             <div className="space-y-4 font-sans text-[16px] sm:text-[18px] text-[#F1E6D8]/78 leading-[1.6]">
               <Reveal direction="up" delay={0.18}>
-                <p>
-                  Secara etimologis, <em>Badda Lotong</em> dalam bahasa Bugis
-                  berarti <strong>“Bedak / Lulur Hitam”</strong>. Sejak ratusan
-                  tahun silam di Sulawesi Selatan, racikan ini digunakan oleh para
-                  putri bangsawan dan calon mempelai dalam ritual <em>Mappacci</em>{" "}
-                  untuk menghaluskan serta mencerahkan kulit secara alami.
-                </p>
+                <p>{tentangKami.originPara1}</p>
               </Reveal>
               <Reveal direction="up" delay={0.24}>
-                <p>
-                  Dipelopori oleh <strong>4 Saudara Kuki Sukses</strong> di
-                  Makassar, Glam & Glow menghadirkan kembali keaslian beras ketan
-                  sangrai, daun pandan, cengkeh, kunyit, jeruk nipis, dan kopi
-                  murni dalam kemasan pot 400 gram yang praktis tanpa pengawet
-                  sintetis.
-                </p>
+                <p>{tentangKami.originPara2}</p>
               </Reveal>
             </div>
 
@@ -208,10 +173,10 @@ export default function TentangKamiPage() {
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
                 <div className="font-sans text-3xl sm:text-5xl font-normal text-[#F1E6D8]">
-                  6
+                  {tentangKami.stat1Value}
                 </div>
                 <div className="font-inter text-[13px] sm:text-[14px] text-[#F1E6D8]/68 mt-1">
-                  Rempah Murni Pilihan
+                  {tentangKami.stat1Label}
                 </div>
               </motion.div>
 
@@ -222,10 +187,10 @@ export default function TentangKamiPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <div className="font-sans text-3xl sm:text-5xl font-normal text-[#F1E6D8]">
-                  0%
+                  {tentangKami.stat2Value}
                 </div>
                 <div className="font-inter text-[13px] sm:text-[14px] text-[#F1E6D8]/68 mt-1">
-                  Bahan Kimia Sintetis
+                  {tentangKami.stat2Label}
                 </div>
               </motion.div>
 
@@ -236,10 +201,10 @@ export default function TentangKamiPage() {
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
                 <div className="font-sans text-3xl sm:text-5xl font-normal text-[#D4A359]">
-                  400g
+                  {tentangKami.stat3Value}
                 </div>
                 <div className="font-inter text-[13px] sm:text-[14px] text-[#F1E6D8]/68 mt-1">
-                  Rp 35.000 / Pot Hemat
+                  {tentangKami.stat3Label}
                 </div>
               </motion.div>
             </div>
@@ -253,12 +218,12 @@ export default function TentangKamiPage() {
           <div className="max-w-[680px] space-y-4">
             <Reveal direction="up" delay={0.05}>
               <span className="font-inter text-[13px] uppercase tracking-[0.14em] text-[#D4A359] block">
-                Our Standards
+                {tentangKami.standardsEyebrow}
               </span>
             </Reveal>
             <Reveal direction="up" delay={0.12}>
               <h2 className="font-sans text-3xl sm:text-5xl lg:text-[56px] font-normal text-[#F1E6D8] tracking-[-0.03em] leading-[1.08]">
-                Four things we don’t move on
+                {tentangKami.standardsTitle}
               </h2>
             </Reveal>
           </div>
@@ -298,7 +263,7 @@ export default function TentangKamiPage() {
 
           <div className="pt-6">
             <ScrollWordReveal
-              text="“Kecantikan sejati tidak membutuhkan bahan kimia keras; alam Nusantara telah menyediakan segala rempah terbaik untuk merawat kelembutan kulit Anda.”"
+              text={tentangKami.standardsQuote}
               highlightWords={["sejati", "alam", "Nusantara", "terbaik"]}
               className="font-sans text-2xl sm:text-3xl lg:text-[34px] leading-[1.3]"
               activeColor="#F1E6D8"
@@ -315,12 +280,12 @@ export default function TentangKamiPage() {
             <div className="space-y-3">
               <Reveal direction="up" delay={0.05}>
                 <span className="font-inter text-[13px] uppercase tracking-[0.14em] text-[#201914]/65 block">
-                  The Makers
+                  {tentangKami.makersEyebrow}
                 </span>
               </Reveal>
               <Reveal direction="up" delay={0.12}>
                 <h2 className="font-sans text-3xl sm:text-5xl lg:text-[56px] font-normal text-[#201914] tracking-[-0.03em] leading-[1.08]">
-                  Small team, long view
+                  {tentangKami.makersTitle}
                 </h2>
               </Reveal>
             </div>
@@ -328,11 +293,11 @@ export default function TentangKamiPage() {
             <Reveal direction="up" delay={0.18}>
               <Magnetic strength={0.22}>
                 <Link
-                  href="/pesan"
+                  href="/pembelian"
                   className="group/roll whitespace-nowrap px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#201914] hover:bg-[#2D3622] text-[#F1E6D8] font-inter text-[14px] sm:text-[15px] font-medium inline-flex items-center gap-2.5 transition-all shadow-md active:scale-95 shrink-0"
                 >
                   <ShoppingBag className="w-4 h-4 text-[#D4A359] shrink-0" />
-                  <RollingText text="Pesan Lulur • Rp 35.000" />
+                  <RollingText text={tentangKami.makersCtaText} />
                 </Link>
               </Magnetic>
             </Reveal>

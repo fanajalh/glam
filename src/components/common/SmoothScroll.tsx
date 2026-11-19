@@ -4,12 +4,20 @@ import React, { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 
-export default function SmoothScroll({ children }: { children: React.ReactNode }) {
+export default function SmoothScroll({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const lenisRef = useRef<Lenis | null>(null);
   const pathname = usePathname();
+  const isAdminRoute = pathname?.startsWith("/admin") ?? false;
 
   useEffect(() => {
-    // Ultra-silky luxury inertia configuration
+    if (isAdminRoute) {
+      return;
+    }
+
     const lenis = new Lenis({
       duration: 1.25,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -31,7 +39,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     });
 
     lenisRef.current = lenis;
-    (window as any).__lenis = lenis;
+    (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
 
     let rafId: number;
     function raf(time: number) {
@@ -45,16 +53,15 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       cancelAnimationFrame(rafId);
       lenis.destroy();
       lenisRef.current = null;
-      delete (window as any).__lenis;
+      delete (window as unknown as { __lenis?: Lenis }).__lenis;
     };
-  }, []);
+  }, [isAdminRoute]);
 
-  // Smoothly reset scroll position to top on every route change
   useEffect(() => {
     if (lenisRef.current) {
       lenisRef.current.scrollTo(0, { immediate: true });
     }
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" as any });
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
   }, [pathname]);
 
   return <>{children}</>;

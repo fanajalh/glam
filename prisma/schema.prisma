@@ -12,6 +12,7 @@ model Product {
   id          String      @id @default(cuid())
   name        String      @default("Glam & Glow Lulur Badda Lotong")
   slug        String      @unique @default("glam-and-glow-lulur-badda-lotong")
+  category    String      @default("Signature Lulur")
   tagline     String      @default("Perawatan Alami Kulit Cantik & Lembut Tradisi Bugis")
   description String      @db.Text
   price       Int         @default(35000)
@@ -19,9 +20,45 @@ model Product {
   stock       Int         @default(150)
   imageUrl    String?
   isFeatured  Boolean     @default(true)
+  isActive    Boolean     @default(true)
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
   orderItems  OrderItem[]
+  batches     LabBatch[]
+}
+
+// Model Uji Lab Teknologi Farmasi (PLB Lintas Bidang)
+model LabBatch {
+  id             String      @id @default(cuid())
+  batchCode      String      @unique
+  productId      String?
+  product        Product?    @relation(fields: [productId], references: [id], onDelete: SetNull)
+  productName    String
+  productionDate DateTime
+  expiryDate     DateTime
+  phLevel        String
+  colorResult    String
+  aromaResult    String
+  textureResult  String
+  homogeneity    String      @default("Homogen")
+  irritationTest String      @default("Negatif / Aman")
+  hedonicScore   Float       @default(4.7)
+  formulatorName String
+  qcStatus       BatchStatus @default(PASSED)
+  notes          String?     @db.Text
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+}
+
+// Model Akun Admin Panel
+model AdminUser {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  displayName  String   @default("Admin Glam & Glow")
+  role         String   @default("SUPERADMIN")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
 
 // Model Transaksi Pesanan Masuk
@@ -64,6 +101,13 @@ model ContactInquiry {
   createdAt DateTime @default(now())
 }
 
+// Model Konten Halaman Web yang Dapat Diedit via Panel Admin
+model SiteSection {
+  key       String   @id
+  data      Json
+  updatedAt DateTime @updatedAt
+}
+
 enum OrderStatus {
   PENDING       // Menunggu konfirmasi penjual
   CONFIRMED     // Sudah dikonfirmasi via WA/DM
@@ -77,5 +121,11 @@ enum OrderSource {
   WHATSAPP
   INSTAGRAM_DM
   DIRECT_WEB
+}
+
+enum BatchStatus {
+  PASSED
+  TESTING
+  RECALLED
 }
 

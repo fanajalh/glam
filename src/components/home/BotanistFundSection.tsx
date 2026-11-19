@@ -3,8 +3,10 @@
 import React from "react";
 import Link from "next/link";
 import { Reveal, Magnetic, RollingText } from "@/components/ui/Animations";
+import { useSiteContent } from "@/context/SiteContentContext";
 
 export default function BotanistFundSection() {
+  const { home } = useSiteContent();
   return (
     <section className="relative w-full max-w-[1560px] mx-auto px-2 sm:px-3 py-1.5">
       {/* Orvéli Botanist Fund Container: compact responsive, r: 24px */}
@@ -12,13 +14,13 @@ export default function BotanistFundSection() {
         <div className="max-w-[680px] space-y-3 sm:space-y-4 relative z-10">
           <Reveal direction="up" delay={0.05} amount={0.04}>
             <h2 className="font-sans font-normal text-3xl sm:text-5xl lg:text-[64px] text-[#F1E6D8] tracking-[-0.03em] leading-[1.08] text-center">
-              The Botanist<br />Fund
+              {home.fundTitleLine1}<br />{home.fundTitleLine2}
             </h2>
           </Reveal>
 
           <Reveal direction="up" delay={0.2} amount={0.04}>
             <p className="font-sans text-[15px] sm:text-[19px] text-[#F1E6D8]/80 font-normal leading-[1.5] max-w-[500px] mx-auto">
-              Sebagian keuntungan disalurkan langsung untuk petani rempah lokal Sulawesi Selatan.
+              {home.fundSubtitle}
             </p>
           </Reveal>
         </div>
@@ -26,10 +28,10 @@ export default function BotanistFundSection() {
         <Reveal direction="up" delay={0.3} amount={0.04} className="relative z-10">
           <Magnetic strength={0.22}>
             <Link
-              href="/pesan"
+              href="/pembelian"
               className="group/roll px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#F1E6D8]/20 hover:bg-[#F1E6D8] text-[#F1E6D8] hover:text-[#201914] backdrop-blur-[10px] font-sans text-[14px] sm:text-[16px] font-medium transition-all duration-300 inline-block"
             >
-              <RollingText text="Pesan Sekarang" />
+              <RollingText text={home.fundCtaText} />
             </Link>
           </Magnetic>
         </Reveal>
