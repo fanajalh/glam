@@ -202,9 +202,11 @@ export async function authenticateAdmin(
   }
 
   if (shouldFallbackToEnv) {
-    const envUser = (process.env.ADMIN_USERNAME || "admin").trim();
-    const envPass = process.env.ADMIN_PASSWORD || "admin123";
+    const envUser = process.env.ADMIN_USERNAME?.trim();
+    const envPass = process.env.ADMIN_PASSWORD;
     if (
+      envUser &&
+      envPass &&
       safeEqualStrings(username, envUser) &&
       safeEqualStrings(passwordInput, envPass)
     ) {

@@ -13,21 +13,28 @@ function hashPassword(password) {
 async function main() {
   console.log("[seed-db] Memulai idempotent seed Glam & Glow...");
 
-  const adminUsername = (process.env.ADMIN_USERNAME || "admin").trim();
-  const adminPassword = process.env.ADMIN_PASSWORD || "admin123";
+  const adminUsername = process.env.ADMIN_USERNAME?.trim();
+  const adminPassword = process.env.ADMIN_PASSWORD;
 
-  // 1. Seed akun Admin default (tidak menimpa password jika admin sudah ganti di panel)
-  const admin = await prisma.adminUser.upsert({
-    where: { username: adminUsername },
-    update: {},
-    create: {
-      username: adminUsername,
-      passwordHash: hashPassword(adminPassword),
-      displayName: "Admin Glam & Glow",
-      role: "SUPERADMIN",
-    },
-  });
-  console.log(`[seed-db] Admin siap: ${admin.username}`);
+  // 1. Seed akun Admin hanya jika env ADMIN_USERNAME & ADMIN_PASSWORD diset eksplisit.
+  // Jika kosong, admin pertama dibuat lewat form setup awal di /admin/login (tanpa hardcode).
+  if (adminUsername && adminPassword) {
+    const admin = await prisma.adminUser.upsert({
+      where: { username: adminUsername },
+      update: {},
+      create: {
+        username: adminUsername,
+        passwordHash: hashPassword(adminPassword),
+        displayName: "Admin Glam & Glow",
+        role: "SUPERADMIN",
+      },
+    });
+    console.log(`[seed-db] Admin siap: ${admin.username}`);
+  } else {
+    console.log(
+      "[seed-db] Tidak ada kredensial hardcode — buat akun admin lewat /admin/login saat database kosong."
+    );
+  }
 
   // 2. Seed 1 produk utama resmi
   const mainProduct = await prisma.product.upsert({

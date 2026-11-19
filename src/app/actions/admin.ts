@@ -157,9 +157,13 @@ export async function updateAdminCredentialsAction(input: {
         role: updated.role,
       });
     } else {
-      const envPass = process.env.ADMIN_PASSWORD || "admin123";
-      if (currentPassword !== envPass) {
-        return { ok: false, message: "Sandi saat ini tidak sesuai." };
+      const envPass = process.env.ADMIN_PASSWORD;
+      if (!envPass || currentPassword !== envPass) {
+        return {
+          ok: false,
+          message:
+            "Akun admin belum terdaftar di database. Buat akun pertama melalui /admin/login.",
+        };
       }
       const created = await prisma.adminUser.create({
         data: {
