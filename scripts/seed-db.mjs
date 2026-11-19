@@ -14,7 +14,7 @@ async function main() {
   console.log("[seed-db] Memulai idempotent seed Glam & Glow...");
 
   const adminUsername = (process.env.ADMIN_USERNAME || "admin").trim();
-  const adminPassword = process.env.ADMIN_PASSWORD || "glamglow2026";
+  const adminPassword = process.env.ADMIN_PASSWORD || "admin123";
 
   // 1. Seed akun Admin default (tidak menimpa password jika admin sudah ganti di panel)
   const admin = await prisma.adminUser.upsert({

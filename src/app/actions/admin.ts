@@ -85,19 +85,38 @@ export async function logoutAdminAction(): Promise<void> {
   redirect("/admin/login");
 }
 
-export async function changeAdminPasswordAction(input: {
+export async function updateAdminCredentialsAction(input: {
+  newUsername: string;
+  newDisplayName: string;
   currentPassword: string;
-  newPassword: string;
+  newPassword?: string;
 }): Promise<ActionResult> {
   try {
     const session = await requireAdminSession();
+    const newUsername = (input.newUsername || "").trim();
+    const newDisplayName =
+      (input.newDisplayName || "").trim() || session.displayName;
     const currentPassword = input.currentPassword || "";
-    const newPassword = input.newPassword || "";
+    const newPassword = (input.newPassword || "").trim();
 
-    if (newPassword.length < 6) {
+    if (newUsername.length < 3) {
       return {
         ok: false,
-        message: "Password baru minimal 6 karakter.",
+        message: "Username admin minimal 3 karakter.",
+      };
+    }
+    if (newPassword && newPassword.length < 6) {
+      return {
+        ok: false,
+        message: "Password baru minimal 6 karakter (atau kosongkan jika tidak diubah).",
+      };
+    }
+
+    if (!(await canConnectToDatabase())) {
+      return {
+        ok: false,
+        message:
+          "Database PostgreSQL/Neon belum terhubung. Hubungkan Neon terlebih dahulu untuk menyimpan perubahan akun ke database.",
       };
     }
 
@@ -107,34 +126,83 @@ export async function changeAdminPasswordAction(input: {
 
     if (existing) {
       if (!verifyPassword(currentPassword, existing.passwordHash)) {
-        return { ok: false, message: "Password saat ini tidak sesuai." };
+        return { ok: false, message: "Sandi saat ini tidak sesuai." };
       }
-      await prisma.adminUser.update({
+
+      if (newUsername !== existing.username) {
+        const conflict = await prisma.adminUser.findUnique({
+          where: { username: newUsername },
+          select: { id: true },
+        });
+        if (conflict) {
+          return {
+            ok: false,
+            message: `Username "${newUsername}" sudah digunakan.`,
+          };
+        }
+      }
+
+      const updated = await prisma.adminUser.update({
         where: { id: existing.id },
-        data: { passwordHash: hashPassword(newPassword) },
+        data: {
+          username: newUsername,
+          displayName: newDisplayName,
+          ...(newPassword ? { passwordHash: hashPassword(newPassword) } : {}),
+        },
+      });
+
+      setAdminSessionCookie({
+        username: updated.username,
+        displayName: updated.displayName,
+        role: updated.role,
       });
     } else {
-      const envPass = process.env.ADMIN_PASSWORD || "glamglow2026";
+      const envPass = process.env.ADMIN_PASSWORD || "admin123";
       if (currentPassword !== envPass) {
-        return { ok: false, message: "Password saat ini tidak sesuai." };
+        return { ok: false, message: "Sandi saat ini tidak sesuai." };
       }
-      await prisma.adminUser.create({
+      const created = await prisma.adminUser.create({
         data: {
-          username: session.username,
-          passwordHash: hashPassword(newPassword),
-          displayName: session.displayName,
+          username: newUsername,
+          passwordHash: hashPassword(newPassword || currentPassword),
+          displayName: newDisplayName,
           role: session.role,
         },
       });
+
+      setAdminSessionCookie({
+        username: created.username,
+        displayName: created.displayName,
+        role: created.role,
+      });
     }
 
-    return { ok: true, message: "Password admin berhasil diperbarui." };
+    revalidatePath("/admin");
+    return {
+      ok: true,
+      message: "Username dan sandi admin berhasil diperbarui ke database.",
+    };
   } catch (err) {
     return {
       ok: false,
-      message: getReadableErrorMessage(err, "Gagal memperbarui password admin."),
+      message: getReadableErrorMessage(
+        err,
+        "Gagal memperbarui akun admin di database."
+      ),
     };
   }
+}
+
+export async function changeAdminPasswordAction(input: {
+  currentPassword: string;
+  newPassword: string;
+}): Promise<ActionResult> {
+  return updateAdminCredentialsAction({
+    newUsername: (await requireAdminSession()).username,
+    newDisplayName: (await requireAdminSession()).displayName,
+    currentPassword: input.currentPassword,
+    newPassword: input.newPassword,
+  });
 }
 
 export async function updateOrderStatusAction(

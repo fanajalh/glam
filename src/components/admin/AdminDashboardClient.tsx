@@ -39,11 +39,11 @@ import {
 import type { SiteContentConfig } from "@/lib/site-content-types";
 import { cleanPhoneNumber, formatRupiah } from "@/lib/utils";
 import {
-  changeAdminPasswordAction,
   deleteLabBatchAction,
   deleteOrderAction,
   deleteProductAction,
   logoutAdminAction,
+  updateAdminCredentialsAction,
   updateOrderStatusAction,
 } from "@/app/actions/admin";
 import AdminProductModal from "@/components/admin/AdminProductModal";
@@ -139,7 +139,9 @@ export default function AdminDashboardClient({
     item: SerializedLabBatch | null;
   }>({ open: false, item: null });
 
-  // Settings: change password
+  // Settings: update account & password
+  const [editUsername, setEditUsername] = useState(adminUsername);
+  const [editDisplayName, setEditDisplayName] = useState(adminName);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -241,15 +243,17 @@ export default function AdminDashboardClient({
 
   const handlePasswordSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (newPassword !== confirmPassword) {
+    if (newPassword && newPassword !== confirmPassword) {
       notify("error", "Konfirmasi password baru tidak sama.");
       return;
     }
     setChangingPass(true);
     try {
-      const res = await changeAdminPasswordAction({
+      const res = await updateAdminCredentialsAction({
+        newUsername: editUsername,
+        newDisplayName: editDisplayName,
         currentPassword,
-        newPassword,
+        newPassword: newPassword || undefined,
       });
       if (!res.ok) {
         notify("error", res.message);
@@ -258,7 +262,7 @@ export default function AdminDashboardClient({
       setCurrentPassword("");
       setNewPassword("");
       setConfirmPassword("");
-      notify("success", res.message);
+      refreshAfterMutation(res.message);
     } finally {
       setChangingPass(false);
     }
@@ -1271,18 +1275,50 @@ export default function AdminDashboardClient({
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* Change Password Card */}
+                {/* Update Admin Account & Password Card (DB) */}
                 <div className="rounded-[22px] bg-white border border-[#201914]/10 p-6 space-y-4">
-                  <h2 className="font-sans text-lg font-medium">
-                    Ganti Password Admin
-                  </h2>
+                  <div className="space-y-1">
+                    <h2 className="font-sans text-lg font-medium">
+                      Ubah Username &amp; Sandi Admin (Database)
+                    </h2>
+                    <p className="font-inter text-[12px] text-[#201914]/60">
+                      Tersimpan langsung ke tabel <code className="text-[#2D3622]">AdminUser</code> di database PostgreSQL/Neon.
+                    </p>
+                  </div>
                   <form
                     onSubmit={handlePasswordSubmit}
                     className="space-y-3.5 font-inter text-[13px]"
                   >
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div className="space-y-1">
+                        <label className="block text-[#201914]/75 font-medium">
+                          Username Login
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          minLength={3}
+                          value={editUsername}
+                          onChange={(e) => setEditUsername(e.target.value)}
+                          className="w-full h-[44px] px-3.5 rounded-[10px] bg-[#F1E6D8]/45 border border-[#201914]/15 focus:outline-none focus:border-[#201914]"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="block text-[#201914]/75 font-medium">
+                          Nama Tampilan
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={editDisplayName}
+                          onChange={(e) => setEditDisplayName(e.target.value)}
+                          className="w-full h-[44px] px-3.5 rounded-[10px] bg-[#F1E6D8]/45 border border-[#201914]/15 focus:outline-none focus:border-[#201914]"
+                        />
+                      </div>
+                    </div>
                     <div className="space-y-1">
                       <label className="block text-[#201914]/75 font-medium">
-                        Password Saat Ini
+                        Sandi Saat Ini *
                       </label>
                       <input
                         type="password"
@@ -1294,25 +1330,25 @@ export default function AdminDashboardClient({
                     </div>
                     <div className="space-y-1">
                       <label className="block text-[#201914]/75 font-medium">
-                        Password Baru (min. 6 karakter)
+                        Sandi Baru (Opsional, min. 6 karakter)
                       </label>
                       <input
                         type="password"
-                        required
                         minLength={6}
                         value={newPassword}
                         onChange={(e) => setNewPassword(e.target.value)}
+                        placeholder="Kosongkan jika hanya mengganti username"
                         className="w-full h-[44px] px-3.5 rounded-[10px] bg-[#F1E6D8]/45 border border-[#201914]/15 focus:outline-none focus:border-[#201914]"
                       />
                     </div>
                     <div className="space-y-1">
                       <label className="block text-[#201914]/75 font-medium">
-                        Ulangi Password Baru
+                        Ulangi Sandi Baru
                       </label>
                       <input
                         type="password"
-                        required
                         minLength={6}
+                        required={Boolean(newPassword)}
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         className="w-full h-[44px] px-3.5 rounded-[10px] bg-[#F1E6D8]/45 border border-[#201914]/15 focus:outline-none focus:border-[#201914]"
@@ -1323,7 +1359,7 @@ export default function AdminDashboardClient({
                       disabled={changingPass}
                       className="px-6 py-2.5 rounded-full bg-[#201914] hover:bg-[#2D3622] text-[#F1E6D8] font-semibold transition-colors disabled:opacity-50"
                     >
-                      {changingPass ? "Menyimpan..." : "Simpan Password Baru"}
+                      {changingPass ? "Menyimpan..." : "Simpan Akun ke Database"}
                     </button>
                   </form>
                 </div>
