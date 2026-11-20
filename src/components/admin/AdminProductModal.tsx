@@ -71,13 +71,13 @@ export default function AdminProductModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-      <div className="w-full max-w-[600px] max-h-[90vh] overflow-y-auto rounded-[24px] bg-[#201914] text-[#F1E6D8] border border-white/[0.1] p-6 sm:p-8 shadow-2xl space-y-5">
+      <div className="w-full max-w-[600px] max-h-[90vh] overflow-y-auto rounded-[24px] bg-[#2B1B1D] text-[#FBF1F2] border border-white/[0.1] p-6 sm:p-8 shadow-2xl space-y-5">
         <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
           <div>
             <h3 className="font-sans text-xl font-normal">
               {product ? "Edit Produk" : "Tambah Produk Baru"}
             </h3>
-            <p className="font-inter text-[12px] text-[#F1E6D8]/60">
+            <p className="font-inter text-[12px] text-[#FBF1F2]/60">
               Data tersimpan langsung ke tabel Product di PostgreSQL.
             </p>
           </div>
@@ -94,7 +94,7 @@ export default function AdminProductModal({
         <form onSubmit={handleSubmit} className="space-y-4 font-inter text-[13px]">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5 sm:col-span-2">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Nama Produk *
               </label>
               <input
@@ -103,12 +103,12 @@ export default function AdminProductModal({
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Contoh: Glam & Glow Lulur Badda Lotong 400g"
-                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359]"
+                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4]"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Kategori
               </label>
               <CustomSelect
@@ -124,19 +124,19 @@ export default function AdminProductModal({
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Tagline Singkat
               </label>
               <input
                 type="text"
                 value={tagline}
                 onChange={(e) => setTagline(e.target.value)}
-                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359]"
+                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4]"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Harga (Rp) *
               </label>
               <input
@@ -145,13 +145,13 @@ export default function AdminProductModal({
                 required
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359]"
+                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4]"
               />
             </div>
 
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-1.5">
-                <label className="block text-[#F1E6D8]/80 font-medium">
+                <label className="block text-[#FBF1F2]/80 font-medium">
                   Berat (gram) *
                 </label>
                 <input
@@ -160,11 +160,11 @@ export default function AdminProductModal({
                   required
                   value={weightGram}
                   onChange={(e) => setWeightGram(e.target.value)}
-                  className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359]"
+                  className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4]"
                 />
               </div>
               <div className="space-y-1.5">
-                <label className="block text-[#F1E6D8]/80 font-medium">
+                <label className="block text-[#FBF1F2]/80 font-medium">
                   Stok (pot) *
                 </label>
                 <input
@@ -173,13 +173,13 @@ export default function AdminProductModal({
                   required
                   value={stock}
                   onChange={(e) => setStock(e.target.value)}
-                  className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359]"
+                  className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4]"
                 />
               </div>
             </div>
 
             <div className="space-y-1.5 sm:col-span-2">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Gambar Produk (Preset / Path Lokal)
               </label>
               <div className="flex flex-wrap gap-1.5 mb-1.5">
@@ -190,8 +190,8 @@ export default function AdminProductModal({
                     onClick={() => setImageUrl(preset.url)}
                     className={`px-2.5 py-1 rounded-full text-[11px] border transition-colors ${
                       imageUrl === preset.url
-                        ? "bg-[#D4A359] text-[#201914] border-[#D4A359] font-semibold"
-                        : "bg-white/[0.04] text-[#F1E6D8]/75 border-white/[0.08] hover:bg-white/[0.1]"
+                        ? "bg-[#E7B6B4] text-[#2B1B1D] border-[#E7B6B4] font-semibold"
+                        : "bg-white/[0.04] text-[#FBF1F2]/75 border-white/[0.08] hover:bg-white/[0.1]"
                     }`}
                   >
                     {preset.label}
@@ -202,12 +202,12 @@ export default function AdminProductModal({
                 type="text"
                 value={imageUrl}
                 onChange={(e) => setImageUrl(e.target.value)}
-                className="w-full h-[40px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] text-[12px] focus:outline-none focus:border-[#D4A359]"
+                className="w-full h-[40px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] text-[12px] focus:outline-none focus:border-[#E7B6B4]"
               />
             </div>
 
             <div className="space-y-1.5 sm:col-span-2">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Deskripsi Produk *
               </label>
               <textarea
@@ -216,7 +216,7 @@ export default function AdminProductModal({
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Penjelasan singkat formula, komposisi, dan kegunaan..."
-                className="w-full p-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359] resize-none"
+                className="w-full p-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4] resize-none"
               />
             </div>
 
@@ -226,9 +226,9 @@ export default function AdminProductModal({
                   type="checkbox"
                   checked={isFeatured}
                   onChange={(e) => setIsFeatured(e.target.checked)}
-                  className="accent-[#D4A359] w-4 h-4"
+                  className="accent-[#E7B6B4] w-4 h-4"
                 />
-                <span className="text-[#F1E6D8]/85">Produk Unggulan</span>
+                <span className="text-[#FBF1F2]/85">Produk Unggulan</span>
               </label>
 
               <label className="inline-flex items-center gap-2 cursor-pointer">
@@ -236,9 +236,9 @@ export default function AdminProductModal({
                   type="checkbox"
                   checked={isActive}
                   onChange={(e) => setIsActive(e.target.checked)}
-                  className="accent-[#D4A359] w-4 h-4"
+                  className="accent-[#E7B6B4] w-4 h-4"
                 />
-                <span className="text-[#F1E6D8]/85">Tampilkan / Aktif</span>
+                <span className="text-[#FBF1F2]/85">Tampilkan / Aktif</span>
               </label>
             </div>
           </div>
@@ -247,14 +247,14 @@ export default function AdminProductModal({
             <button
               type="button"
               onClick={onClose}
-              className="px-5 py-2.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-[#F1E6D8] font-medium"
+              className="px-5 py-2.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-[#FBF1F2] font-medium"
             >
               Batal
             </button>
             <button
               type="submit"
               disabled={saving}
-              className="px-6 py-2.5 rounded-full bg-[#F1E6D8] hover:bg-white text-[#201914] font-semibold inline-flex items-center gap-2 disabled:opacity-50"
+              className="px-6 py-2.5 rounded-full bg-[#FBF1F2] hover:bg-white text-[#2B1B1D] font-semibold inline-flex items-center gap-2 disabled:opacity-50"
             >
               <Save className="w-4 h-4" />
               <span>{saving ? "Menyimpan..." : "Simpan Produk"}</span>

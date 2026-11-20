@@ -79,13 +79,13 @@ export default function ProdukPage() {
   };
 
   return (
-    <div className="w-full bg-[#F1E6D8]">
+    <div className="w-full bg-[#FFF5F6]">
       {/* 1. Shop Hero with Animated Scroll Parallax */}
       <section
         ref={heroRef}
         className="relative w-full max-w-[1560px] mx-auto px-2 sm:px-3 pt-3 pb-1.5"
       >
-        <div className="relative w-full rounded-[24px] overflow-hidden h-[64vh] min-h-[460px] max-h-[660px] flex items-center justify-center bg-[#201914]">
+        <div className="relative w-full rounded-[24px] overflow-hidden h-[64vh] min-h-[460px] max-h-[660px] flex items-center justify-center bg-[#2B1B1D]">
           <motion.div
             style={{ y: heroBgY, scale: heroScale }}
             className="absolute inset-0 z-0"
@@ -97,7 +97,7 @@ export default function ProdukPage() {
               priority
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-black/45" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#2B1B1D]/45 via-[#4D2E33]/30 to-[#2B1B1D]/55" />
           </motion.div>
 
           <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[345px] sm:w-[560px] lg:w-[688px] z-10 bg-black/[0.06] pointer-events-none" />
@@ -106,7 +106,7 @@ export default function ProdukPage() {
             style={{ y: heroContentY, opacity: heroOpacity }}
             className="relative z-20 max-w-[720px] mx-auto px-4 sm:px-6 text-center space-y-5 pt-10"
           >
-            <h1 className="font-sans font-normal text-4xl sm:text-6xl lg:text-[72px] text-[#F1E6D8] tracking-[-0.04em] leading-[1.06] flex flex-col items-center">
+            <h1 className="font-sans font-normal text-4xl sm:text-6xl lg:text-[72px] text-[#FBF1F2] tracking-[-0.04em] leading-[1.06] flex flex-col items-center">
               <CharReveal
                 text={produk.heroLine1}
                 delay={0.1}
@@ -121,7 +121,7 @@ export default function ProdukPage() {
               />
             </h1>
             <Reveal direction="up" delay={0.45}>
-              <p className="font-sans text-[16px] sm:text-[19px] text-[#F1E6D8]/90 max-w-[500px] mx-auto leading-[1.5]">
+              <p className="font-sans text-[16px] sm:text-[19px] text-[#FBF1F2]/90 max-w-[500px] mx-auto leading-[1.5]">
                 {produk.heroSubtitle}
               </p>
             </Reveal>
@@ -131,9 +131,9 @@ export default function ProdukPage() {
 
       {/* 2. Single Signature Product Showcase */}
       <section className="w-full max-w-[1560px] mx-auto px-2 sm:px-3 py-1.5">
-        <div className="w-full rounded-[24px] bg-[#2D3622] py-14 sm:py-20 px-4 sm:px-8 lg:px-12 space-y-12">
+        <div className="w-full rounded-[24px] bg-[#F9E6E9] border border-[#C98A8B]/20 py-14 sm:py-20 px-4 sm:px-8 lg:px-12 space-y-12">
           {/* Trust Bar */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pb-10 border-b border-white/[0.08]">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pb-10 border-b border-[#C98A8B]/20">
             {[
               { icon: Leaf, label: produk.trustBadges[0] || "5 Bahan Alami Pilihan" },
               { icon: ShieldCheck, label: produk.trustBadges[1] || "Khusus Pemakaian Luar" },
@@ -148,9 +148,9 @@ export default function ProdukPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="flex items-center gap-3 text-[#F1E6D8]/85 font-inter text-[13px] sm:text-[15px]"
+                  className="flex items-center gap-3 text-[#2B1B1D] font-inter text-[13px] sm:text-[15px] font-medium"
                 >
-                  <div className="w-10 h-10 rounded-full bg-white/[0.08] flex items-center justify-center text-[#D4A359] shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-white/85 border border-[#C98A8B]/25 flex items-center justify-center text-[#9E5E63] shrink-0 shadow-sm">
                     <Icon className="w-4 h-4" />
                   </div>
                   <span>{item.label}</span>
@@ -160,10 +160,10 @@ export default function ProdukPage() {
           </div>
 
           {/* Main Single Product Purchase Card */}
-          <div className="rounded-[24px] bg-[#D7D1C3] text-[#201914] p-5 sm:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center shadow-xl">
+          <div className="rounded-[24px] bg-white/95 border border-[#C98A8B]/20 text-[#2B1B1D] p-5 sm:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center shadow-soft">
             {/* Gallery Left */}
             <div className="lg:col-span-6 space-y-3.5">
-              <div className="relative w-full h-[300px] sm:h-[420px] rounded-[18px] overflow-hidden bg-[#201914]">
+              <div className="relative w-full h-[300px] sm:h-[420px] rounded-[18px] overflow-hidden bg-[#2B1B1D]">
                 <Image
                   src={PRODUCT_PHOTOS[selectedPhoto].src}
                   alt={PRODUCT_PHOTOS[selectedPhoto].label}
@@ -171,7 +171,7 @@ export default function ProdukPage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-center"
                 />
-                <span className="absolute top-3.5 left-3.5 px-3.5 py-1.5 rounded-full bg-white/95 text-[#201914] font-inter text-[12px] font-semibold shadow-sm">
+                <span className="absolute top-3.5 left-3.5 px-3.5 py-1.5 rounded-full bg-white/95 text-[#2B1B1D] font-inter text-[12px] font-semibold shadow-sm">
                   {PRODUCT_PHOTOS[selectedPhoto].label}
                 </span>
               </div>
@@ -184,7 +184,7 @@ export default function ProdukPage() {
                     onClick={() => setSelectedPhoto(idx)}
                     className={`relative h-[64px] sm:h-[82px] rounded-[12px] overflow-hidden border-2 transition-all ${
                       selectedPhoto === idx
-                        ? "border-[#201914] opacity-100"
+                        ? "border-[#2B1B1D] opacity-100"
                         : "border-transparent opacity-65 hover:opacity-95"
                     }`}
                   >
@@ -203,25 +203,25 @@ export default function ProdukPage() {
             {/* Product Info & Quantity Control Right */}
             <div className="lg:col-span-6 space-y-6">
               <div className="space-y-2.5">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 font-inter text-[12px] font-semibold text-[#2D3622]">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F9E6E9] border border-[#C98A8B]/25 font-inter text-[12px] font-semibold text-[#9E5E63]">
                   {produk.productTagline}
                 </span>
                 <h2 className="font-sans text-2xl sm:text-4xl font-normal tracking-[-0.02em]">
                   {produk.productName}
                 </h2>
-                <p className="font-sans text-[15px] sm:text-[16px] text-[#201914]/80 leading-relaxed">
+                <p className="font-sans text-[15px] sm:text-[16px] text-[#6E5156] leading-relaxed">
                   {produk.productDescription}
                 </p>
               </div>
 
-              <div className="p-4 rounded-[16px] bg-white/75 flex flex-wrap items-center justify-between gap-4">
+              <div className="p-4 rounded-[16px] bg-[#FBF1F2] border border-[#C98A8B]/20 flex flex-wrap items-center justify-between gap-4">
                 <div>
-                  <span className="font-inter text-[11px] uppercase tracking-wider text-[#201914]/60 block">
+                  <span className="font-inter text-[11px] uppercase tracking-wider text-[#2B1B1D]/60 block">
                     Harga Satuan ({produk.productWeightText})
                   </span>
-                  <span className="font-sans text-3xl font-bold text-[#201914]">
+                  <span className="font-sans text-3xl font-bold text-[#2B1B1D]">
                     {formatRupiah(produk.productPrice)}
-                    <span className="text-sm font-normal text-[#201914]/65">
+                    <span className="text-sm font-normal text-[#2B1B1D]/65">
                       {" "}
                       / Pot
                     </span>
@@ -229,7 +229,7 @@ export default function ProdukPage() {
                 </div>
 
                 {/* Quantity Picker */}
-                <div className="flex items-center gap-2 bg-[#201914] text-[#F1E6D8] rounded-full px-3 py-1.5">
+                <div className="flex items-center gap-2 bg-[#2B1B1D] text-[#FBF1F2] rounded-full px-3 py-1.5">
                   <button
                     type="button"
                     onClick={() => setQty((q) => Math.max(1, q - 1))}
@@ -256,9 +256,9 @@ export default function ProdukPage() {
                 <button
                   type="button"
                   onClick={handleAddProduct}
-                  className="flex-1 h-[50px] px-6 rounded-full bg-[#201914] hover:bg-[#2D3622] text-[#F1E6D8] font-inter text-[14px] font-semibold inline-flex items-center justify-center gap-2 transition-colors shadow-md"
+                  className="flex-1 h-[50px] px-6 rounded-full bg-[#2B1B1D] hover:bg-[#4D2E33] text-[#FBF1F2] font-inter text-[14px] font-semibold inline-flex items-center justify-center gap-2 transition-colors shadow-md"
                 >
-                  <ShoppingBag className="w-4 h-4 text-[#D4A359]" />
+                  <ShoppingBag className="w-4 h-4 text-[#E7B6B4]" />
                   <span>
                     Tambah ke Keranjang • {formatRupiah(produk.productPrice * qty)}
                   </span>
@@ -267,20 +267,20 @@ export default function ProdukPage() {
                 <Link
                   href="/pembelian"
                   onClick={handleAddProduct}
-                  className="h-[50px] px-6 rounded-full bg-white hover:bg-[#F1E6D8] text-[#201914] font-inter text-[14px] font-semibold inline-flex items-center justify-center gap-2 transition-colors border border-[#201914]/15"
+                  className="h-[50px] px-6 rounded-full bg-white hover:bg-[#FBF1F2] text-[#2B1B1D] font-inter text-[14px] font-semibold inline-flex items-center justify-center gap-2 transition-colors border border-[#2B1B1D]/15"
                 >
                   <span>Beli Sekarang</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
 
-              <div className="pt-2 border-t border-[#201914]/10 flex flex-wrap items-center justify-between gap-2 font-inter text-[12px] text-[#201914]/70">
+              <div className="pt-2 border-t border-[#2B1B1D]/10 flex flex-wrap items-center justify-between gap-2 font-inter text-[12px] text-[#2B1B1D]/70">
                 <span>
                   Pemesanan juga dilayani melalui {general.instagramHandle}
                 </span>
                 <Link
                   href="/batch/GG-BL-2026-01"
-                  className="inline-flex items-center gap-1.5 font-semibold text-[#2D3622] hover:underline"
+                  className="inline-flex items-center gap-1.5 font-semibold text-[#4D2E33] hover:underline"
                 >
                   <FlaskConical className="w-3.5 h-3.5" />
                   <span>Lihat Data Uji Lab Batch</span>
@@ -293,7 +293,7 @@ export default function ProdukPage() {
 
       {/* 3. Sticky Product Photo + 5 Komposisi & Manfaat Utama */}
       <section className="w-full max-w-[1560px] mx-auto px-2 sm:px-3 py-1.5 pb-6">
-        <div className="w-full rounded-[24px] bg-[#201914] text-[#F1E6D8] py-16 sm:py-24 px-4 sm:px-8 lg:px-12 flex flex-col lg:flex-row gap-10 lg:gap-14 items-start relative">
+        <div className="w-full rounded-[24px] bg-[#4D2E33] text-[#FBF1F2] py-16 sm:py-24 px-4 sm:px-8 lg:px-12 flex flex-col lg:flex-row gap-10 lg:gap-14 items-start relative">
           {/* Left Column: Real Glam & Glow Photo (Sticky Scroll Follower) */}
           <div className="w-full lg:w-[46%] lg:sticky lg:top-24 xl:top-28 self-start z-10 transition-all">
             <motion.div
@@ -301,7 +301,7 @@ export default function ProdukPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full h-[400px] sm:h-[520px] lg:h-[620px] rounded-[22px] overflow-hidden bg-[#2D3622] shadow-2xl border border-white/[0.08] group"
+              className="relative w-full h-[400px] sm:h-[520px] lg:h-[620px] rounded-[22px] overflow-hidden bg-[#4D2E33] shadow-2xl border border-white/[0.08] group"
             >
               <Image
                 src="/images/glam/jar-ingredients-wood.jpg"
@@ -313,10 +313,10 @@ export default function ProdukPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
               <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 flex items-center justify-between gap-2">
-                <span className="font-inter text-[11px] sm:text-[13px] bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 font-medium text-[#F1E6D8]">
+                <span className="font-inter text-[11px] sm:text-[13px] bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 font-medium text-[#FBF1F2]">
                   5 Komposisi Alami
                 </span>
-                <span className="font-inter text-[11px] sm:text-[13px] text-[#D4A359] font-medium bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
+                <span className="font-inter text-[11px] sm:text-[13px] text-[#E7B6B4] font-medium bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
                   400g • Rp35.000
                 </span>
               </div>
@@ -327,17 +327,17 @@ export default function ProdukPage() {
           <div className="w-full lg:w-[54%] space-y-8">
             <div className="space-y-4">
               <Reveal direction="up" delay={0.05}>
-                <span className="font-inter text-[13px] uppercase tracking-[0.14em] text-[#D4A359] block">
+                <span className="font-inter text-[13px] uppercase tracking-[0.14em] text-[#E7B6B4] block">
                   {produk.compositionEyebrow} • {produk.productName}
                 </span>
               </Reveal>
               <Reveal direction="up" delay={0.12}>
-                <h2 className="font-sans text-3xl sm:text-5xl lg:text-[52px] font-normal text-[#F1E6D8] tracking-[-0.03em] leading-[1.08]">
+                <h2 className="font-sans text-3xl sm:text-5xl lg:text-[52px] font-normal text-[#FBF1F2] tracking-[-0.03em] leading-[1.08]">
                   {produk.compositionTitle}
                 </h2>
               </Reveal>
               <Reveal direction="up" delay={0.18}>
-                <p className="font-sans text-[17px] text-[#F1E6D8]/75 leading-[1.55] max-w-[600px]">
+                <p className="font-sans text-[17px] text-[#FBF1F2]/75 leading-[1.55] max-w-[600px]">
                   {produk.compositionNote}
                 </p>
               </Reveal>
@@ -360,17 +360,17 @@ export default function ProdukPage() {
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-inter text-[13px] text-[#D4A359] font-medium">
+                    <span className="font-inter text-[13px] text-[#E7B6B4] font-medium">
                       0{idx + 1}
                     </span>
-                    <span className="px-3 py-1 rounded-full bg-white/[0.08] font-inter text-[12px] text-[#F1E6D8]">
+                    <span className="px-3 py-1 rounded-full bg-white/[0.08] font-inter text-[12px] text-[#FBF1F2]">
                       {item.role}
                     </span>
                   </div>
-                  <h3 className="font-sans text-[19px] font-normal text-[#F1E6D8]">
+                  <h3 className="font-sans text-[19px] font-normal text-[#FBF1F2]">
                     {item.name}
                   </h3>
-                  <p className="font-sans text-[14px] text-[#F1E6D8]/68 leading-[1.5]">
+                  <p className="font-sans text-[14px] text-[#FBF1F2]/68 leading-[1.5]">
                     {item.description}
                   </p>
                 </motion.div>
@@ -378,19 +378,19 @@ export default function ProdukPage() {
             </div>
 
             {/* Manfaat Utama + Catatan Resmi */}
-            <div className="p-5 sm:p-6 rounded-[18px] bg-[#2D3622]/75 border border-white/[0.08] space-y-3.5">
-              <h3 className="font-sans text-lg font-medium text-[#D4A359]">
+            <div className="p-5 sm:p-6 rounded-[18px] bg-[#4D2E33]/75 border border-white/[0.08] space-y-3.5">
+              <h3 className="font-sans text-lg font-medium text-[#E7B6B4]">
                 {produk.benefitsSectionTitle}
               </h3>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 font-inter text-[13px] text-[#F1E6D8]/90">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 font-inter text-[13px] text-[#FBF1F2]/90">
                 {produk.benefits.map((b) => (
                   <li key={b.title} className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#D4A359] mt-1.5 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#E7B6B4] mt-1.5 shrink-0" />
                     <span>{b.description}</span>
                   </li>
                 ))}
               </ul>
-              <p className="font-inter text-[12px] text-[#F1E6D8]/60 pt-3 border-t border-white/[0.08] leading-relaxed">
+              <p className="font-inter text-[12px] text-[#FBF1F2]/60 pt-3 border-t border-white/[0.08] leading-relaxed">
                 {general.benefitsDisclaimer}
               </p>
             </div>
@@ -398,12 +398,12 @@ export default function ProdukPage() {
             {/* Balanced Bottom Price & CTA Bar */}
             <div className="pt-4 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span className="font-inter text-[11px] uppercase tracking-wider text-[#F1E6D8]/55 block">
+                <span className="font-inter text-[11px] uppercase tracking-wider text-[#FBF1F2]/55 block">
                   Harga Resmi • {produk.productWeightText}
                 </span>
-                <span className="font-sans text-2xl sm:text-3xl font-semibold text-[#D4A359]">
+                <span className="font-sans text-2xl sm:text-3xl font-semibold text-[#E7B6B4]">
                   {formatRupiah(produk.productPrice)}{" "}
-                  <span className="text-sm font-normal text-[#F1E6D8]/65">
+                  <span className="text-sm font-normal text-[#FBF1F2]/65">
                     / Pot
                   </span>
                 </span>
@@ -413,16 +413,16 @@ export default function ProdukPage() {
                 <button
                   type="button"
                   onClick={handleAddProduct}
-                  className="h-[48px] px-5 rounded-full bg-white/[0.08] hover:bg-white/[0.16] text-[#F1E6D8] font-inter text-[14px] font-medium inline-flex items-center justify-center gap-2 transition-all active:scale-95"
+                  className="h-[48px] px-5 rounded-full bg-white/[0.08] hover:bg-white/[0.16] text-[#FBF1F2] font-inter text-[14px] font-medium inline-flex items-center justify-center gap-2 transition-all active:scale-95"
                 >
-                  <ShoppingBag className="w-4 h-4 text-[#D4A359]" />
+                  <ShoppingBag className="w-4 h-4 text-[#E7B6B4]" />
                   <span>+ Keranjang</span>
                 </button>
 
                 <Magnetic strength={0.18}>
                   <Link
                     href="/pembelian"
-                    className="group/roll whitespace-nowrap h-[48px] px-7 rounded-full bg-[#F1E6D8] hover:bg-white text-[#201914] font-inter text-[14px] font-semibold inline-flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 shrink-0"
+                    className="group/roll whitespace-nowrap h-[48px] px-7 rounded-full bg-[#FBF1F2] hover:bg-white text-[#2B1B1D] font-inter text-[14px] font-semibold inline-flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 shrink-0"
                   >
                     <RollingText text="Pesan Sekarang" />
                     <ArrowRight className="w-4 h-4 shrink-0" />

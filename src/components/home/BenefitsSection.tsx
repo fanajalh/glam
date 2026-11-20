@@ -9,14 +9,14 @@ export default function BenefitsSection() {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#32160C]/10 text-[#32160C] text-xs font-semibold tracking-wider uppercase mb-3">
-          <Sparkles className="w-3.5 h-3.5 text-[#D4A359]" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#3D2126]/10 text-[#3D2126] text-xs font-semibold tracking-wider uppercase mb-3">
+          <Sparkles className="w-3.5 h-3.5 text-[#9E5E63]" />
           <span>Hasil Nyata Perawatan Tubuh</span>
         </div>
-        <h2 className="font-sans text-3xl sm:text-5xl font-semibold text-[#32160C] tracking-tight">
+        <h2 className="font-sans text-3xl sm:text-5xl font-semibold text-[#3D2126] tracking-tight">
           5 Manfaat & Khasiat Utama Lulur
         </h2>
-        <p className="mt-4 text-sm sm:text-base text-[#5C4D44] leading-relaxed">
+        <p className="mt-4 text-sm sm:text-base text-[#6E5156] leading-relaxed">
           Menggabungkan kebaikan eksfoliasi beras ketan putih dengan nutrisi herbal yang meresap ke kulit,
           memberikan sensasi segar dan halus seketika setelah dibilas.
         </p>
@@ -28,25 +28,25 @@ export default function BenefitsSection() {
           return (
             <div
               key={benefit.title}
-              className="group relative bg-[#F7F0E6] hover:bg-[#32160C] text-[#32160C] hover:text-[#F1E6D8] rounded-2xl p-6 transition-all duration-300 border border-[#32160C]/10 hover:border-[#32160C] hover:-translate-y-0.5 flex flex-col justify-between"
+              className="group relative bg-[#FFF5F6] hover:bg-[#3D2126] text-[#3D2126] hover:text-[#FBF1F2] rounded-2xl p-6 transition-all duration-300 border border-[#3D2126]/10 hover:border-[#3D2126] hover:-translate-y-0.5 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-[#32160C]/10 group-hover:bg-[#D4A359] flex items-center justify-center text-[#32160C] transition-colors mb-5">
-                  <Icon className="w-6 h-6 text-[#32160C]" />
+                <div className="w-12 h-12 rounded-xl bg-[#3D2126]/10 group-hover:bg-[#E7B6B4] flex items-center justify-center text-[#3D2126] transition-colors mb-5">
+                  <Icon className="w-6 h-6 text-[#3D2126]" />
                 </div>
-                <span className="inline-block px-2.5 py-0.5 rounded-md bg-[#D4A359]/20 group-hover:bg-[#D4A359]/30 text-[#4E2719] group-hover:text-[#D4A359] text-[10px] font-bold uppercase tracking-wider mb-2">
+                <span className="inline-block px-2.5 py-0.5 rounded-md bg-[#E7B6B4]/20 group-hover:bg-[#E7B6B4]/30 text-[#623B42] group-hover:text-[#E7B6B4] text-[10px] font-bold uppercase tracking-wider mb-2">
                   {benefit.highlight}
                 </span>
                 <h3 className="font-sans text-lg font-semibold mb-2">
                   {benefit.title}
                 </h3>
-                <p className="text-xs text-[#5C4D44] group-hover:text-[#F1E6D8]/80 leading-relaxed font-light">
+                <p className="text-xs text-[#6E5156] group-hover:text-[#FBF1F2]/80 leading-relaxed font-light">
                   {benefit.description}
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 flex items-center text-[11px] font-semibold text-[#D4A359]">
-                <Check className="w-4 h-4 mr-1 text-[#2D3622] group-hover:text-[#D4A359]" />
+              <div className="mt-6 pt-4 flex items-center text-[11px] font-semibold text-[#9E5E63] group-hover:text-[#E7B6B4]">
+                <Check className="w-4 h-4 mr-1 text-[#9E5E63] group-hover:text-[#E7B6B4]" />
                 <span>Terbukti Alami</span>
               </div>
             </div>

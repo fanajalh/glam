@@ -117,11 +117,11 @@ export default function PageTransitionProvider({
               duration: phase === "covering" ? 0.38 : 0.42,
               ease: EASE_CURTAIN,
             }}
-            className="fixed inset-0 z-[9999] bg-[#201914] text-[#F1E6D8] pointer-events-auto flex flex-col items-center justify-center shadow-2xl overflow-hidden"
+            className="fixed inset-0 z-[9999] bg-[#4D2E33] text-[#FBF1F2] pointer-events-auto flex flex-col items-center justify-center shadow-2xl overflow-hidden"
           >
             {/* Top/Bottom Subtle Gold Glow Lines */}
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4A359]/60 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4A359]/60 to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#E7B6B4]/60 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#E7B6B4]/60 to-transparent" />
 
             {/* Center Brand Identity Mark */}
             <motion.div
@@ -133,10 +133,10 @@ export default function PageTransitionProvider({
             >
               <BotanicalMarkDraw className="scale-110" />
               <div className="space-y-1">
-                <span className="font-sans font-semibold text-lg sm:text-[22px] tracking-[0.25em] text-[#F1E6D8] uppercase">
+                <span className="font-sans font-semibold text-lg sm:text-[22px] tracking-[0.25em] text-[#FBF1F2] uppercase">
                   GLAM & GLOW
                 </span>
-                <span className="block font-inter text-[11px] sm:text-[12px] tracking-[0.2em] text-[#D4A359] uppercase">
+                <span className="block font-inter text-[11px] sm:text-[12px] tracking-[0.2em] text-[#E7B6B4] uppercase">
                   BOTANICAL CARE
                 </span>
               </div>

@@ -19,7 +19,7 @@ export default async function PembayaranPage({
   const serverReceipt = await getOrderReceiptPayload(orderCode);
 
   return (
-    <div className="w-full bg-[#F1E6D8] pt-28 pb-16 px-2 sm:px-3 min-h-[82vh]">
+    <div className="w-full bg-[#FBF1F2] pt-28 pb-16 px-2 sm:px-3 min-h-[82vh]">
       <PaymentView orderCode={orderCode} serverReceipt={serverReceipt} />
     </div>
   );

@@ -269,18 +269,18 @@ export default function AdminDashboardClient({
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#F1E6D8] text-[#201914] flex flex-col lg:flex-row">
+    <div className="min-h-screen w-full bg-[#FBF1F2] text-[#2B1B1D] flex flex-col lg:flex-row">
       {/* Desktop Rounded Floating Sidebar */}
-      <aside className="hidden lg:flex lg:w-[270px] shrink-0 bg-[#201914] text-[#F1E6D8] flex-col justify-between p-6 border border-white/[0.08] rounded-[28px] shadow-xl sticky lg:top-4 lg:m-4 lg:mr-0 lg:h-[calc(100vh-32px)]">
+      <aside className="hidden lg:flex lg:w-[270px] shrink-0 bg-[#2B1B1D] text-[#FBF1F2] flex-col justify-between p-6 border border-white/[0.08] rounded-[28px] shadow-xl sticky lg:top-4 lg:m-4 lg:mr-0 lg:h-[calc(100vh-32px)]">
         <div className="space-y-8">
           <div className="space-y-1">
-            <span className="font-inter text-[11px] uppercase tracking-[0.14em] text-[#D4A359] block">
+            <span className="font-inter text-[11px] uppercase tracking-[0.14em] text-[#E7B6B4] block">
               Glam &amp; Glow Admin
             </span>
             <h2 className="font-sans text-xl font-normal tracking-[-0.01em]">
               Panel Kontrol PLB
             </h2>
-            <p className="font-inter text-[12px] text-[#F1E6D8]/55">
+            <p className="font-inter text-[12px] text-[#FBF1F2]/55">
               {adminName} (@{adminUsername})
             </p>
           </div>
@@ -299,8 +299,8 @@ export default function AdminDashboardClient({
                   }}
                   className={`w-full px-4 py-3 rounded-[14px] font-inter text-[14px] flex items-center justify-between transition-colors ${
                     isActive
-                      ? "bg-[#F1E6D8] text-[#201914] font-semibold"
-                      : "text-[#F1E6D8]/80 hover:bg-white/[0.06] hover:text-white"
+                      ? "bg-[#FBF1F2] text-[#2B1B1D] font-semibold"
+                      : "text-[#FBF1F2]/80 hover:bg-white/[0.06] hover:text-white"
                   }`}
                 >
                   <span className="flex items-center gap-3">
@@ -311,8 +311,8 @@ export default function AdminDashboardClient({
                     <span
                       className={`px-2 py-0.5 rounded-full text-[11px] font-semibold ${
                         isActive
-                          ? "bg-[#201914] text-[#F1E6D8]"
-                          : "bg-[#D4A359] text-[#201914]"
+                          ? "bg-[#2B1B1D] text-[#FBF1F2]"
+                          : "bg-[#E7B6B4] text-[#2B1B1D]"
                       }`}
                     >
                       {item.badge}
@@ -338,7 +338,7 @@ export default function AdminDashboardClient({
                   : "Mode Pratinjau Offline"}
               </span>
             </div>
-            <p className="font-inter text-[11px] text-[#F1E6D8]/50">
+            <p className="font-inter text-[11px] text-[#FBF1F2]/50">
               {envChecklist.isDbConnected
                 ? "Semua perubahan tersimpan real-time."
                 : "Hubungkan Neon di Vercel untuk simpan permanen."}
@@ -347,7 +347,7 @@ export default function AdminDashboardClient({
 
           <Link
             href="/"
-            className="w-full px-4 py-2.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-[#F1E6D8] font-inter text-[13px] flex items-center justify-center gap-2 transition-colors"
+            className="w-full px-4 py-2.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-[#FBF1F2] font-inter text-[13px] flex items-center justify-center gap-2 transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Lihat Website Utama</span>
@@ -356,7 +356,7 @@ export default function AdminDashboardClient({
           <form action={logoutAdminAction}>
             <button
               type="submit"
-              className="w-full px-4 py-2.5 rounded-full border border-white/[0.12] hover:bg-red-500/20 text-[#F1E6D8]/85 hover:text-red-200 font-inter text-[13px] flex items-center justify-center gap-2 transition-colors"
+              className="w-full px-4 py-2.5 rounded-full border border-white/[0.12] hover:bg-red-500/20 text-[#FBF1F2]/85 hover:text-red-200 font-inter text-[13px] flex items-center justify-center gap-2 transition-colors"
             >
               <LogOut className="w-3.5 h-3.5" />
               <span>Keluar</span>
@@ -368,10 +368,10 @@ export default function AdminDashboardClient({
       {/* Main Content Shell */}
       <div className="flex-1 min-w-0 flex flex-col">
         {/* Mobile Header + Tabs (Rounded) */}
-        <header className="lg:hidden bg-[#201914] text-[#F1E6D8] p-4 space-y-3 border border-white/[0.08] rounded-[24px] mx-3 mt-3 shadow-lg sticky top-3 z-30">
+        <header className="lg:hidden bg-[#2B1B1D] text-[#FBF1F2] p-4 space-y-3 border border-white/[0.08] rounded-[24px] mx-3 mt-3 shadow-lg sticky top-3 z-30">
           <div className="flex items-center justify-between gap-3">
             <div>
-              <span className="font-inter text-[10px] uppercase tracking-[0.14em] text-[#D4A359] block">
+              <span className="font-inter text-[10px] uppercase tracking-[0.14em] text-[#E7B6B4] block">
                 Admin Panel PLB
               </span>
               <h1 className="font-sans text-[18px] font-normal">
@@ -381,14 +381,14 @@ export default function AdminDashboardClient({
             <div className="flex items-center gap-2">
               <Link
                 href="/"
-                className="px-3 py-1.5 rounded-full bg-white/[0.08] font-inter text-[12px] text-[#F1E6D8]"
+                className="px-3 py-1.5 rounded-full bg-white/[0.08] font-inter text-[12px] text-[#FBF1F2]"
               >
                 Website
               </Link>
               <form action={logoutAdminAction}>
                 <button
                   type="submit"
-                  className="p-2 rounded-full bg-white/[0.08] text-[#F1E6D8]"
+                  className="p-2 rounded-full bg-white/[0.08] text-[#FBF1F2]"
                   aria-label="Keluar"
                 >
                   <LogOut className="w-4 h-4" />
@@ -408,8 +408,8 @@ export default function AdminDashboardClient({
                   onClick={() => setActiveTab(item.id)}
                   className={`px-3.5 py-2 rounded-full font-inter text-[12px] whitespace-nowrap inline-flex items-center gap-1.5 shrink-0 transition-colors ${
                     isActive
-                      ? "bg-[#F1E6D8] text-[#201914] font-semibold"
-                      : "bg-white/[0.06] text-[#F1E6D8]/80"
+                      ? "bg-[#FBF1F2] text-[#2B1B1D] font-semibold"
+                      : "bg-white/[0.06] text-[#FBF1F2]/80"
                   }`}
                 >
                   <Icon className="w-3.5 h-3.5" />
@@ -425,11 +425,11 @@ export default function AdminDashboardClient({
           {!envChecklist.isDbConnected && (
             <div className="rounded-[18px] p-4 bg-amber-500/10 border border-amber-600/30 flex items-start gap-3">
               <Database className="w-5 h-5 text-amber-800 shrink-0 mt-0.5" />
-              <div className="font-inter text-[13px] text-[#201914] space-y-0.5">
+              <div className="font-inter text-[13px] text-[#2B1B1D] space-y-0.5">
                 <p className="font-semibold text-amber-950">
                   Mode Pratinjau — Database Neon belum terhubung
                 </p>
-                <p className="text-[#201914]/75">
+                <p className="text-[#2B1B1D]/75">
                   Data di bawah ini contoh simulasi. Setelah integrasi Neon
                   terhubung di Vercel dan deploy selesai, semua tabel dan CRUD
                   otomatis aktif penuh.
@@ -443,13 +443,13 @@ export default function AdminDashboardClient({
             <div
               className={`rounded-[16px] p-3.5 px-4 border flex items-center justify-between gap-3 font-inter text-[13px] ${
                 toast.type === "success"
-                  ? "bg-[#2D3622] text-[#F1E6D8] border-[#2D3622]"
+                  ? "bg-[#4D2E33] text-[#FBF1F2] border-[#4D2E33]"
                   : "bg-red-500/15 text-red-950 border-red-500/30"
               }`}
             >
               <div className="flex items-center gap-2.5">
                 {toast.type === "success" ? (
-                  <CheckCircle2 className="w-4 h-4 text-[#D4A359] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#E7B6B4] shrink-0" />
                 ) : (
                   <AlertTriangle className="w-4 h-4 text-red-700 shrink-0" />
                 )}
@@ -474,7 +474,7 @@ export default function AdminDashboardClient({
                   <h1 className="font-sans text-2xl sm:text-4xl font-normal tracking-[-0.02em]">
                     Ringkasan Operasional
                   </h1>
-                  <p className="font-inter text-[13px] sm:text-[14px] text-[#201914]/65">
+                  <p className="font-inter text-[13px] sm:text-[14px] text-[#2B1B1D]/65">
                     Integrasi toko online PLB &amp; data uji laboratorium Teknologi Farmasi.
                   </p>
                 </div>
@@ -482,14 +482,14 @@ export default function AdminDashboardClient({
                   <button
                     type="button"
                     onClick={() => setActiveTab("lab")}
-                    className="px-4 py-2 rounded-full bg-[#2D3622] text-[#F1E6D8] font-inter text-[13px] font-medium hover:bg-[#201914] transition-colors"
+                    className="px-4 py-2 rounded-full bg-[#4D2E33] text-[#FBF1F2] font-inter text-[13px] font-medium hover:bg-[#2B1B1D] transition-colors"
                   >
                     Kelola Uji Lab
                   </button>
                   <button
                     type="button"
                     onClick={() => setActiveTab("pesanan")}
-                    className="px-4 py-2 rounded-full bg-[#201914] text-[#F1E6D8] font-inter text-[13px] font-medium hover:bg-[#2D3622] transition-colors"
+                    className="px-4 py-2 rounded-full bg-[#2B1B1D] text-[#FBF1F2] font-inter text-[13px] font-medium hover:bg-[#4D2E33] transition-colors"
                   >
                     Cek Pesanan
                   </button>
@@ -498,15 +498,15 @@ export default function AdminDashboardClient({
 
               {/* 4 KPI Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-                <div className="rounded-[20px] bg-white p-5 border border-[#201914]/10 space-y-2">
-                  <div className="flex items-center justify-between text-[#201914]/60 font-inter text-[12px] uppercase tracking-[0.06em]">
+                <div className="rounded-[20px] bg-white p-5 border border-[#2B1B1D]/10 space-y-2">
+                  <div className="flex items-center justify-between text-[#2B1B1D]/60 font-inter text-[12px] uppercase tracking-[0.06em]">
                     <span>Pesanan Masuk</span>
-                    <ShoppingBag className="w-4 h-4 text-[#2D3622]" />
+                    <ShoppingBag className="w-4 h-4 text-[#4D2E33]" />
                   </div>
                   <div className="font-sans text-3xl font-semibold">
                     {orders.length}
                   </div>
-                  <p className="font-inter text-[12px] text-[#201914]/65">
+                  <p className="font-inter text-[12px] text-[#2B1B1D]/65">
                     <span className="font-semibold text-amber-800">
                       {needsConfirmationCount} membutuhkan konfirmasi
                     </span>
@@ -514,41 +514,41 @@ export default function AdminDashboardClient({
                   </p>
                 </div>
 
-                <div className="rounded-[20px] bg-white p-5 border border-[#201914]/10 space-y-2">
-                  <div className="flex items-center justify-between text-[#201914]/60 font-inter text-[12px] uppercase tracking-[0.06em]">
+                <div className="rounded-[20px] bg-white p-5 border border-[#2B1B1D]/10 space-y-2">
+                  <div className="flex items-center justify-between text-[#2B1B1D]/60 font-inter text-[12px] uppercase tracking-[0.06em]">
                     <span>Total Nilai Order</span>
-                    <ShieldCheck className="w-4 h-4 text-[#D4A359]" />
+                    <ShieldCheck className="w-4 h-4 text-[#E7B6B4]" />
                   </div>
                   <div className="font-sans text-3xl font-semibold">
                     {formatRupiah(totalOmset)}
                   </div>
-                  <p className="font-inter text-[12px] text-[#201914]/60">
+                  <p className="font-inter text-[12px] text-[#2B1B1D]/60">
                     Dari {activeOrders.length} transaksi aktif
                   </p>
                 </div>
 
-                <div className="rounded-[20px] bg-white p-5 border border-[#201914]/10 space-y-2">
-                  <div className="flex items-center justify-between text-[#201914]/60 font-inter text-[12px] uppercase tracking-[0.06em]">
+                <div className="rounded-[20px] bg-white p-5 border border-[#2B1B1D]/10 space-y-2">
+                  <div className="flex items-center justify-between text-[#2B1B1D]/60 font-inter text-[12px] uppercase tracking-[0.06em]">
                     <span>Katalog &amp; Stok</span>
-                    <Package className="w-4 h-4 text-[#2D3622]" />
+                    <Package className="w-4 h-4 text-[#4D2E33]" />
                   </div>
                   <div className="font-sans text-3xl font-semibold">
                     {totalStock} Pot
                   </div>
-                  <p className="font-inter text-[12px] text-[#201914]/60">
+                  <p className="font-inter text-[12px] text-[#2B1B1D]/60">
                     {activeProductsCount} varian produk aktif
                   </p>
                 </div>
 
-                <div className="rounded-[20px] bg-[#201914] text-[#F1E6D8] p-5 border border-[#201914] space-y-2">
-                  <div className="flex items-center justify-between text-[#F1E6D8]/65 font-inter text-[12px] uppercase tracking-[0.06em]">
+                <div className="rounded-[20px] bg-[#2B1B1D] text-[#FBF1F2] p-5 border border-[#2B1B1D] space-y-2">
+                  <div className="flex items-center justify-between text-[#FBF1F2]/65 font-inter text-[12px] uppercase tracking-[0.06em]">
                     <span>Batch Uji Lab</span>
-                    <FlaskConical className="w-4 h-4 text-[#D4A359]" />
+                    <FlaskConical className="w-4 h-4 text-[#E7B6B4]" />
                   </div>
                   <div className="font-sans text-3xl font-semibold">
                     {passedBatchesCount} / {batches.length}
                   </div>
-                  <p className="font-inter text-[12px] text-[#D4A359]">
+                  <p className="font-inter text-[12px] text-[#E7B6B4]">
                     Lulus QC Teknologi Farmasi
                   </p>
                 </div>
@@ -556,7 +556,7 @@ export default function AdminDashboardClient({
 
               {/* Quick Previews */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div className="rounded-[22px] bg-white p-6 border border-[#201914]/10 space-y-4">
+                <div className="rounded-[22px] bg-white p-6 border border-[#2B1B1D]/10 space-y-4">
                   <div className="flex items-center justify-between">
                     <h2 className="font-sans text-lg font-medium">
                       Pesanan Terbaru
@@ -564,14 +564,14 @@ export default function AdminDashboardClient({
                     <button
                       type="button"
                       onClick={() => setActiveTab("pesanan")}
-                      className="font-inter text-[12px] font-semibold text-[#2D3622] hover:underline"
+                      className="font-inter text-[12px] font-semibold text-[#4D2E33] hover:underline"
                     >
                       Lihat Semua
                     </button>
                   </div>
 
                   {orders.length === 0 ? (
-                    <p className="font-inter text-[13px] text-[#201914]/55 py-6 text-center">
+                    <p className="font-inter text-[13px] text-[#2B1B1D]/55 py-6 text-center">
                       Belum ada pesanan masuk.
                     </p>
                   ) : (
@@ -581,16 +581,16 @@ export default function AdminDashboardClient({
                         return (
                           <div
                             key={o.id}
-                            className="p-3.5 rounded-[14px] bg-[#F1E6D8]/45 border border-[#201914]/5 flex items-center justify-between gap-3"
+                            className="p-3.5 rounded-[14px] bg-[#FBF1F2]/45 border border-[#2B1B1D]/5 flex items-center justify-between gap-3"
                           >
                             <div className="min-w-0">
                               <div className="font-inter text-[13px] font-semibold truncate">
                                 {o.customerName} •{" "}
-                                <span className="font-mono text-[12px] font-normal text-[#201914]/65">
+                                <span className="font-mono text-[12px] font-normal text-[#2B1B1D]/65">
                                   {o.orderNumber}
                                 </span>
                               </div>
-                              <div className="font-inter text-[12px] text-[#201914]/60">
+                              <div className="font-inter text-[12px] text-[#2B1B1D]/60">
                                 {formatRupiah(o.totalAmount)} •{" "}
                                 {formatDateID(o.createdAt)}
                               </div>
@@ -607,7 +607,7 @@ export default function AdminDashboardClient({
                   )}
                 </div>
 
-                <div className="rounded-[22px] bg-white p-6 border border-[#201914]/10 space-y-4">
+                <div className="rounded-[22px] bg-white p-6 border border-[#2B1B1D]/10 space-y-4">
                   <div className="flex items-center justify-between">
                     <h2 className="font-sans text-lg font-medium">
                       Batch Uji Lab Farmasi Terbaru
@@ -615,14 +615,14 @@ export default function AdminDashboardClient({
                     <button
                       type="button"
                       onClick={() => setActiveTab("lab")}
-                      className="font-inter text-[12px] font-semibold text-[#2D3622] hover:underline"
+                      className="font-inter text-[12px] font-semibold text-[#4D2E33] hover:underline"
                     >
                       Kelola Batch
                     </button>
                   </div>
 
                   {batches.length === 0 ? (
-                    <p className="font-inter text-[13px] text-[#201914]/55 py-6 text-center">
+                    <p className="font-inter text-[13px] text-[#2B1B1D]/55 py-6 text-center">
                       Belum ada data batch uji lab.
                     </p>
                   ) : (
@@ -632,7 +632,7 @@ export default function AdminDashboardClient({
                         return (
                           <div
                             key={b.id}
-                            className="p-3.5 rounded-[14px] bg-[#F1E6D8]/45 border border-[#201914]/5 flex items-center justify-between gap-3"
+                            className="p-3.5 rounded-[14px] bg-[#FBF1F2]/45 border border-[#2B1B1D]/5 flex items-center justify-between gap-3"
                           >
                             <div className="min-w-0">
                               <div className="font-inter text-[13px] font-semibold flex items-center gap-2">
@@ -643,7 +643,7 @@ export default function AdminDashboardClient({
                                   {meta.label}
                                 </span>
                               </div>
-                              <div className="font-inter text-[12px] text-[#201914]/65 truncate">
+                              <div className="font-inter text-[12px] text-[#2B1B1D]/65 truncate">
                                 pH {b.phLevel} • Hedonik {b.hedonicScore}/5.0 •{" "}
                                 {b.productName}
                               </div>
@@ -651,7 +651,7 @@ export default function AdminDashboardClient({
                             <Link
                               href={`/batch/${encodeURIComponent(b.batchCode)}`}
                               target="_blank"
-                              className="p-2 rounded-full bg-white border border-[#201914]/10 hover:bg-[#201914] hover:text-[#F1E6D8] transition-colors shrink-0"
+                              className="p-2 rounded-full bg-white border border-[#2B1B1D]/10 hover:bg-[#2B1B1D] hover:text-[#FBF1F2] transition-colors shrink-0"
                               title="Buka halaman sertifikat batch"
                             >
                               <ExternalLink className="w-3.5 h-3.5" />
@@ -673,20 +673,20 @@ export default function AdminDashboardClient({
                 <h1 className="font-sans text-2xl sm:text-4xl font-normal tracking-[-0.02em]">
                   Manajemen Pesanan
                 </h1>
-                <p className="font-inter text-[13px] sm:text-[14px] text-[#201914]/65">
+                <p className="font-inter text-[13px] sm:text-[14px] text-[#2B1B1D]/65">
                   Pantau transaksi masuk dan perbarui status proses pengiriman.
                 </p>
               </div>
 
               <div className="flex flex-col md:flex-row gap-3 justify-between">
                 <div className="relative flex-1 max-w-md">
-                  <Search className="w-4 h-4 text-[#201914]/45 absolute left-4 top-1/2 -translate-y-1/2" />
+                  <Search className="w-4 h-4 text-[#2B1B1D]/45 absolute left-4 top-1/2 -translate-y-1/2" />
                   <input
                     type="text"
                     value={orderSearch}
                     onChange={(e) => setOrderSearch(e.target.value)}
                     placeholder="Cari kode order, nama, nomor WA, kota..."
-                    className="w-full h-[44px] pl-10 pr-4 rounded-full bg-white border border-[#201914]/12 font-inter text-[13px] focus:outline-none focus:border-[#2D3622]"
+                    className="w-full h-[44px] pl-10 pr-4 rounded-full bg-white border border-[#2B1B1D]/12 font-inter text-[13px] focus:outline-none focus:border-[#4D2E33]"
                   />
                 </div>
 
@@ -708,8 +708,8 @@ export default function AdminDashboardClient({
                       onClick={() => setOrderStatusFilter(st)}
                       className={`px-3.5 py-2 rounded-full font-inter text-[12px] font-medium whitespace-nowrap transition-colors border ${
                         orderStatusFilter === st
-                          ? "bg-[#201914] text-[#F1E6D8] border-[#201914]"
-                          : "bg-white text-[#201914]/75 border-[#201914]/10 hover:bg-white/80"
+                          ? "bg-[#2B1B1D] text-[#FBF1F2] border-[#2B1B1D]"
+                          : "bg-white text-[#2B1B1D]/75 border-[#2B1B1D]/10 hover:bg-white/80"
                       }`}
                     >
                       {st === "ALL" ? "Semua" : ORDER_STATUS_META[st].label}
@@ -719,7 +719,7 @@ export default function AdminDashboardClient({
               </div>
 
               {filteredOrders.length === 0 ? (
-                <div className="rounded-[20px] bg-white border border-[#201914]/10 p-10 text-center font-inter text-[14px] text-[#201914]/60">
+                <div className="rounded-[20px] bg-white border border-[#2B1B1D]/10 p-10 text-center font-inter text-[14px] text-[#2B1B1D]/60">
                   Tidak ada pesanan yang cocok dengan filter saat ini.
                 </div>
               ) : (
@@ -735,11 +735,11 @@ export default function AdminDashboardClient({
                     return (
                       <div
                         key={order.id}
-                        className="rounded-[20px] bg-white border border-[#201914]/10 p-5 sm:p-6 space-y-4"
+                        className="rounded-[20px] bg-white border border-[#2B1B1D]/10 p-5 sm:p-6 space-y-4"
                       >
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#201914]/8">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#2B1B1D]/8">
                           <div className="flex flex-wrap items-center gap-2.5">
-                            <span className="font-mono text-[13px] font-semibold px-3 py-1 rounded-full bg-[#F1E6D8] text-[#201914]">
+                            <span className="font-mono text-[13px] font-semibold px-3 py-1 rounded-full bg-[#FBF1F2] text-[#2B1B1D]">
                               {order.orderNumber}
                             </span>
                             <span
@@ -747,12 +747,12 @@ export default function AdminDashboardClient({
                             >
                               {meta.label}
                             </span>
-                            <span className="font-inter text-[12px] text-[#201914]/55">
+                            <span className="font-inter text-[12px] text-[#2B1B1D]/55">
                               {formatDateTimeID(order.createdAt)}
                             </span>
                           </div>
 
-                          <div className="font-sans text-xl font-semibold text-[#201914]">
+                          <div className="font-sans text-xl font-semibold text-[#2B1B1D]">
                             {formatRupiah(order.totalAmount)}
                           </div>
                         </div>
@@ -771,9 +771,9 @@ export default function AdminDashboardClient({
                               type="button"
                               disabled={isPending}
                               onClick={() => handleStatusChange(order.id, "PAID")}
-                              className="px-4 py-2 rounded-full bg-[#2D3622] hover:bg-[#201914] text-[#F1E6D8] font-inter text-[12px] font-semibold inline-flex items-center gap-1.5 transition-colors shrink-0 disabled:opacity-50"
+                              className="px-4 py-2 rounded-full bg-[#4D2E33] hover:bg-[#2B1B1D] text-[#FBF1F2] font-inter text-[12px] font-semibold inline-flex items-center gap-1.5 transition-colors shrink-0 disabled:opacity-50"
                             >
-                              <CheckCircle2 className="w-3.5 h-3.5 text-[#D4A359]" />
+                              <CheckCircle2 className="w-3.5 h-3.5 text-[#E7B6B4]" />
                               <span>Konfirmasi Pembayaran</span>
                             </button>
                           </div>
@@ -781,28 +781,28 @@ export default function AdminDashboardClient({
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 font-inter text-[13px]">
                           <div className="space-y-1">
-                            <span className="text-[11px] uppercase tracking-wider text-[#201914]/50 block">
+                            <span className="text-[11px] uppercase tracking-wider text-[#2B1B1D]/50 block">
                               Pemesan
                             </span>
                             <p className="font-semibold text-[15px]">
                               {order.customerName}
                             </p>
-                            <p className="text-[#201914]/75">
+                            <p className="text-[#2B1B1D]/75">
                               {order.customerPhone}
                             </p>
                             {order.customerEmail && (
-                              <p className="text-[#201914]/60 text-[12px]">
+                              <p className="text-[#2B1B1D]/60 text-[12px]">
                                 {order.customerEmail}
                               </p>
                             )}
                           </div>
 
                           <div className="space-y-1">
-                            <span className="text-[11px] uppercase tracking-wider text-[#201914]/50 block">
+                            <span className="text-[11px] uppercase tracking-wider text-[#2B1B1D]/50 block">
                               Alamat Pengiriman
                             </span>
-                            <p className="text-[#201914]/85 leading-relaxed flex items-start gap-1.5">
-                              <MapPin className="w-3.5 h-3.5 text-[#2D3622] shrink-0 mt-1" />
+                            <p className="text-[#2B1B1D]/85 leading-relaxed flex items-start gap-1.5">
+                              <MapPin className="w-3.5 h-3.5 text-[#4D2E33] shrink-0 mt-1" />
                               <span>
                                 {order.shippingAddress}
                                 {order.cityOrDistrict
@@ -811,14 +811,14 @@ export default function AdminDashboardClient({
                               </span>
                             </p>
                             {order.notes && (
-                              <p className="text-[12px] text-[#201914]/65 bg-[#F1E6D8]/60 p-2 rounded-[8px] mt-1">
+                              <p className="text-[12px] text-[#2B1B1D]/65 bg-[#FBF1F2]/60 p-2 rounded-[8px] mt-1">
                                 Catatan: {order.notes}
                               </p>
                             )}
                           </div>
 
                           <div className="space-y-1.5">
-                            <span className="text-[11px] uppercase tracking-wider text-[#201914]/50 block">
+                            <span className="text-[11px] uppercase tracking-wider text-[#2B1B1D]/50 block">
                               Item Pesanan
                             </span>
                             {order.items.map((it) => (
@@ -826,7 +826,7 @@ export default function AdminDashboardClient({
                                 key={it.id}
                                 className="flex justify-between gap-2 text-[12px]"
                               >
-                                <span className="text-[#201914]/80">
+                                <span className="text-[#2B1B1D]/80">
                                   {it.productName} × {it.quantity}
                                 </span>
                                 <span className="font-medium shrink-0">
@@ -837,9 +837,9 @@ export default function AdminDashboardClient({
                           </div>
                         </div>
 
-                        <div className="pt-3 border-t border-[#201914]/8 flex flex-wrap items-center justify-between gap-3">
+                        <div className="pt-3 border-t border-[#2B1B1D]/8 flex flex-wrap items-center justify-between gap-3">
                           <div className="flex flex-wrap items-center gap-2">
-                            <label className="font-inter text-[12px] text-[#201914]/65">
+                            <label className="font-inter text-[12px] text-[#2B1B1D]/65">
                               Ubah Status:
                             </label>
                             <CustomSelect
@@ -863,9 +863,9 @@ export default function AdminDashboardClient({
                             <Link
                               href={`/struk/${encodeURIComponent(order.orderNumber)}`}
                               target="_blank"
-                              className="px-3.5 py-2 rounded-full bg-[#F1E6D8]/80 hover:bg-[#F1E6D8] text-[#201914] font-inter text-[12px] font-medium inline-flex items-center gap-1.5 transition-colors"
+                              className="px-3.5 py-2 rounded-full bg-[#FBF1F2]/80 hover:bg-[#FBF1F2] text-[#2B1B1D] font-inter text-[12px] font-medium inline-flex items-center gap-1.5 transition-colors"
                             >
-                              <Receipt className="w-3.5 h-3.5 text-[#2D3622]" />
+                              <Receipt className="w-3.5 h-3.5 text-[#4D2E33]" />
                               <span>Lihat Struk</span>
                             </Link>
 
@@ -873,9 +873,9 @@ export default function AdminDashboardClient({
                               href={`https://wa.me/${cleanWa}?text=${waReplyText}`}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="px-4 py-2 rounded-full bg-[#2D3622] hover:bg-[#201914] text-[#F1E6D8] font-inter text-[12px] font-medium inline-flex items-center gap-1.5 transition-colors"
+                              className="px-4 py-2 rounded-full bg-[#4D2E33] hover:bg-[#2B1B1D] text-[#FBF1F2] font-inter text-[12px] font-medium inline-flex items-center gap-1.5 transition-colors"
                             >
-                              <MessageCircle className="w-3.5 h-3.5 text-[#D4A359]" />
+                              <MessageCircle className="w-3.5 h-3.5 text-[#E7B6B4]" />
                               <span>Chat Pembeli</span>
                             </a>
 
@@ -894,7 +894,7 @@ export default function AdminDashboardClient({
                                 <button
                                   type="button"
                                   onClick={() => setConfirmDeleteId(null)}
-                                  className="px-2 py-0.5 rounded-full bg-white text-[#201914] text-[11px]"
+                                  className="px-2 py-0.5 rounded-full bg-white text-[#2B1B1D] text-[11px]"
                                 >
                                   Batal
                                 </button>
@@ -903,7 +903,7 @@ export default function AdminDashboardClient({
                               <button
                                 type="button"
                                 onClick={() => setConfirmDeleteId(order.id)}
-                                className="p-2 rounded-full border border-[#201914]/12 text-[#201914]/55 hover:text-red-600 hover:border-red-300 transition-colors"
+                                className="p-2 rounded-full border border-[#2B1B1D]/12 text-[#2B1B1D]/55 hover:text-red-600 hover:border-red-300 transition-colors"
                                 aria-label={`Hapus pesanan ${order.orderNumber}`}
                               >
                                 <Trash2 className="w-4 h-4" />
@@ -927,7 +927,7 @@ export default function AdminDashboardClient({
                   <h1 className="font-sans text-2xl sm:text-4xl font-normal tracking-[-0.02em]">
                     Katalog Produk &amp; Stok
                   </h1>
-                  <p className="font-inter text-[13px] sm:text-[14px] text-[#201914]/65">
+                  <p className="font-inter text-[13px] sm:text-[14px] text-[#2B1B1D]/65">
                     Tambah varian, atur harga, dan pantau ketersediaan stok pot.
                   </p>
                 </div>
@@ -935,9 +935,9 @@ export default function AdminDashboardClient({
                 <button
                   type="button"
                   onClick={() => setProductModal({ open: true, item: null })}
-                  className="px-5 py-3 rounded-full bg-[#201914] hover:bg-[#2D3622] text-[#F1E6D8] font-inter text-[13px] font-semibold inline-flex items-center gap-2 transition-colors w-fit"
+                  className="px-5 py-3 rounded-full bg-[#2B1B1D] hover:bg-[#4D2E33] text-[#FBF1F2] font-inter text-[13px] font-semibold inline-flex items-center gap-2 transition-colors w-fit"
                 >
-                  <Plus className="w-4 h-4 text-[#D4A359]" />
+                  <Plus className="w-4 h-4 text-[#E7B6B4]" />
                   <span>Tambah Produk</span>
                 </button>
               </div>
@@ -948,13 +948,13 @@ export default function AdminDashboardClient({
                     key={prod.id}
                     className={`rounded-[20px] bg-white border p-5 flex flex-col justify-between gap-4 ${
                       prod.isActive
-                        ? "border-[#201914]/10"
+                        ? "border-[#2B1B1D]/10"
                         : "border-red-300 bg-white/60 opacity-75"
                     }`}
                   >
                     <div className="space-y-3">
                       <div className="flex items-start gap-3.5">
-                        <div className="relative w-16 h-16 rounded-[12px] bg-[#2D3622] shrink-0 overflow-hidden">
+                        <div className="relative w-16 h-16 rounded-[12px] bg-[#4D2E33] shrink-0 overflow-hidden">
                           <Image
                             src={prod.imageUrl || "/images/glam/jar-studio-pedestal.jpg"}
                             alt={prod.name}
@@ -964,7 +964,7 @@ export default function AdminDashboardClient({
                         </div>
                         <div className="min-w-0 flex-1 space-y-1">
                           <div className="flex flex-wrap items-center gap-1.5">
-                            <span className="px-2.5 py-0.5 rounded-full bg-[#F1E6D8] font-inter text-[10px] font-semibold text-[#201914]">
+                            <span className="px-2.5 py-0.5 rounded-full bg-[#FBF1F2] font-inter text-[10px] font-semibold text-[#2B1B1D]">
                               {prod.category}
                             </span>
                             {!prod.isActive && (
@@ -976,24 +976,24 @@ export default function AdminDashboardClient({
                           <h3 className="font-sans text-[16px] font-semibold leading-snug">
                             {prod.name}
                           </h3>
-                          <p className="font-inter text-[12px] text-[#201914]/60 truncate">
+                          <p className="font-inter text-[12px] text-[#2B1B1D]/60 truncate">
                             {prod.tagline}
                           </p>
                         </div>
                       </div>
 
-                      <p className="font-inter text-[12px] text-[#201914]/70 line-clamp-2 leading-relaxed">
+                      <p className="font-inter text-[12px] text-[#2B1B1D]/70 line-clamp-2 leading-relaxed">
                         {prod.description}
                       </p>
                     </div>
 
-                    <div className="pt-3 border-t border-[#201914]/8 space-y-3">
+                    <div className="pt-3 border-t border-[#2B1B1D]/8 space-y-3">
                       <div className="flex items-center justify-between font-inter text-[13px]">
                         <div>
                           <span className="font-sans text-lg font-semibold">
                             {formatRupiah(prod.price)}
                           </span>
-                          <span className="text-[12px] text-[#201914]/55 ml-1.5">
+                          <span className="text-[12px] text-[#2B1B1D]/55 ml-1.5">
                             / {prod.weightGram}g
                           </span>
                         </div>
@@ -1015,7 +1015,7 @@ export default function AdminDashboardClient({
                           onClick={() =>
                             setProductModal({ open: true, item: prod })
                           }
-                          className="flex-1 py-2 rounded-full bg-[#F1E6D8] hover:bg-[#D7D1C3] font-inter text-[12px] font-semibold inline-flex items-center justify-center gap-1.5 transition-colors"
+                          className="flex-1 py-2 rounded-full bg-[#FBF1F2] hover:bg-[#F3DFE2] font-inter text-[12px] font-semibold inline-flex items-center justify-center gap-1.5 transition-colors"
                         >
                           <Edit3 className="w-3.5 h-3.5" />
                           <span>Edit</span>
@@ -1033,7 +1033,7 @@ export default function AdminDashboardClient({
                             <button
                               type="button"
                               onClick={() => setConfirmDeleteId(null)}
-                              className="px-2 py-0.5 rounded-full bg-white text-[#201914] text-[11px]"
+                              className="px-2 py-0.5 rounded-full bg-white text-[#2B1B1D] text-[11px]"
                             >
                               Batal
                             </button>
@@ -1042,7 +1042,7 @@ export default function AdminDashboardClient({
                           <button
                             type="button"
                             onClick={() => setConfirmDeleteId(prod.id)}
-                            className="p-2 rounded-full border border-[#201914]/12 text-[#201914]/55 hover:text-red-600 hover:border-red-300 transition-colors"
+                            className="p-2 rounded-full border border-[#2B1B1D]/12 text-[#2B1B1D]/55 hover:text-red-600 hover:border-red-300 transition-colors"
                             aria-label={`Hapus produk ${prod.name}`}
                           >
                             <Trash2 className="w-4 h-4" />
@@ -1064,7 +1064,7 @@ export default function AdminDashboardClient({
                   <h1 className="font-sans text-2xl sm:text-4xl font-normal tracking-[-0.02em]">
                     Rekam Uji Lab Teknologi Farmasi
                   </h1>
-                  <p className="font-inter text-[13px] sm:text-[14px] text-[#201914]/65">
+                  <p className="font-inter text-[13px] sm:text-[14px] text-[#2B1B1D]/65">
                     Data kualitas sediaan per batch produksi (pH, organoleptik,
                     uji iritasi, hedonik) untuk integrasi lintas bidang PLB.
                   </p>
@@ -1073,15 +1073,15 @@ export default function AdminDashboardClient({
                 <button
                   type="button"
                   onClick={() => setBatchModal({ open: true, item: null })}
-                  className="px-5 py-3 rounded-full bg-[#2D3622] hover:bg-[#201914] text-[#F1E6D8] font-inter text-[13px] font-semibold inline-flex items-center gap-2 transition-colors w-fit"
+                  className="px-5 py-3 rounded-full bg-[#4D2E33] hover:bg-[#2B1B1D] text-[#FBF1F2] font-inter text-[13px] font-semibold inline-flex items-center gap-2 transition-colors w-fit"
                 >
-                  <Plus className="w-4 h-4 text-[#D4A359]" />
+                  <Plus className="w-4 h-4 text-[#E7B6B4]" />
                   <span>Tambah Batch Uji Lab</span>
                 </button>
               </div>
 
               {batches.length === 0 ? (
-                <div className="rounded-[20px] bg-white border border-[#201914]/10 p-10 text-center font-inter text-[14px] text-[#201914]/60">
+                <div className="rounded-[20px] bg-white border border-[#2B1B1D]/10 p-10 text-center font-inter text-[14px] text-[#2B1B1D]/60">
                   Belum ada catatan batch uji lab. Klik &ldquo;Tambah Batch Uji Lab&rdquo;
                   untuk mencatat hasil evaluasi tim Farmasi.
                 </div>
@@ -1092,12 +1092,12 @@ export default function AdminDashboardClient({
                     return (
                       <div
                         key={batch.id}
-                        className="rounded-[22px] bg-white border border-[#201914]/10 p-5 sm:p-6 space-y-4"
+                        className="rounded-[22px] bg-white border border-[#2B1B1D]/10 p-5 sm:p-6 space-y-4"
                       >
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#201914]/8">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#2B1B1D]/8">
                           <div className="space-y-1">
                             <div className="flex flex-wrap items-center gap-2.5">
-                              <span className="font-mono text-[14px] font-semibold px-3 py-1 rounded-full bg-[#201914] text-[#F1E6D8]">
+                              <span className="font-mono text-[14px] font-semibold px-3 py-1 rounded-full bg-[#2B1B1D] text-[#FBF1F2]">
                                 {batch.batchCode}
                               </span>
                               <span
@@ -1111,16 +1111,16 @@ export default function AdminDashboardClient({
                             </h3>
                           </div>
 
-                          <div className="font-inter text-[12px] text-[#201914]/65 sm:text-right space-y-0.5">
+                          <div className="font-inter text-[12px] text-[#2B1B1D]/65 sm:text-right space-y-0.5">
                             <p>
                               Produksi:{" "}
-                              <strong className="text-[#201914]">
+                              <strong className="text-[#2B1B1D]">
                                 {formatDateID(batch.productionDate)}
                               </strong>
                             </p>
                             <p>
                               Masa Simpan (BUD):{" "}
-                              <strong className="text-[#201914]">
+                              <strong className="text-[#2B1B1D]">
                                 {formatDateID(batch.expiryDate)}
                               </strong>
                             </p>
@@ -1128,55 +1128,55 @@ export default function AdminDashboardClient({
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 font-inter text-[12px]">
-                          <div className="p-3 rounded-[12px] bg-[#F1E6D8]/50">
-                            <span className="text-[#201914]/55 block mb-0.5">
+                          <div className="p-3 rounded-[12px] bg-[#FBF1F2]/50">
+                            <span className="text-[#2B1B1D]/55 block mb-0.5">
                               pH Sediaan
                             </span>
-                            <span className="font-semibold text-[15px] text-[#201914]">
+                            <span className="font-semibold text-[15px] text-[#2B1B1D]">
                               {batch.phLevel}
                             </span>
                           </div>
-                          <div className="p-3 rounded-[12px] bg-[#F1E6D8]/50">
-                            <span className="text-[#201914]/55 block mb-0.5">
+                          <div className="p-3 rounded-[12px] bg-[#FBF1F2]/50">
+                            <span className="text-[#2B1B1D]/55 block mb-0.5">
                               Skor Uji Hedonik
                             </span>
-                            <span className="font-semibold text-[15px] text-[#201914]">
+                            <span className="font-semibold text-[15px] text-[#2B1B1D]">
                               {batch.hedonicScore.toFixed(1)} / 5.0
                             </span>
                           </div>
-                          <div className="p-3 rounded-[12px] bg-[#F1E6D8]/50">
-                            <span className="text-[#201914]/55 block mb-0.5">
+                          <div className="p-3 rounded-[12px] bg-[#FBF1F2]/50">
+                            <span className="text-[#2B1B1D]/55 block mb-0.5">
                               Homogenitas
                             </span>
-                            <span className="font-medium text-[#201914]">
+                            <span className="font-medium text-[#2B1B1D]">
                               {batch.homogeneity}
                             </span>
                           </div>
-                          <div className="p-3 rounded-[12px] bg-[#F1E6D8]/50">
-                            <span className="text-[#201914]/55 block mb-0.5">
+                          <div className="p-3 rounded-[12px] bg-[#FBF1F2]/50">
+                            <span className="text-[#2B1B1D]/55 block mb-0.5">
                               Uji Iritasi
                             </span>
-                            <span className="font-medium text-[#201914]">
+                            <span className="font-medium text-[#2B1B1D]">
                               {batch.irritationTest}
                             </span>
                           </div>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 font-inter text-[12px] text-[#201914]/80">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 font-inter text-[12px] text-[#2B1B1D]/80">
                           <div>
-                            <span className="text-[#201914]/50 block">
+                            <span className="text-[#2B1B1D]/50 block">
                               Organoleptik Warna
                             </span>
                             <span>{batch.colorResult}</span>
                           </div>
                           <div>
-                            <span className="text-[#201914]/50 block">
+                            <span className="text-[#2B1B1D]/50 block">
                               Organoleptik Aroma
                             </span>
                             <span>{batch.aromaResult}</span>
                           </div>
                           <div>
-                            <span className="text-[#201914]/50 block">
+                            <span className="text-[#2B1B1D]/50 block">
                               Organoleptik Tekstur
                             </span>
                             <span>{batch.textureResult}</span>
@@ -1184,17 +1184,17 @@ export default function AdminDashboardClient({
                         </div>
 
                         {batch.notes && (
-                          <p className="font-inter text-[12px] text-[#201914]/70 bg-[#F1E6D8]/40 p-3 rounded-[10px]">
+                          <p className="font-inter text-[12px] text-[#2B1B1D]/70 bg-[#FBF1F2]/40 p-3 rounded-[10px]">
                             Catatan Formulator ({batch.formulatorName}):{" "}
                             {batch.notes}
                           </p>
                         )}
 
-                        <div className="pt-3 border-t border-[#201914]/8 flex flex-wrap items-center justify-between gap-3">
+                        <div className="pt-3 border-t border-[#2B1B1D]/8 flex flex-wrap items-center justify-between gap-3">
                           <Link
                             href={`/batch/${encodeURIComponent(batch.batchCode)}`}
                             target="_blank"
-                            className="px-4 py-2 rounded-full bg-[#F1E6D8] hover:bg-[#D7D1C3] font-inter text-[12px] font-semibold inline-flex items-center gap-1.5 transition-colors"
+                            className="px-4 py-2 rounded-full bg-[#FBF1F2] hover:bg-[#F3DFE2] font-inter text-[12px] font-semibold inline-flex items-center gap-1.5 transition-colors"
                           >
                             <ExternalLink className="w-3.5 h-3.5" />
                             <span>Buka Halaman Uji Lab Publik</span>
@@ -1206,7 +1206,7 @@ export default function AdminDashboardClient({
                               onClick={() =>
                                 setBatchModal({ open: true, item: batch })
                               }
-                              className="px-4 py-2 rounded-full border border-[#201914]/15 hover:bg-[#201914] hover:text-[#F1E6D8] font-inter text-[12px] font-medium inline-flex items-center gap-1.5 transition-colors"
+                              className="px-4 py-2 rounded-full border border-[#2B1B1D]/15 hover:bg-[#2B1B1D] hover:text-[#FBF1F2] font-inter text-[12px] font-medium inline-flex items-center gap-1.5 transition-colors"
                             >
                               <Edit3 className="w-3.5 h-3.5" />
                               <span>Edit Batch</span>
@@ -1227,7 +1227,7 @@ export default function AdminDashboardClient({
                                 <button
                                   type="button"
                                   onClick={() => setConfirmDeleteId(null)}
-                                  className="px-2 py-0.5 rounded-full bg-white text-[#201914] text-[11px]"
+                                  className="px-2 py-0.5 rounded-full bg-white text-[#2B1B1D] text-[11px]"
                                 >
                                   Batal
                                 </button>
@@ -1236,7 +1236,7 @@ export default function AdminDashboardClient({
                               <button
                                 type="button"
                                 onClick={() => setConfirmDeleteId(batch.id)}
-                                className="p-2 rounded-full border border-[#201914]/12 text-[#201914]/55 hover:text-red-600 hover:border-red-300 transition-colors"
+                                className="p-2 rounded-full border border-[#2B1B1D]/12 text-[#2B1B1D]/55 hover:text-red-600 hover:border-red-300 transition-colors"
                                 aria-label={`Hapus batch ${batch.batchCode}`}
                               >
                                 <Trash2 className="w-4 h-4" />
@@ -1268,7 +1268,7 @@ export default function AdminDashboardClient({
                 <h1 className="font-sans text-2xl sm:text-4xl font-normal tracking-[-0.02em]">
                   Keamanan &amp; Status Neon DB
                 </h1>
-                <p className="font-inter text-[13px] sm:text-[14px] text-[#201914]/65">
+                <p className="font-inter text-[13px] sm:text-[14px] text-[#2B1B1D]/65">
                   Status sinkronisasi otomatis GitHub → Vercel Build → Neon
                   PostgreSQL serta pengaturan akun admin.
                 </p>
@@ -1276,13 +1276,13 @@ export default function AdminDashboardClient({
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Update Admin Account & Password Card (DB) */}
-                <div className="rounded-[22px] bg-white border border-[#201914]/10 p-6 space-y-4">
+                <div className="rounded-[22px] bg-white border border-[#2B1B1D]/10 p-6 space-y-4">
                   <div className="space-y-1">
                     <h2 className="font-sans text-lg font-medium">
                       Ubah Username &amp; Sandi Admin (Database)
                     </h2>
-                    <p className="font-inter text-[12px] text-[#201914]/60">
-                      Tersimpan langsung ke tabel <code className="text-[#2D3622]">AdminUser</code> di database PostgreSQL/Neon.
+                    <p className="font-inter text-[12px] text-[#2B1B1D]/60">
+                      Tersimpan langsung ke tabel <code className="text-[#4D2E33]">AdminUser</code> di database PostgreSQL/Neon.
                     </p>
                   </div>
                   <form
@@ -1291,7 +1291,7 @@ export default function AdminDashboardClient({
                   >
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div className="space-y-1">
-                        <label className="block text-[#201914]/75 font-medium">
+                        <label className="block text-[#2B1B1D]/75 font-medium">
                           Username Login
                         </label>
                         <input
@@ -1300,11 +1300,11 @@ export default function AdminDashboardClient({
                           minLength={3}
                           value={editUsername}
                           onChange={(e) => setEditUsername(e.target.value)}
-                          className="w-full h-[44px] px-3.5 rounded-[10px] bg-[#F1E6D8]/45 border border-[#201914]/15 focus:outline-none focus:border-[#201914]"
+                          className="w-full h-[44px] px-3.5 rounded-[10px] bg-[#FBF1F2]/45 border border-[#2B1B1D]/15 focus:outline-none focus:border-[#2B1B1D]"
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="block text-[#201914]/75 font-medium">
+                        <label className="block text-[#2B1B1D]/75 font-medium">
                           Nama Tampilan
                         </label>
                         <input
@@ -1312,12 +1312,12 @@ export default function AdminDashboardClient({
                           required
                           value={editDisplayName}
                           onChange={(e) => setEditDisplayName(e.target.value)}
-                          className="w-full h-[44px] px-3.5 rounded-[10px] bg-[#F1E6D8]/45 border border-[#201914]/15 focus:outline-none focus:border-[#201914]"
+                          className="w-full h-[44px] px-3.5 rounded-[10px] bg-[#FBF1F2]/45 border border-[#2B1B1D]/15 focus:outline-none focus:border-[#2B1B1D]"
                         />
                       </div>
                     </div>
                     <div className="space-y-1">
-                      <label className="block text-[#201914]/75 font-medium">
+                      <label className="block text-[#2B1B1D]/75 font-medium">
                         Sandi Saat Ini *
                       </label>
                       <input
@@ -1325,11 +1325,11 @@ export default function AdminDashboardClient({
                         required
                         value={currentPassword}
                         onChange={(e) => setCurrentPassword(e.target.value)}
-                        className="w-full h-[44px] px-3.5 rounded-[10px] bg-[#F1E6D8]/45 border border-[#201914]/15 focus:outline-none focus:border-[#201914]"
+                        className="w-full h-[44px] px-3.5 rounded-[10px] bg-[#FBF1F2]/45 border border-[#2B1B1D]/15 focus:outline-none focus:border-[#2B1B1D]"
                       />
                     </div>
                     <div className="space-y-1">
-                      <label className="block text-[#201914]/75 font-medium">
+                      <label className="block text-[#2B1B1D]/75 font-medium">
                         Sandi Baru (Opsional, min. 6 karakter)
                       </label>
                       <input
@@ -1338,11 +1338,11 @@ export default function AdminDashboardClient({
                         value={newPassword}
                         onChange={(e) => setNewPassword(e.target.value)}
                         placeholder="Kosongkan jika hanya mengganti username"
-                        className="w-full h-[44px] px-3.5 rounded-[10px] bg-[#F1E6D8]/45 border border-[#201914]/15 focus:outline-none focus:border-[#201914]"
+                        className="w-full h-[44px] px-3.5 rounded-[10px] bg-[#FBF1F2]/45 border border-[#2B1B1D]/15 focus:outline-none focus:border-[#2B1B1D]"
                       />
                     </div>
                     <div className="space-y-1">
-                      <label className="block text-[#201914]/75 font-medium">
+                      <label className="block text-[#2B1B1D]/75 font-medium">
                         Ulangi Sandi Baru
                       </label>
                       <input
@@ -1351,13 +1351,13 @@ export default function AdminDashboardClient({
                         required={Boolean(newPassword)}
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
-                        className="w-full h-[44px] px-3.5 rounded-[10px] bg-[#F1E6D8]/45 border border-[#201914]/15 focus:outline-none focus:border-[#201914]"
+                        className="w-full h-[44px] px-3.5 rounded-[10px] bg-[#FBF1F2]/45 border border-[#2B1B1D]/15 focus:outline-none focus:border-[#2B1B1D]"
                       />
                     </div>
                     <button
                       type="submit"
                       disabled={changingPass}
-                      className="px-6 py-2.5 rounded-full bg-[#201914] hover:bg-[#2D3622] text-[#F1E6D8] font-semibold transition-colors disabled:opacity-50"
+                      className="px-6 py-2.5 rounded-full bg-[#2B1B1D] hover:bg-[#4D2E33] text-[#FBF1F2] font-semibold transition-colors disabled:opacity-50"
                     >
                       {changingPass ? "Menyimpan..." : "Simpan Akun ke Database"}
                     </button>
@@ -1365,7 +1365,7 @@ export default function AdminDashboardClient({
                 </div>
 
                 {/* Environment Status Card */}
-                <div className="rounded-[22px] bg-[#201914] text-[#F1E6D8] p-6 space-y-4">
+                <div className="rounded-[22px] bg-[#2B1B1D] text-[#FBF1F2] p-6 space-y-4">
                   <h2 className="font-sans text-lg font-medium">
                     Checklist Integrasi Vercel + Neon
                   </h2>
@@ -1388,7 +1388,7 @@ export default function AdminDashboardClient({
                         key={row.label}
                         className="p-3 rounded-[12px] bg-white/[0.05] border border-white/[0.08] flex items-center justify-between gap-2"
                       >
-                        <span className="text-[#F1E6D8]/85">{row.label}</span>
+                        <span className="text-[#FBF1F2]/85">{row.label}</span>
                         <span
                           className={`px-2.5 py-0.5 rounded-full text-[11px] font-semibold ${
                             row.ok
@@ -1401,11 +1401,11 @@ export default function AdminDashboardClient({
                       </div>
                     ))}
                   </div>
-                  <p className="font-inter text-[12px] text-[#F1E6D8]/65 leading-relaxed">
+                  <p className="font-inter text-[12px] text-[#FBF1F2]/65 leading-relaxed">
                     Setiap kali Anda push ke GitHub dan men-deploy di Vercel,
-                    script <code className="text-[#D4A359]">vercel-db-sync.mjs</code>{" "}
-                    otomatis menjalankan <code className="text-[#D4A359]">prisma db push</code>{" "}
-                    dan <code className="text-[#D4A359]">seed-db.mjs</code> ke database
+                    script <code className="text-[#E7B6B4]">vercel-db-sync.mjs</code>{" "}
+                    otomatis menjalankan <code className="text-[#E7B6B4]">prisma db push</code>{" "}
+                    dan <code className="text-[#E7B6B4]">seed-db.mjs</code> ke database
                     Neon tanpa merusak data yang sudah diubah Admin.
                   </p>
                 </div>

@@ -71,19 +71,19 @@ export default function AdminLoginForm({
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#F1E6D8] flex flex-col items-center justify-center px-4 py-12">
+    <div className="min-h-screen w-full bg-[#FBF1F2] flex flex-col items-center justify-center px-4 py-12">
       <div className="w-full max-w-[440px] space-y-6">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 font-inter text-[13px] font-medium text-[#201914]/70 hover:text-[#201914] transition-colors"
+          className="inline-flex items-center gap-2 font-inter text-[13px] font-medium text-[#2B1B1D]/70 hover:text-[#2B1B1D] transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Kembali ke Website Glam &amp; Glow</span>
         </Link>
 
-        <div className="rounded-[24px] bg-[#201914] text-[#F1E6D8] p-7 sm:p-9 border border-white/[0.08] shadow-xl space-y-6">
+        <div className="rounded-[24px] bg-[#2B1B1D] text-[#FBF1F2] p-7 sm:p-9 border border-white/[0.08] shadow-xl space-y-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.08] font-inter text-[11px] uppercase tracking-[0.12em] text-[#D4A359]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.08] font-inter text-[11px] uppercase tracking-[0.12em] text-[#E7B6B4]">
               {needsInitialSetup ? (
                 <UserPlus className="w-3 h-3" />
               ) : (
@@ -93,12 +93,12 @@ export default function AdminLoginForm({
                 {needsInitialSetup ? "Setup Admin Pertama" : "Portal Admin"}
               </span>
             </div>
-            <h1 className="font-sans text-2xl sm:text-3xl font-normal tracking-[-0.02em] text-[#F1E6D8]">
+            <h1 className="font-sans text-2xl sm:text-3xl font-normal tracking-[-0.02em] text-[#FBF1F2]">
               {needsInitialSetup
                 ? "Buat Akun Admin Pertama"
                 : "Panel Kontrol PLB"}
             </h1>
-            <p className="font-inter text-[13px] text-[#F1E6D8]/65 leading-relaxed">
+            <p className="font-inter text-[13px] text-[#FBF1F2]/65 leading-relaxed">
               {needsInitialSetup
                 ? "Tabel Admin di database masih kosong. Daftarkan username dan sandi pertama Anda langsung ke database."
                 : "Masuk dengan akun admin yang terdaftar di database untuk mengelola pesanan, konten halaman, dan data uji lab."}
@@ -116,12 +116,12 @@ export default function AdminLoginForm({
             <div className="space-y-1.5">
               <label
                 htmlFor="username"
-                className="block font-inter text-[12px] uppercase tracking-[0.08em] text-[#F1E6D8]/70 font-medium"
+                className="block font-inter text-[12px] uppercase tracking-[0.08em] text-[#FBF1F2]/70 font-medium"
               >
                 Username
               </label>
               <div className="relative">
-                <User className="w-4 h-4 text-[#F1E6D8]/45 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <User className="w-4 h-4 text-[#FBF1F2]/45 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                 <input
                   id="username"
                   name="username"
@@ -132,7 +132,7 @@ export default function AdminLoginForm({
                   onChange={(e) => setUsername(e.target.value)}
                   autoComplete="username"
                   placeholder="Masukkan username"
-                  className="w-full h-[48px] pl-11 pr-4 rounded-[12px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] placeholder-[#F1E6D8]/35 font-inter text-[14px] focus:outline-none focus:border-[#D4A359] transition-colors"
+                  className="w-full h-[48px] pl-11 pr-4 rounded-[12px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] placeholder-[#FBF1F2]/35 font-inter text-[14px] focus:outline-none focus:border-[#E7B6B4] transition-colors"
                 />
               </div>
             </div>
@@ -141,7 +141,7 @@ export default function AdminLoginForm({
               <div className="space-y-1.5">
                 <label
                   htmlFor="displayName"
-                  className="block font-inter text-[12px] uppercase tracking-[0.08em] text-[#F1E6D8]/70 font-medium"
+                  className="block font-inter text-[12px] uppercase tracking-[0.08em] text-[#FBF1F2]/70 font-medium"
                 >
                   Nama Tampilan (Opsional)
                 </label>
@@ -152,7 +152,7 @@ export default function AdminLoginForm({
                   value={displayName}
                   onChange={(e) => setDisplayName(e.target.value)}
                   placeholder="Contoh: Owner Glam & Glow"
-                  className="w-full h-[48px] px-4 rounded-[12px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] placeholder-[#F1E6D8]/35 font-inter text-[14px] focus:outline-none focus:border-[#D4A359] transition-colors"
+                  className="w-full h-[48px] px-4 rounded-[12px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] placeholder-[#FBF1F2]/35 font-inter text-[14px] focus:outline-none focus:border-[#E7B6B4] transition-colors"
                 />
               </div>
             )}
@@ -160,12 +160,12 @@ export default function AdminLoginForm({
             <div className="space-y-1.5">
               <label
                 htmlFor="password"
-                className="block font-inter text-[12px] uppercase tracking-[0.08em] text-[#F1E6D8]/70 font-medium"
+                className="block font-inter text-[12px] uppercase tracking-[0.08em] text-[#FBF1F2]/70 font-medium"
               >
                 Sandi
               </label>
               <div className="relative">
-                <Lock className="w-4 h-4 text-[#F1E6D8]/45 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <Lock className="w-4 h-4 text-[#FBF1F2]/45 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                 <input
                   id="password"
                   name="password"
@@ -178,12 +178,12 @@ export default function AdminLoginForm({
                     needsInitialSetup ? "new-password" : "current-password"
                   }
                   placeholder="••••••••"
-                  className="w-full h-[48px] pl-11 pr-11 rounded-[12px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] placeholder-[#F1E6D8]/35 font-inter text-[14px] focus:outline-none focus:border-[#D4A359] transition-colors"
+                  className="w-full h-[48px] pl-11 pr-11 rounded-[12px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] placeholder-[#FBF1F2]/35 font-inter text-[14px] focus:outline-none focus:border-[#E7B6B4] transition-colors"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((prev) => !prev)}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#F1E6D8]/50 hover:text-[#F1E6D8] p-1"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#FBF1F2]/50 hover:text-[#FBF1F2] p-1"
                   aria-label="Tampilkan atau sembunyikan password"
                 >
                   {showPassword ? (
@@ -199,7 +199,7 @@ export default function AdminLoginForm({
               <div className="space-y-1.5">
                 <label
                   htmlFor="confirmPassword"
-                  className="block font-inter text-[12px] uppercase tracking-[0.08em] text-[#F1E6D8]/70 font-medium"
+                  className="block font-inter text-[12px] uppercase tracking-[0.08em] text-[#FBF1F2]/70 font-medium"
                 >
                   Ulangi Sandi
                 </label>
@@ -213,7 +213,7 @@ export default function AdminLoginForm({
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   autoComplete="new-password"
                   placeholder="••••••••"
-                  className="w-full h-[48px] px-4 rounded-[12px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] placeholder-[#F1E6D8]/35 font-inter text-[14px] focus:outline-none focus:border-[#D4A359] transition-colors"
+                  className="w-full h-[48px] px-4 rounded-[12px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] placeholder-[#FBF1F2]/35 font-inter text-[14px] focus:outline-none focus:border-[#E7B6B4] transition-colors"
                 />
               </div>
             )}
@@ -222,7 +222,7 @@ export default function AdminLoginForm({
               <button
                 type="submit"
                 disabled={pending}
-                className="w-full h-[50px] rounded-full bg-[#F1E6D8] hover:bg-white text-[#201914] font-inter text-[14px] font-semibold transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full h-[50px] rounded-full bg-[#FBF1F2] hover:bg-white text-[#2B1B1D] font-inter text-[14px] font-semibold transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {pending ? (
                   <span>
@@ -244,7 +244,7 @@ export default function AdminLoginForm({
             </div>
           </form>
 
-          <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between font-inter text-[12px] text-[#F1E6D8]/55">
+          <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between font-inter text-[12px] text-[#FBF1F2]/55">
             <span>Status Database</span>
             <span
               className={`inline-flex items-center gap-1.5 font-medium ${

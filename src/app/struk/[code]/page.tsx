@@ -19,7 +19,7 @@ export default async function StrukPage({
   const serverReceipt = await getOrderReceiptPayload(orderCode);
 
   return (
-    <div className="w-full bg-[#F1E6D8] pt-28 pb-16 px-3 sm:px-6 min-h-[82vh]">
+    <div className="w-full bg-[#FBF1F2] pt-28 pb-16 px-3 sm:px-6 min-h-[82vh]">
       <ReceiptView orderCode={orderCode} serverReceipt={serverReceipt} />
     </div>
   );

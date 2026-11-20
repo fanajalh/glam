@@ -68,7 +68,7 @@ export default async function RootLayout({
 
   return (
     <html lang="id" className={`${manrope.variable} ${inter.variable}`}>
-      <body className="antialiased min-h-screen flex flex-col bg-[#F1E6D8] text-[#261C18] font-sans">
+      <body className="antialiased min-h-screen flex flex-col bg-[#FFF5F6] text-[#2B1B1D] font-sans">
         <SiteContentProvider value={siteContent}>
           <SmoothScroll>
             <CartProvider>

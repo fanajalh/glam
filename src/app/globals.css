@@ -3,16 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --bg-sand: #F1E6D8;
-  --bg-olive: #2D3622;
-  --bg-card: #D7D1C3;
-  --color-coffee: #32160C;
-  --color-gold: #D4A359;
+  --bg-canvas: #FFF5F6;
+  --bg-sand: #FBF1F2;
+  --bg-blush: #F9E6E9;
+  --bg-olive: #4D2E33;
+  --bg-card: #F3DFE2;
+  --color-coffee: #2B1B1D;
+  --color-gold: #C98A8B;
+  --color-rose-gold: #C98A8B;
+  --color-rose-deep: #9E5E63;
 }
 
 html {
-  background-color: #F1E6D8;
-  color: #261C18;
+  background-color: #FFF5F6;
+  color: #2B1B1D;
 }
 
 html.lenis, html.lenis body {
@@ -36,7 +40,7 @@ html.lenis, html.lenis body {
 }
 
 body {
-  background-color: #F1E6D8;
+  background-color: #FFF5F6;
   font-family: var(--font-manrope), 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: clip;
 }
@@ -55,17 +59,17 @@ body {
 
 /* Glassmorphism Pill */
 .glass-pill {
-  background: rgba(241, 230, 216, 0.25);
+  background: rgba(251, 241, 242, 0.32);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.45);
 }
 
 .glass-pill-dark {
-  background: rgba(45, 54, 34, 0.4);
+  background: rgba(77, 46, 51, 0.48);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(251, 241, 242, 0.18);
 }
 
 /* Card Fan Angles (Matching exact Figma SVG angles) */
@@ -87,7 +91,7 @@ body {
 
 /* Texture Pattern Overlay */
 .bg-subtle-noise {
-  background-image: radial-gradient(rgba(50, 22, 12, 0.04) 1px, transparent 0);
+  background-image: radial-gradient(rgba(77, 46, 51, 0.045) 1px, transparent 0);
   background-size: 24px 24px;
 }
 

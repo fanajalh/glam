@@ -33,7 +33,7 @@ export default function HeroBanner() {
       className="relative w-full max-w-[1560px] mx-auto px-2 sm:px-3 pt-2 sm:pt-3 pb-1.5"
     >
       {/* Orvéli Hero Container: responsive height, r: 24px */}
-      <div className="relative w-full rounded-[24px] overflow-hidden h-[86vh] sm:h-[92vh] min-h-[500px] sm:min-h-[640px] max-h-[960px] flex items-center justify-center bg-[#201914]">
+      <div className="relative w-full rounded-[24px] overflow-hidden h-[86vh] sm:h-[92vh] min-h-[500px] sm:min-h-[640px] max-h-[960px] flex items-center justify-center bg-[#2B1B1D]">
         {/* Hero Background Photo: Zoom scale(1.12 -> 1) */}
         <motion.div
           initial={{ scale: 1.12 }}
@@ -50,7 +50,7 @@ export default function HeroBanner() {
             sizes="(max-width: 1440px) 100vw, 1440px"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#2B1B1D]/45 via-[#4D2E33]/30 to-[#2B1B1D]/55" />
         </motion.div>
 
         {/* Orvéli Centered Vertical Glass Panel */}
@@ -62,7 +62,7 @@ export default function HeroBanner() {
           className="relative z-20 max-w-[700px] mx-auto px-4 sm:px-6 text-center space-y-4 sm:space-y-6 pt-6 sm:pt-10 flex flex-col items-center justify-center"
         >
           {/* Main Heading: 2 baris rapi dan simetris */}
-          <h1 className="font-sans font-normal text-3xl sm:text-6xl lg:text-[76px] text-[#F1E6D8] tracking-[-0.04em] leading-[1.08] flex flex-col items-center text-center">
+          <h1 className="font-sans font-normal text-3xl sm:text-6xl lg:text-[76px] text-[#FBF1F2] tracking-[-0.04em] leading-[1.08] flex flex-col items-center text-center">
             <CharReveal
               text={home.heroLine1}
               delay={0.1}
@@ -79,7 +79,7 @@ export default function HeroBanner() {
 
           {/* Subtitle: Sesuai deskripsi resmi produk */}
           <Reveal direction="up" delay={0.42}>
-            <p className="font-sans text-[15px] sm:text-[19px] text-[#F1E6D8]/85 max-w-[480px] mx-auto leading-[1.45] text-center">
+            <p className="font-sans text-[15px] sm:text-[19px] text-[#FBF1F2]/85 max-w-[480px] mx-auto leading-[1.45] text-center">
               {home.heroSubtitle}
             </p>
           </Reveal>
@@ -94,7 +94,7 @@ export default function HeroBanner() {
             <Magnetic strength={0.22}>
               <Link
                 href="/produk"
-                className="group/roll inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-[#F1E6D8]/20 hover:bg-[#F1E6D8] text-[#F1E6D8] hover:text-[#201914] backdrop-blur-[10px] text-[14px] sm:text-[16px] font-inter font-medium transition-all duration-300"
+                className="group/roll inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-[#FBF1F2]/22 border border-[#FBF1F2]/30 hover:bg-[#FBF1F2] text-[#FBF1F2] hover:text-[#2B1B1D] backdrop-blur-[12px] text-[14px] sm:text-[16px] font-inter font-medium transition-all duration-300"
               >
                 <RollingText text={home.heroPrimaryCta} />
               </Link>
@@ -103,7 +103,7 @@ export default function HeroBanner() {
             <Magnetic strength={0.22}>
               <Link
                 href="/pembelian"
-                className="group/roll inline-flex items-center justify-center px-5 sm:px-7 py-3 sm:py-4 rounded-full bg-black/30 hover:bg-[#F1E6D8]/20 text-[#F1E6D8] backdrop-blur-[10px] text-[14px] sm:text-[16px] font-inter font-medium transition-all duration-300"
+                className="group/roll inline-flex items-center justify-center px-5 sm:px-7 py-3 sm:py-4 rounded-full bg-[#4D2E33]/55 border border-[#E7B6B4]/30 hover:bg-[#4D2E33]/85 text-[#FBF1F2] backdrop-blur-[12px] text-[14px] sm:text-[16px] font-inter font-medium transition-all duration-300"
               >
                 <RollingText text={home.heroSecondaryCta} />
               </Link>

@@ -23,18 +23,18 @@ export default function Footer() {
 
   return (
     <footer className="w-full max-w-[1560px] mx-auto px-2 sm:px-3 pt-1.5 pb-3 print:hidden">
-      {/* Orvéli Footer Container (`framer-1311`: bg #201914, r: 24px) */}
-      <div className="w-full rounded-[24px] bg-[#201914] text-[#F1E6D8] py-12 sm:py-20 lg:py-24 px-4 sm:px-8 lg:px-12 flex flex-col justify-between gap-10 sm:gap-14 overflow-hidden">
+      {/* Velvet Rosewood Footer Container (bg #361D22, r: 24px) */}
+      <div className="w-full rounded-[24px] bg-[#361D22] border border-[#E7B6B4]/15 text-[#FBF1F2] py-12 sm:py-20 lg:py-24 px-4 sm:px-8 lg:px-12 flex flex-col justify-between gap-10 sm:gap-14 overflow-hidden">
         {/* Top: Botanical Lotus Mark + Wide Brand Typography */}
         <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 text-center">
-          <BotanicalMarkDraw />
+          <BotanicalMarkDraw fill="#E7B6B4" />
 
-          <h2 className="font-sans font-normal text-2xl sm:text-6xl lg:text-[84px] tracking-[0.12em] sm:tracking-[0.22em] text-[#F1E6D8] uppercase leading-none">
+          <h2 className="font-sans font-normal text-2xl sm:text-6xl lg:text-[84px] tracking-[0.12em] sm:tracking-[0.22em] text-[#FBF1F2] uppercase leading-none">
             {general.brandName}
           </h2>
         </div>
 
-        <ExpandLine className="bg-[#F1E6D8]/16" />
+        <ExpandLine className="bg-[#FBF1F2]/16" />
 
         {/* Center: 3 Info Columns (`VISIT US`, `FOLLOW US`, `GET IN TOUCH`) */}
         <StaggerContainer
@@ -43,10 +43,10 @@ export default function Footer() {
         >
           {/* LOKASI KAMI */}
           <StaggerItem className="space-y-3">
-            <h3 className="font-inter text-[14px] font-medium tracking-[0.14em] text-[#F1E6D8] uppercase">
+            <h3 className="font-inter text-[14px] font-medium tracking-[0.14em] text-[#FBF1F2] uppercase">
               LOKASI KAMI
             </h3>
-            <div className="space-y-1 font-sans text-[16px] text-[#F1E6D8]/68">
+            <div className="space-y-1 font-sans text-[16px] text-[#FBF1F2]/68">
               <p>{general.locationName}</p>
               <p>{general.locationCity}</p>
             </div>
@@ -54,7 +54,7 @@ export default function Footer() {
 
           {/* IKUTI KAMI */}
           <StaggerItem className="space-y-4">
-            <h3 className="font-inter text-[14px] font-medium tracking-[0.14em] text-[#F1E6D8] uppercase">
+            <h3 className="font-inter text-[14px] font-medium tracking-[0.14em] text-[#FBF1F2] uppercase">
               IKUTI KAMI
             </h3>
             <div className="flex items-center justify-center gap-3">
@@ -63,7 +63,7 @@ export default function Footer() {
                   href={general.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-white/[0.08] hover:bg-[#F1E6D8] text-[#F1E6D8] hover:text-[#201914] flex items-center justify-center transition-all duration-300"
+                  className="w-12 h-12 rounded-full bg-white/[0.08] hover:bg-[#FBF1F2] text-[#FBF1F2] hover:text-[#2B1B1D] flex items-center justify-center transition-all duration-300"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5" />
@@ -74,7 +74,7 @@ export default function Footer() {
                   href={`https://wa.me/${general.whatsappNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-white/[0.08] hover:bg-[#F1E6D8] text-[#F1E6D8] hover:text-[#201914] flex items-center justify-center transition-all duration-300"
+                  className="w-12 h-12 rounded-full bg-white/[0.08] hover:bg-[#FBF1F2] text-[#FBF1F2] hover:text-[#2B1B1D] flex items-center justify-center transition-all duration-300"
                   aria-label="WhatsApp"
                 >
                   <MessageCircle className="w-5 h-5" />
@@ -85,69 +85,69 @@ export default function Footer() {
 
           {/* HUBUNGI KAMI */}
           <StaggerItem className="space-y-3">
-            <h3 className="font-inter text-[14px] font-medium tracking-[0.14em] text-[#F1E6D8] uppercase">
+            <h3 className="font-inter text-[14px] font-medium tracking-[0.14em] text-[#FBF1F2] uppercase">
               HUBUNGI KAMI
             </h3>
-            <div className="space-y-1 font-sans text-[16px] text-[#F1E6D8]/68">
+            <div className="space-y-1 font-sans text-[16px] text-[#FBF1F2]/68">
               <a
                 href={`mailto:${general.email}`}
-                className="inline-block group/roll text-[#F1E6D8] hover:text-white transition-colors underline underline-offset-4"
+                className="inline-block group/roll text-[#FBF1F2] hover:text-white transition-colors underline underline-offset-4"
               >
                 <RollingText text={general.email} />
               </a>
-              <p className="text-[14px] text-[#F1E6D8]/50">
+              <p className="text-[14px] text-[#FBF1F2]/50">
                 {general.footerNote}
               </p>
             </div>
           </StaggerItem>
         </StaggerContainer>
 
-        <ExpandLine className="bg-[#F1E6D8]/16" />
+        <ExpandLine className="bg-[#FBF1F2]/16" />
 
         {/* Bottom Bar: Copyright & Navigation Links */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 font-inter text-[14px] text-[#F1E6D8]/68">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 font-inter text-[14px] text-[#FBF1F2]/68">
           <p>© 2026 {general.brandName}. Hak cipta dilindungi.</p>
 
           <div className="flex flex-wrap items-center justify-center gap-6">
             <Link
               href="/"
-              className="group/roll hover:text-[#F1E6D8] transition-colors"
+              className="group/roll hover:text-[#FBF1F2] transition-colors"
             >
               <RollingText text="Beranda" />
             </Link>
             <Link
               href="/tentang-kami"
-              className="group/roll hover:text-[#F1E6D8] transition-colors"
+              className="group/roll hover:text-[#FBF1F2] transition-colors"
             >
               <RollingText text="Tentang Kami" />
             </Link>
             <Link
               href="/produk"
-              className="group/roll hover:text-[#F1E6D8] transition-colors"
+              className="group/roll hover:text-[#FBF1F2] transition-colors"
             >
               <RollingText text="Produk" />
             </Link>
             <Link
               href="/panduan"
-              className="group/roll hover:text-[#F1E6D8] transition-colors"
+              className="group/roll hover:text-[#FBF1F2] transition-colors"
             >
               <RollingText text="Panduan" />
             </Link>
             <Link
               href="/pesan"
-              className="group/roll text-[#F1E6D8] font-medium transition-colors"
+              className="group/roll text-[#FBF1F2] font-medium transition-colors"
             >
               <RollingText text="Kontak & Pesan" />
             </Link>
             <Link
               href="/batch/GG-BL-2026-01"
-              className="group/roll hover:text-[#F1E6D8] transition-colors"
+              className="group/roll hover:text-[#FBF1F2] transition-colors"
             >
               <RollingText text="Cek Batch Lab" />
             </Link>
             <Link
               href="/admin"
-              className="group/roll hover:text-[#F1E6D8] transition-colors"
+              className="group/roll hover:text-[#FBF1F2] transition-colors"
             >
               <RollingText text="Admin" />
             </Link>

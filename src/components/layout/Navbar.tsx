@@ -54,21 +54,21 @@ export default function Navbar() {
     >
       {/* Orvéli Floating Translucent Pill Header (`framer-1se6ix8`: r:100px, blur:8px, gradient dark, border: none) */}
       <div
-        className={`max-w-[1560px] mx-auto rounded-full px-4 sm:px-8 flex items-center justify-between pointer-events-auto transition-all duration-500 shadow-lg border border-white/[0.08] ${
+        className={`max-w-[1560px] mx-auto rounded-full px-4 sm:px-8 flex items-center justify-between pointer-events-auto transition-all duration-500 shadow-lg border border-[#FBF1F2]/15 ${
           useSolidDarkNav
-            ? "h-[64px] bg-[#201914]/95 backdrop-blur-[16px]"
-            : "h-[68px] sm:h-[72px] bg-[#201914]/55 backdrop-blur-[14px]"
+            ? "h-[64px] bg-[#3A2126]/94 backdrop-blur-[16px]"
+            : "h-[68px] sm:h-[72px] bg-[#3A2126]/62 backdrop-blur-[14px]"
         }`}
       >
         {/* Left: Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <span className="font-sans font-semibold text-lg sm:text-[21px] tracking-[0.08em] text-[#F1E6D8] uppercase">
+          <span className="font-sans font-semibold text-lg sm:text-[21px] tracking-[0.08em] text-[#FBF1F2] uppercase">
             {general.brandName}
           </span>
         </Link>
 
         {/* Center: Navigation Menu (`framer-98l0d`: Inter 15px, RollingText + Animated Line) */}
-        <nav className="hidden md:flex items-center gap-8 font-inter text-[15px] font-medium text-[#F1E6D8]">
+        <nav className="hidden md:flex items-center gap-8 font-inter text-[15px] font-medium text-[#FBF1F2]">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -78,12 +78,12 @@ export default function Navbar() {
                 className={`relative py-1.5 group/roll transition-colors ${
                   isActive
                     ? "text-white font-semibold"
-                    : "text-[#F1E6D8]/90 hover:text-white"
+                    : "text-[#FBF1F2]/90 hover:text-white"
                 }`}
               >
                 <RollingText text={link.label} />
                 <span
-                  className={`absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#F1E6D8] transition-transform duration-300 origin-left ${
+                  className={`absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#FBF1F2] transition-transform duration-300 origin-left ${
                     isActive
                       ? "scale-x-100"
                       : "scale-x-0 group-hover/roll:scale-x-100"
@@ -96,7 +96,7 @@ export default function Navbar() {
 
         {/* Right: Utilities (Search, Cart, Order CTA) */}
         <div className="flex items-center gap-5 sm:gap-7">
-          <div className="hidden lg:flex items-center gap-6 font-inter text-[15px] font-medium text-[#F1E6D8]/90">
+          <div className="hidden lg:flex items-center gap-6 font-inter text-[15px] font-medium text-[#FBF1F2]/90">
             <button
               type="button"
               onClick={() => setIsSearchOpen(true)}
@@ -104,7 +104,7 @@ export default function Navbar() {
             >
               <Search className="w-4 h-4" />
               <RollingText text="Cari" />
-              <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#F1E6D8] scale-x-0 group-hover/roll:scale-x-100 transition-transform duration-300 origin-left" />
+              <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#FBF1F2] scale-x-0 group-hover/roll:scale-x-100 transition-transform duration-300 origin-left" />
             </button>
 
             <button
@@ -114,7 +114,7 @@ export default function Navbar() {
             >
               <ShoppingBag className="w-4 h-4" />
               <RollingText text={`Keranjang (${totalCount})`} />
-              <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#F1E6D8] scale-x-0 group-hover/roll:scale-x-100 transition-transform duration-300 origin-left" />
+              <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#FBF1F2] scale-x-0 group-hover/roll:scale-x-100 transition-transform duration-300 origin-left" />
             </button>
           </div>
 
@@ -122,7 +122,7 @@ export default function Navbar() {
             <Magnetic strength={0.2}>
               <Link
                 href="/pembelian"
-                className="px-5 sm:px-6 py-2.5 rounded-full bg-[#F1E6D8]/20 hover:bg-[#F1E6D8] text-[#F1E6D8] hover:text-[#201914] backdrop-blur-md font-inter text-[14px] sm:text-[15px] font-medium transition-all duration-300 flex items-center gap-2 group/roll"
+                className="px-5 sm:px-6 py-2.5 rounded-full bg-[#FBF1F2]/20 hover:bg-[#FBF1F2] text-[#FBF1F2] hover:text-[#2B1B1D] backdrop-blur-md font-inter text-[14px] sm:text-[15px] font-medium transition-all duration-300 flex items-center gap-2 group/roll"
               >
                 <RollingText text="Pesan Sekarang" />
               </Link>
@@ -133,7 +133,7 @@ export default function Navbar() {
           <div className="flex items-center gap-1.5 md:hidden">
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="p-2 rounded-full text-[#F1E6D8] hover:bg-white/10 transition-colors"
+              className="p-2 rounded-full text-[#FBF1F2] hover:bg-white/10 transition-colors"
               aria-label="Cari Produk"
             >
               <Search className="w-5 h-5" />
@@ -141,12 +141,12 @@ export default function Navbar() {
 
             <button
               onClick={() => setIsCartOpen(true)}
-              className="p-2 rounded-full text-[#F1E6D8] hover:bg-white/10 transition-colors relative"
+              className="p-2 rounded-full text-[#FBF1F2] hover:bg-white/10 transition-colors relative"
               aria-label="Buka Keranjang"
             >
               <ShoppingBag className="w-5 h-5" />
               {totalCount > 0 && (
-                <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#D4A359] text-[#201914] font-inter text-[10px] font-bold flex items-center justify-center">
+                <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#E7B6B4] text-[#2B1B1D] font-inter text-[10px] font-bold flex items-center justify-center">
                   {totalCount}
                 </span>
               )}
@@ -154,7 +154,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-full text-[#F1E6D8] hover:bg-white/10 transition-colors"
+              className="p-2 rounded-full text-[#FBF1F2] hover:bg-white/10 transition-colors"
               aria-label="Buka Menu"
             >
               {mobileMenuOpen ? (
@@ -175,7 +175,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.97 }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden max-w-[1382px] mx-auto mt-2 rounded-[28px] bg-[#201914]/95 border border-white/[0.08] backdrop-blur-xl shadow-2xl p-5 space-y-2 pointer-events-auto"
+            className="md:hidden max-w-[1382px] mx-auto mt-2 rounded-[28px] bg-[#2B1B1D]/95 border border-white/[0.08] backdrop-blur-xl shadow-2xl p-5 space-y-2 pointer-events-auto"
           >
             {navLinks.map((link, idx) => (
               <motion.div
@@ -187,7 +187,7 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block font-inter text-[16px] font-medium py-2.5 px-3.5 rounded-xl hover:bg-white/10 text-[#F1E6D8] transition-colors"
+                  className="block font-inter text-[16px] font-medium py-2.5 px-3.5 rounded-xl hover:bg-white/10 text-[#FBF1F2] transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -200,7 +200,7 @@ export default function Navbar() {
                   setMobileMenuOpen(false);
                   setIsSearchOpen(true);
                 }}
-                className="w-full py-3 rounded-full bg-white/10 text-[#F1E6D8] font-inter text-[15px] font-medium flex items-center justify-center gap-2"
+                className="w-full py-3 rounded-full bg-white/10 text-[#FBF1F2] font-inter text-[15px] font-medium flex items-center justify-center gap-2"
               >
                 <Search className="w-4 h-4" />
                 <span>Cari Produk & Info</span>
@@ -208,7 +208,7 @@ export default function Navbar() {
               <Link
                 href="/pembelian"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-3.5 px-4 rounded-full bg-[#F1E6D8] text-[#201914] font-inter text-[15px] font-semibold text-center block whitespace-nowrap"
+                className="w-full py-3.5 px-4 rounded-full bg-[#FBF1F2] text-[#2B1B1D] font-inter text-[15px] font-semibold text-center block whitespace-nowrap"
               >
                 Pesan Sekarang • Rp 35.000
               </Link>

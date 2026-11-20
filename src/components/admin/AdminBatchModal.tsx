@@ -116,13 +116,13 @@ export default function AdminBatchModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-      <div className="w-full max-w-[680px] max-h-[90vh] overflow-y-auto rounded-[24px] bg-[#201914] text-[#F1E6D8] border border-white/[0.1] p-6 sm:p-8 shadow-2xl space-y-5">
+      <div className="w-full max-w-[680px] max-h-[90vh] overflow-y-auto rounded-[24px] bg-[#2B1B1D] text-[#FBF1F2] border border-white/[0.1] p-6 sm:p-8 shadow-2xl space-y-5">
         <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
           <div>
             <h3 className="font-sans text-xl font-normal">
               {batch ? `Edit Batch ${batch.batchCode}` : "Tambah Batch Uji Lab Farmasi"}
             </h3>
-            <p className="font-inter text-[12px] text-[#F1E6D8]/60">
+            <p className="font-inter text-[12px] text-[#FBF1F2]/60">
               Data hasil evaluasi sediaan dari tim Teknologi Farmasi.
             </p>
           </div>
@@ -139,7 +139,7 @@ export default function AdminBatchModal({
         <form onSubmit={handleSubmit} className="space-y-4 font-inter text-[13px]">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Kode Batch *
               </label>
               <input
@@ -148,12 +148,12 @@ export default function AdminBatchModal({
                 value={batchCode}
                 onChange={(e) => setBatchCode(e.target.value)}
                 placeholder="GG-BL-2026-03"
-                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] uppercase focus:outline-none focus:border-[#D4A359]"
+                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] uppercase focus:outline-none focus:border-[#E7B6B4]"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Status QC *
               </label>
               <CustomSelect
@@ -170,7 +170,7 @@ export default function AdminBatchModal({
 
             {products.length > 0 && (
               <div className="space-y-1.5 sm:col-span-2">
-                <label className="block text-[#F1E6D8]/80 font-medium">
+                <label className="block text-[#FBF1F2]/80 font-medium">
                   Tautkan Produk Katalog (Opsional)
                 </label>
                 <CustomSelect
@@ -189,7 +189,7 @@ export default function AdminBatchModal({
             )}
 
             <div className="space-y-1.5 sm:col-span-2">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Nama Sediaan / Produk *
               </label>
               <input
@@ -197,12 +197,12 @@ export default function AdminBatchModal({
                 required
                 value={productName}
                 onChange={(e) => setProductName(e.target.value)}
-                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359]"
+                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4]"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Tanggal Produksi *
               </label>
               <input
@@ -210,12 +210,12 @@ export default function AdminBatchModal({
                 required
                 value={productionDate}
                 onChange={(e) => setProductionDate(e.target.value)}
-                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359]"
+                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4]"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Masa Simpan / BUD *
               </label>
               <input
@@ -223,12 +223,12 @@ export default function AdminBatchModal({
                 required
                 value={expiryDate}
                 onChange={(e) => setExpiryDate(e.target.value)}
-                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359]"
+                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4]"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Nilai pH Sediaan *
               </label>
               <input
@@ -237,12 +237,12 @@ export default function AdminBatchModal({
                 value={phLevel}
                 onChange={(e) => setPhLevel(e.target.value)}
                 placeholder="5.5 - 6.0"
-                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359]"
+                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4]"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Skor Uji Hedonik (1.0 - 5.0) *
               </label>
               <input
@@ -253,12 +253,12 @@ export default function AdminBatchModal({
                 required
                 value={hedonicScore}
                 onChange={(e) => setHedonicScore(e.target.value)}
-                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359]"
+                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4]"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Uji Organoleptik: Warna *
               </label>
               <input
@@ -266,12 +266,12 @@ export default function AdminBatchModal({
                 required
                 value={colorResult}
                 onChange={(e) => setColorResult(e.target.value)}
-                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359]"
+                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4]"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Uji Organoleptik: Aroma *
               </label>
               <input
@@ -279,12 +279,12 @@ export default function AdminBatchModal({
                 required
                 value={aromaResult}
                 onChange={(e) => setAromaResult(e.target.value)}
-                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359]"
+                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4]"
               />
             </div>
 
             <div className="space-y-1.5 sm:col-span-2">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Uji Organoleptik: Tekstur *
               </label>
               <input
@@ -292,12 +292,12 @@ export default function AdminBatchModal({
                 required
                 value={textureResult}
                 onChange={(e) => setTextureResult(e.target.value)}
-                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359]"
+                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4]"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Homogenitas *
               </label>
               <input
@@ -305,12 +305,12 @@ export default function AdminBatchModal({
                 required
                 value={homogeneity}
                 onChange={(e) => setHomogeneity(e.target.value)}
-                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359]"
+                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4]"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Uji Iritasi *
               </label>
               <input
@@ -318,12 +318,12 @@ export default function AdminBatchModal({
                 required
                 value={irritationTest}
                 onChange={(e) => setIrritationTest(e.target.value)}
-                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359]"
+                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4]"
               />
             </div>
 
             <div className="space-y-1.5 sm:col-span-2">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Penanggung Jawab / Formulator Lab *
               </label>
               <input
@@ -331,19 +331,19 @@ export default function AdminBatchModal({
                 required
                 value={formulatorName}
                 onChange={(e) => setFormulatorName(e.target.value)}
-                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359]"
+                className="w-full h-[44px] px-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4]"
               />
             </div>
 
             <div className="space-y-1.5 sm:col-span-2">
-              <label className="block text-[#F1E6D8]/80 font-medium">
+              <label className="block text-[#FBF1F2]/80 font-medium">
                 Catatan Uji &amp; Penyimpanan (Opsional)
               </label>
               <textarea
                 rows={2}
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                className="w-full p-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#F1E6D8] focus:outline-none focus:border-[#D4A359] resize-none"
+                className="w-full p-3.5 rounded-[10px] bg-white/[0.06] border border-white/[0.08] text-[#FBF1F2] focus:outline-none focus:border-[#E7B6B4] resize-none"
               />
             </div>
           </div>
@@ -352,14 +352,14 @@ export default function AdminBatchModal({
             <button
               type="button"
               onClick={onClose}
-              className="px-5 py-2.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-[#F1E6D8] font-medium"
+              className="px-5 py-2.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-[#FBF1F2] font-medium"
             >
               Batal
             </button>
             <button
               type="submit"
               disabled={saving}
-              className="px-6 py-2.5 rounded-full bg-[#F1E6D8] hover:bg-white text-[#201914] font-semibold inline-flex items-center gap-2 disabled:opacity-50"
+              className="px-6 py-2.5 rounded-full bg-[#FBF1F2] hover:bg-white text-[#2B1B1D] font-semibold inline-flex items-center gap-2 disabled:opacity-50"
             >
               <Save className="w-4 h-4" />
               <span>{saving ? "Menyimpan..." : "Simpan Batch Lab"}</span>
