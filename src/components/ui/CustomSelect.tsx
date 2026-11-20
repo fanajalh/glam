@@ -57,15 +57,15 @@ export default function CustomSelect({
 
   const triggerClass =
     variant === "pill-light"
-      ? "h-[38px] px-3.5 rounded-full bg-[#F1E6D8] border border-[#201914]/15 text-[#201914] text-[12px] font-medium hover:border-[#201914]/35"
+      ? "h-[38px] px-3.5 rounded-full bg-[#FBF1F2] border border-[#2B1B1D]/15 text-[#2B1B1D] text-[12px] font-medium hover:border-[#2B1B1D]/35"
       : variant === "light"
-      ? "h-[46px] px-4 rounded-[14px] bg-white border border-[#201914]/15 text-[#201914] text-[14px] hover:border-[#201914]/35"
-      : "h-[48px] px-4 rounded-[14px] bg-white/[0.06] border border-white/[0.1] text-[#F1E6D8] text-[14px] hover:bg-white/[0.09] hover:border-white/[0.2]";
+      ? "h-[46px] px-4 rounded-[14px] bg-white border border-[#2B1B1D]/15 text-[#2B1B1D] text-[14px] hover:border-[#2B1B1D]/35"
+      : "h-[48px] px-4 rounded-[14px] bg-white/[0.06] border border-white/[0.1] text-[#FBF1F2] text-[14px] hover:bg-white/[0.09] hover:border-white/[0.2]";
 
   const menuClass =
     variant === "dark"
-      ? "bg-[#201914] border border-white/[0.12] text-[#F1E6D8]"
-      : "bg-white border border-[#201914]/12 text-[#201914]";
+      ? "bg-[#2B1B1D] border border-white/[0.12] text-[#FBF1F2]"
+      : "bg-white border border-[#2B1B1D]/12 text-[#2B1B1D]";
 
   return (
     <div ref={rootRef} className={`relative ${className}`}>
@@ -76,8 +76,8 @@ export default function CustomSelect({
         aria-expanded={open}
         aria-controls={listboxId}
         onClick={() => !disabled && setOpen((prev) => !prev)}
-        className={`w-full font-inter flex items-center justify-between gap-2.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#D4A359]/40 disabled:opacity-50 disabled:cursor-not-allowed ${triggerClass} ${
-          open ? "border-[#D4A359]" : ""
+        className={`w-full font-inter flex items-center justify-between gap-2.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#E7B6B4]/40 disabled:opacity-50 disabled:cursor-not-allowed ${triggerClass} ${
+          open ? "border-[#E7B6B4]" : ""
         }`}
       >
         <span className="truncate text-left">
@@ -89,7 +89,7 @@ export default function CustomSelect({
         </span>
         <ChevronDown
           className={`w-4 h-4 shrink-0 transition-transform duration-200 ${
-            variant === "dark" ? "text-[#D4A359]" : "text-[#201914]/65"
+            variant === "dark" ? "text-[#E7B6B4]" : "text-[#2B1B1D]/65"
           } ${open ? "rotate-180" : ""}`}
         />
       </button>
@@ -121,11 +121,11 @@ export default function CustomSelect({
                   className={`w-full text-left px-3.5 py-2.5 rounded-[12px] font-inter text-[13px] flex items-center justify-between gap-2 transition-colors ${
                     variant === "dark"
                       ? isSelected
-                        ? "bg-[#D4A359]/20 text-[#F1E6D8] font-medium"
-                        : "text-[#F1E6D8]/80 hover:bg-white/[0.08] hover:text-white"
+                        ? "bg-[#E7B6B4]/20 text-[#FBF1F2] font-medium"
+                        : "text-[#FBF1F2]/80 hover:bg-white/[0.08] hover:text-white"
                       : isSelected
-                      ? "bg-[#201914] text-[#F1E6D8] font-medium"
-                      : "text-[#201914]/85 hover:bg-[#F1E6D8]"
+                      ? "bg-[#2B1B1D] text-[#FBF1F2] font-medium"
+                      : "text-[#2B1B1D]/85 hover:bg-[#FBF1F2]"
                   }`}
                 >
                   <div className="min-w-0">
@@ -135,8 +135,8 @@ export default function CustomSelect({
                         className={`block text-[11px] truncate ${
                           isSelected
                             ? variant === "dark"
-                              ? "text-[#D4A359]"
-                              : "text-[#F1E6D8]/75"
+                              ? "text-[#E7B6B4]"
+                              : "text-[#FBF1F2]/75"
                             : "opacity-55"
                         }`}
                       >
@@ -147,7 +147,7 @@ export default function CustomSelect({
                   {isSelected && (
                     <Check
                       className={`w-3.5 h-3.5 shrink-0 ${
-                        variant === "dark" ? "text-[#D4A359]" : "text-[#D4A359]"
+                        variant === "dark" ? "text-[#E7B6B4]" : "text-[#E7B6B4]"
                       }`}
                     />
                   )}

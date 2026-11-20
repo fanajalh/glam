@@ -66,13 +66,13 @@ export default function TentangKamiPage() {
   const originY = useTransform(originScroll, [0.1, 0.9], [-20, 20]);
 
   return (
-    <div className="w-full bg-[#F1E6D8]">
+    <div className="w-full bg-[#FFF5F6]">
       {/* 1. Hero with Animated Parallax & Zoom-out */}
       <section
         ref={heroRef}
         className="relative w-full max-w-[1560px] mx-auto px-2 sm:px-3 pt-3 pb-1.5"
       >
-        <div className="relative w-full rounded-[24px] overflow-hidden h-[66vh] min-h-[480px] max-h-[680px] flex items-center justify-center bg-[#201914]">
+        <div className="relative w-full rounded-[24px] overflow-hidden h-[66vh] min-h-[480px] max-h-[680px] flex items-center justify-center bg-[#2B1B1D]">
           <motion.div
             style={{ y: heroBgY, scale: heroScale }}
             className="absolute inset-0 z-0"
@@ -84,7 +84,7 @@ export default function TentangKamiPage() {
               priority
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-black/45" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#2B1B1D]/45 via-[#4D2E33]/30 to-[#2B1B1D]/55" />
           </motion.div>
 
           {/* Centered Vertical Glass Panel */}
@@ -94,7 +94,7 @@ export default function TentangKamiPage() {
             style={{ y: heroContentY, opacity: heroOpacity }}
             className="relative z-20 max-w-[720px] mx-auto px-4 sm:px-6 text-center space-y-5 pt-10"
           >
-            <h1 className="font-sans font-normal text-4xl sm:text-6xl lg:text-[76px] text-[#F1E6D8] tracking-[-0.04em] leading-[1.06] flex flex-col items-center">
+            <h1 className="font-sans font-normal text-4xl sm:text-6xl lg:text-[76px] text-[#FBF1F2] tracking-[-0.04em] leading-[1.06] flex flex-col items-center">
               <CharReveal
                 text={tentangKami.heroLine1}
                 delay={0.1}
@@ -109,7 +109,7 @@ export default function TentangKamiPage() {
               />
             </h1>
             <Reveal direction="up" delay={0.45}>
-              <p className="font-sans text-[17px] sm:text-[19px] text-[#F1E6D8]/85 max-w-[480px] mx-auto leading-[1.5]">
+              <p className="font-sans text-[17px] sm:text-[19px] text-[#FBF1F2]/85 max-w-[480px] mx-auto leading-[1.5]">
                 {tentangKami.heroSubtitle}
               </p>
             </Reveal>
@@ -122,10 +122,10 @@ export default function TentangKamiPage() {
         ref={originRef}
         className="w-full max-w-[1560px] mx-auto px-2 sm:px-3 py-1.5"
       >
-        <div className="w-full rounded-[24px] bg-[#2D3622] text-[#F1E6D8] py-16 sm:py-24 px-4 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="w-full rounded-[24px] bg-[#F9E6E9] border border-[#C98A8B]/20 text-[#2B1B1D] py-16 sm:py-24 px-4 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Portrait Image with Dynamic Scroll-Traced Zoom */}
           <div className="lg:col-span-5">
-            <div className="relative w-full h-[460px] sm:h-[580px] rounded-[20px] bg-[#201914] overflow-hidden shadow-2xl">
+            <div className="relative w-full h-[460px] sm:h-[580px] rounded-[20px] bg-[#EAD0D5] overflow-hidden shadow-card">
               <motion.div
                 style={{ scale: originScale, y: originY }}
                 className="w-full h-full relative"
@@ -144,18 +144,18 @@ export default function TentangKamiPage() {
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
               <Reveal direction="up" delay={0.05}>
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/[0.08] font-inter text-[13px] text-[#D4A359]">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-white/85 border border-[#C98A8B]/25 font-inter text-[13px] font-semibold text-[#9E5E63]">
                   {tentangKami.originBadge}
                 </span>
               </Reveal>
               <Reveal direction="up" delay={0.12}>
-                <h2 className="font-sans text-3xl sm:text-5xl lg:text-[54px] font-normal text-[#F1E6D8] tracking-[-0.03em] leading-[1.08]">
+                <h2 className="font-sans text-3xl sm:text-5xl lg:text-[54px] font-normal text-[#2B1B1D] tracking-[-0.03em] leading-[1.08]">
                   {tentangKami.originTitle}
                 </h2>
               </Reveal>
             </div>
 
-            <div className="space-y-4 font-sans text-[16px] sm:text-[18px] text-[#F1E6D8]/78 leading-[1.6]">
+            <div className="space-y-4 font-sans text-[16px] sm:text-[18px] text-[#6E5156] leading-[1.6]">
               <Reveal direction="up" delay={0.18}>
                 <p>{tentangKami.originPara1}</p>
               </Reveal>
@@ -165,17 +165,17 @@ export default function TentangKamiPage() {
             </div>
 
             {/* 3 Stat Columns with Smooth Stagger Reveal */}
-            <div className="grid grid-cols-3 gap-6 pt-6 border-t border-white/[0.08]">
+            <div className="grid grid-cols-3 gap-6 pt-6 border-t border-[#C98A8B]/25">
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <div className="font-sans text-3xl sm:text-5xl font-normal text-[#F1E6D8]">
+                <div className="font-sans text-3xl sm:text-5xl font-normal text-[#2B1B1D]">
                   {tentangKami.stat1Value}
                 </div>
-                <div className="font-inter text-[13px] sm:text-[14px] text-[#F1E6D8]/68 mt-1">
+                <div className="font-inter text-[13px] sm:text-[14px] text-[#6E5156] mt-1">
                   {tentangKami.stat1Label}
                 </div>
               </motion.div>
@@ -186,10 +186,10 @@ export default function TentangKamiPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <div className="font-sans text-3xl sm:text-5xl font-normal text-[#F1E6D8]">
+                <div className="font-sans text-3xl sm:text-5xl font-normal text-[#2B1B1D]">
                   {tentangKami.stat2Value}
                 </div>
-                <div className="font-inter text-[13px] sm:text-[14px] text-[#F1E6D8]/68 mt-1">
+                <div className="font-inter text-[13px] sm:text-[14px] text-[#6E5156] mt-1">
                   {tentangKami.stat2Label}
                 </div>
               </motion.div>
@@ -200,10 +200,10 @@ export default function TentangKamiPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <div className="font-sans text-3xl sm:text-5xl font-normal text-[#D4A359]">
+                <div className="font-sans text-3xl sm:text-5xl font-normal text-[#9E5E63]">
                   {tentangKami.stat3Value}
                 </div>
-                <div className="font-inter text-[13px] sm:text-[14px] text-[#F1E6D8]/68 mt-1">
+                <div className="font-inter text-[13px] sm:text-[14px] text-[#6E5156] mt-1">
                   {tentangKami.stat3Label}
                 </div>
               </motion.div>
@@ -214,15 +214,15 @@ export default function TentangKamiPage() {
 
       {/* 3. Values Section with Floating Interactive Cards */}
       <section className="w-full max-w-[1560px] mx-auto px-2 sm:px-3 py-1.5">
-        <div className="w-full rounded-[24px] bg-[#201914] text-[#F1E6D8] py-16 sm:py-24 px-4 sm:px-8 lg:px-12 space-y-14">
+        <div className="w-full rounded-[24px] bg-[#4D2E33] text-[#FBF1F2] py-16 sm:py-24 px-4 sm:px-8 lg:px-12 space-y-14">
           <div className="max-w-[680px] space-y-4">
             <Reveal direction="up" delay={0.05}>
-              <span className="font-inter text-[13px] uppercase tracking-[0.14em] text-[#D4A359] block">
+              <span className="font-inter text-[13px] uppercase tracking-[0.14em] text-[#E7B6B4] block">
                 {tentangKami.standardsEyebrow}
               </span>
             </Reveal>
             <Reveal direction="up" delay={0.12}>
-              <h2 className="font-sans text-3xl sm:text-5xl lg:text-[56px] font-normal text-[#F1E6D8] tracking-[-0.03em] leading-[1.08]">
+              <h2 className="font-sans text-3xl sm:text-5xl lg:text-[56px] font-normal text-[#FBF1F2] tracking-[-0.03em] leading-[1.08]">
                 {tentangKami.standardsTitle}
               </h2>
             </Reveal>
@@ -245,14 +245,14 @@ export default function TentangKamiPage() {
                   whileHover={{ y: -8, scale: 1.02 }}
                   className="rounded-[18px] bg-white/[0.04] p-6 sm:p-7 flex flex-col justify-between gap-6 h-full transition-colors duration-300 hover:bg-white/[0.07] shadow-lg group cursor-default"
                 >
-                  <div className="w-12 h-12 rounded-full bg-white/[0.08] group-hover:bg-[#D4A359] group-hover:text-[#201914] flex items-center justify-center text-[#D4A359] shrink-0 transition-colors duration-300 shadow-sm">
+                  <div className="w-12 h-12 rounded-full bg-white/[0.08] group-hover:bg-[#E7B6B4] group-hover:text-[#2B1B1D] flex items-center justify-center text-[#E7B6B4] shrink-0 transition-colors duration-300 shadow-sm">
                     <Icon className="w-5 h-5 stroke-[1.75]" />
                   </div>
                   <div className="space-y-2.5">
-                    <h3 className="font-sans text-[20px] sm:text-[22px] font-normal text-[#F1E6D8] group-hover:text-[#D4A359] transition-colors">
+                    <h3 className="font-sans text-[20px] sm:text-[22px] font-normal text-[#FBF1F2] group-hover:text-[#E7B6B4] transition-colors">
                       {val.title}
                     </h3>
-                    <p className="font-sans text-[15px] text-[#F1E6D8]/70 leading-[1.55]">
+                    <p className="font-sans text-[15px] text-[#FBF1F2]/70 leading-[1.55]">
                       {val.desc}
                     </p>
                   </div>
@@ -266,8 +266,8 @@ export default function TentangKamiPage() {
               text={tentangKami.standardsQuote}
               highlightWords={["sejati", "alam", "Nusantara", "terbaik"]}
               className="font-sans text-2xl sm:text-3xl lg:text-[34px] leading-[1.3]"
-              activeColor="#F1E6D8"
-              highlightColor="#F1E6D8"
+              activeColor="#FBF1F2"
+              highlightColor="#FBF1F2"
             />
           </div>
         </div>
@@ -275,16 +275,16 @@ export default function TentangKamiPage() {
 
       {/* 4. People / Makers Section with Hover Tilt */}
       <section className="w-full max-w-[1560px] mx-auto px-2 sm:px-3 py-1.5">
-        <div className="w-full rounded-[24px] bg-[#D7D1C3] text-[#201914] py-16 sm:py-24 px-4 sm:px-8 lg:px-12 space-y-12">
+        <div className="w-full rounded-[24px] bg-[#F3DFE2] text-[#2B1B1D] py-16 sm:py-24 px-4 sm:px-8 lg:px-12 space-y-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="space-y-3">
               <Reveal direction="up" delay={0.05}>
-                <span className="font-inter text-[13px] uppercase tracking-[0.14em] text-[#201914]/65 block">
+                <span className="font-inter text-[13px] uppercase tracking-[0.14em] text-[#2B1B1D]/65 block">
                   {tentangKami.makersEyebrow}
                 </span>
               </Reveal>
               <Reveal direction="up" delay={0.12}>
-                <h2 className="font-sans text-3xl sm:text-5xl lg:text-[56px] font-normal text-[#201914] tracking-[-0.03em] leading-[1.08]">
+                <h2 className="font-sans text-3xl sm:text-5xl lg:text-[56px] font-normal text-[#2B1B1D] tracking-[-0.03em] leading-[1.08]">
                   {tentangKami.makersTitle}
                 </h2>
               </Reveal>
@@ -294,9 +294,9 @@ export default function TentangKamiPage() {
               <Magnetic strength={0.22}>
                 <Link
                   href="/pembelian"
-                  className="group/roll whitespace-nowrap px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#201914] hover:bg-[#2D3622] text-[#F1E6D8] font-inter text-[14px] sm:text-[15px] font-medium inline-flex items-center gap-2.5 transition-all shadow-md active:scale-95 shrink-0"
+                  className="group/roll whitespace-nowrap px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#2B1B1D] hover:bg-[#4D2E33] text-[#FBF1F2] font-inter text-[14px] sm:text-[15px] font-medium inline-flex items-center gap-2.5 transition-all shadow-md active:scale-95 shrink-0"
                 >
-                  <ShoppingBag className="w-4 h-4 text-[#D4A359] shrink-0" />
+                  <ShoppingBag className="w-4 h-4 text-[#E7B6B4] shrink-0" />
                   <RollingText text={tentangKami.makersCtaText} />
                 </Link>
               </Magnetic>
@@ -314,7 +314,7 @@ export default function TentangKamiPage() {
                 whileHover={{ y: -8 }}
                 className="bg-white rounded-[22px] p-5 space-y-4 shadow-sm hover:shadow-xl transition-all duration-300 group"
               >
-                <div className="relative w-full h-[340px] sm:h-[380px] rounded-[14px] overflow-hidden bg-[#2D3622]">
+                <div className="relative w-full h-[340px] sm:h-[380px] rounded-[14px] overflow-hidden bg-[#4D2E33]">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -323,10 +323,10 @@ export default function TentangKamiPage() {
                   />
                 </div>
                 <div className="px-1 space-y-1">
-                  <h3 className="font-sans text-[20px] font-medium text-[#201914] group-hover:text-[#4E2719] transition-colors">
+                  <h3 className="font-sans text-[20px] font-medium text-[#2B1B1D] group-hover:text-[#623B42] transition-colors">
                     {member.name}
                   </h3>
-                  <p className="font-sans text-[15px] text-[#201914]/68">
+                  <p className="font-sans text-[15px] text-[#2B1B1D]/68">
                     {member.role}
                   </p>
                 </div>

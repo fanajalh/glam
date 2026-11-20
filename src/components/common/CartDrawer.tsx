@@ -84,20 +84,20 @@ export default function CartDrawer() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="relative m-2 sm:m-3 w-[calc(100%-16px)] max-w-[448px] h-[calc(100dvh-16px)] sm:h-[calc(100dvh-24px)] rounded-[28px] bg-[#201914] text-[#F1E6D8] border border-white/[0.08] shadow-2xl flex flex-col justify-between z-10 overflow-hidden"
+            className="relative m-2 sm:m-3 w-[calc(100%-16px)] max-w-[448px] h-[calc(100dvh-16px)] sm:h-[calc(100dvh-24px)] rounded-[28px] bg-[#2B1B1D] text-[#FBF1F2] border border-white/[0.08] shadow-2xl flex flex-col justify-between z-10 overflow-hidden"
             data-lenis-prevent
           >
             {/* 1. Header (Fixed Height, Shrink-0) */}
-            <div className="shrink-0 p-4 sm:p-5 border-b border-white/[0.08] flex items-center justify-between bg-[#201914]">
+            <div className="shrink-0 p-4 sm:p-5 border-b border-white/[0.08] flex items-center justify-between bg-[#2B1B1D]">
               <div className="flex items-center gap-2.5">
-                <ShoppingBag className="w-5 h-5 text-[#D4A359]" />
+                <ShoppingBag className="w-5 h-5 text-[#E7B6B4]" />
                 <h2 className="font-sans text-[19px] sm:text-[20px] font-normal tracking-[-0.01em]">
                   Keranjang ({totalCount})
                 </h2>
               </div>
               <button
                 onClick={() => setIsCartOpen(false)}
-                className="w-8 h-8 rounded-full bg-white/[0.06] hover:bg-white/[0.14] text-[#F1E6D8] flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-full bg-white/[0.06] hover:bg-white/[0.14] text-[#FBF1F2] flex items-center justify-center transition-colors"
                 aria-label="Tutup keranjang"
               >
                 <X className="w-4 h-4" />
@@ -105,12 +105,12 @@ export default function CartDrawer() {
             </div>
 
             {/* 2. Top Info Pill (Fixed Height, Shrink-0) */}
-            <div className="shrink-0 bg-[#2D3622] px-4 sm:px-5 py-2 font-inter text-[12px] sm:text-[13px] text-[#F1E6D8]/90 flex items-center justify-between">
+            <div className="shrink-0 bg-[#4D2E33] px-4 sm:px-5 py-2 font-inter text-[12px] sm:text-[13px] text-[#FBF1F2]/90 flex items-center justify-between">
               <div className="flex items-center gap-1.5">
-                <Leaf className="w-3.5 h-3.5 text-[#D4A359]" />
+                <Leaf className="w-3.5 h-3.5 text-[#E7B6B4]" />
                 <span>Kemasan Ramah Lingkungan</span>
               </div>
-              <span className="font-medium text-[#D4A359]">Rempah Tradisional Asli</span>
+              <span className="font-medium text-[#E7B6B4]">Rempah Tradisional Asli</span>
             </div>
 
             {/* 3. Cart Items List (Scrollable, Flex-1, Never Blocked) */}
@@ -124,21 +124,21 @@ export default function CartDrawer() {
             >
               {cartItems.length === 0 ? (
                 <div className="h-full flex flex-col items-center justify-center text-center space-y-4 py-12">
-                  <div className="w-14 h-14 rounded-full bg-white/[0.06] flex items-center justify-center text-[#F1E6D8]/40">
+                  <div className="w-14 h-14 rounded-full bg-white/[0.06] flex items-center justify-center text-[#FBF1F2]/40">
                     <ShoppingBag className="w-7 h-7" />
                   </div>
                   <div className="space-y-1">
                     <h3 className="font-sans text-[18px] font-normal">
                       Keranjang Anda Kosong
                     </h3>
-                    <p className="font-inter text-[13px] text-[#F1E6D8]/60 max-w-[240px]">
+                    <p className="font-inter text-[13px] text-[#FBF1F2]/60 max-w-[240px]">
                       Pilih produk perawatan tubuh alami Bugis terbaik untuk Anda.
                     </p>
                   </div>
                   <Link
                     href="/produk"
                     onClick={() => setIsCartOpen(false)}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#F1E6D8] text-[#201914] font-inter text-[13px] font-medium hover:bg-white transition-colors mt-2"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FBF1F2] text-[#2B1B1D] font-inter text-[13px] font-medium hover:bg-white transition-colors mt-2"
                   >
                     <span>Lihat Koleksi Produk</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -155,7 +155,7 @@ export default function CartDrawer() {
                     className="p-3 sm:p-3.5 rounded-[14px] bg-white/[0.04] flex items-center gap-3.5 transition-colors hover:bg-white/[0.06]"
                   >
                     {/* Item Thumbnail */}
-                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-[10px] bg-[#2D3622] overflow-hidden shrink-0 flex items-center justify-center p-1.5">
+                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-[10px] bg-[#4D2E33] overflow-hidden shrink-0 flex items-center justify-center p-1.5">
                       <Image
                         src={item.image}
                         alt={item.name}
@@ -168,16 +168,16 @@ export default function CartDrawer() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-1.5">
                         <div className="min-w-0 pr-1">
-                          <h4 className="font-sans text-[14px] sm:text-[15px] font-medium text-[#F1E6D8] truncate">
+                          <h4 className="font-sans text-[14px] sm:text-[15px] font-medium text-[#FBF1F2] truncate">
                             {item.name}
                           </h4>
-                          <p className="font-inter text-[11px] sm:text-[12px] text-[#F1E6D8]/50 truncate">
+                          <p className="font-inter text-[11px] sm:text-[12px] text-[#FBF1F2]/50 truncate">
                             {item.subtitle}
                           </p>
                         </div>
                         <button
                           onClick={() => removeFromCart(item.id)}
-                          className="text-[#F1E6D8]/40 hover:text-red-400 transition-colors p-0.5 shrink-0"
+                          className="text-[#FBF1F2]/40 hover:text-red-400 transition-colors p-0.5 shrink-0"
                           aria-label={`Hapus ${item.name}`}
                         >
                           <Trash2 className="w-3.5 h-3.5" />
@@ -189,17 +189,17 @@ export default function CartDrawer() {
                         <div className="flex items-center gap-1.5 bg-white/[0.06] rounded-full px-2 py-0.5">
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                            className="w-4 h-4 rounded-full flex items-center justify-center text-[#F1E6D8]/70 hover:text-[#F1E6D8] hover:bg-white/[0.1] transition-colors"
+                            className="w-4 h-4 rounded-full flex items-center justify-center text-[#FBF1F2]/70 hover:text-[#FBF1F2] hover:bg-white/[0.1] transition-colors"
                             aria-label="Kurangi kuantitas"
                           >
                             <Minus className="w-2.5 h-2.5" />
                           </button>
-                          <span className="font-inter text-[12px] font-medium text-[#F1E6D8] min-w-[16px] text-center">
+                          <span className="font-inter text-[12px] font-medium text-[#FBF1F2] min-w-[16px] text-center">
                             {item.quantity}
                           </span>
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            className="w-4 h-4 rounded-full flex items-center justify-center text-[#F1E6D8]/70 hover:text-[#F1E6D8] hover:bg-white/[0.1] transition-colors"
+                            className="w-4 h-4 rounded-full flex items-center justify-center text-[#FBF1F2]/70 hover:text-[#FBF1F2] hover:bg-white/[0.1] transition-colors"
                             aria-label="Tambah kuantitas"
                           >
                             <Plus className="w-2.5 h-2.5" />
@@ -207,7 +207,7 @@ export default function CartDrawer() {
                         </div>
 
                         {/* Price */}
-                        <span className="font-inter text-[13px] sm:text-[14px] font-semibold text-[#D4A359]">
+                        <span className="font-inter text-[13px] sm:text-[14px] font-semibold text-[#E7B6B4]">
                           {formatRupiah(item.price * item.quantity)}
                         </span>
                       </div>
@@ -219,20 +219,20 @@ export default function CartDrawer() {
 
             {/* 4. Footer Summary & Checkout Actions (Fixed Height, Shrink-0, ALWAYS Visible) */}
             {cartItems.length > 0 && (
-              <div className="shrink-0 p-4 sm:p-5 border-t border-white/[0.08] space-y-3.5 bg-[#201914] z-20">
+              <div className="shrink-0 p-4 sm:p-5 border-t border-white/[0.08] space-y-3.5 bg-[#2B1B1D] z-20">
                 {/* Weight & Total */}
                 <div className="space-y-1 font-inter text-[12px] sm:text-[13px]">
-                  <div className="flex items-center justify-between text-[#F1E6D8]/60">
+                  <div className="flex items-center justify-between text-[#FBF1F2]/60">
                     <span>Estimasi Berat Total</span>
                     <span>{(totalWeightGram / 1000).toFixed(1)} kg</span>
                   </div>
-                  <div className="flex items-center justify-between text-[#F1E6D8]/60">
+                  <div className="flex items-center justify-between text-[#FBF1F2]/60">
                     <span>Ongkos Kirim</span>
-                    <span className="text-[#D4A359]">Dihitung saat pemesanan</span>
+                    <span className="text-[#E7B6B4]">Dihitung saat pemesanan</span>
                   </div>
                   <div className="flex items-center justify-between pt-1.5 border-t border-white/[0.06]">
-                    <span className="font-sans text-[16px] sm:text-[17px] text-[#F1E6D8]">Subtotal</span>
-                    <span className="font-sans text-[20px] sm:text-[22px] font-semibold text-[#F1E6D8]">
+                    <span className="font-sans text-[16px] sm:text-[17px] text-[#FBF1F2]">Subtotal</span>
+                    <span className="font-sans text-[20px] sm:text-[22px] font-semibold text-[#FBF1F2]">
                       {formatRupiah(totalAmount)}
                     </span>
                   </div>
@@ -242,23 +242,23 @@ export default function CartDrawer() {
                 <div className="space-y-2 font-inter">
                   <button
                     onClick={handleGoToCheckout}
-                    className="w-full h-[48px] rounded-full bg-[#F1E6D8] hover:bg-white text-[#201914] font-semibold text-[14px] flex items-center justify-center gap-2 transition-all shadow-md active:scale-98"
+                    className="w-full h-[48px] rounded-full bg-[#FBF1F2] hover:bg-white text-[#2B1B1D] font-semibold text-[14px] flex items-center justify-center gap-2 transition-all shadow-md active:scale-98"
                   >
                     <span>Lanjut ke Halaman Pembelian</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
-                  <p className="text-[11px] text-center text-[#F1E6D8]/55">
+                  <p className="text-[11px] text-center text-[#FBF1F2]/55">
                     Lanjut ke pembayaran &amp; struk resmi sebelum konfirmasi WhatsApp
                   </p>
                 </div>
 
                 {/* Trust Badges */}
-                <div className="flex items-center justify-center gap-4 text-[11px] text-[#F1E6D8]/50 font-inter pt-0.5">
+                <div className="flex items-center justify-center gap-4 text-[11px] text-[#FBF1F2]/50 font-inter pt-0.5">
                   <span className="flex items-center gap-1">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#D4A359]" /> Garansi Asli
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#E7B6B4]" /> Garansi Asli
                   </span>
                   <span className="flex items-center gap-1">
-                    <Truck className="w-3.5 h-3.5 text-[#D4A359]" /> Kirim Se-Indonesia
+                    <Truck className="w-3.5 h-3.5 text-[#E7B6B4]" /> Kirim Se-Indonesia
                   </span>
                 </div>
               </div>

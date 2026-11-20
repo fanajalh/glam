@@ -30,25 +30,26 @@ function FrostedGlassCard({ icon: Icon, title, desc }: FrostedGlassCardProps) {
   return (
     <div
       style={{
-        backgroundColor: "rgba(50, 60, 40, 0.55)",
+        backgroundColor: "rgba(77, 46, 51, 0.62)",
         backdropFilter: "blur(24px)",
         WebkitBackdropFilter: "blur(24px)",
-        boxShadow: "0 20px 40px rgba(0,0,0,0.22)",
+        border: "1px solid rgba(251, 241, 242, 0.16)",
+        boxShadow: "0 20px 40px rgba(43, 27, 29, 0.25)",
       }}
-      className="w-full rounded-[18px] sm:rounded-[20px] p-4 sm:p-7 text-[#F1E6D8] space-y-2.5 sm:space-y-4"
+      className="w-full rounded-[18px] sm:rounded-[20px] p-4 sm:p-7 text-[#FBF1F2] space-y-2.5 sm:space-y-4"
     >
       {/* Icon Circle */}
-      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/[0.08] flex items-center justify-center text-[#F1E6D8]">
-        <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4A359]" />
+      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/[0.08] flex items-center justify-center text-[#FBF1F2]">
+        <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#E7B6B4]" />
       </div>
 
       {/* Title */}
-      <h3 className="font-sans text-[17px] sm:text-[22px] font-normal tracking-[-0.01em] text-[#F1E6D8] leading-tight">
+      <h3 className="font-sans text-[17px] sm:text-[22px] font-normal tracking-[-0.01em] text-[#FBF1F2] leading-tight">
         {title}
       </h3>
 
       {/* Description */}
-      <p className="font-sans text-[13px] sm:text-[15px] font-normal text-[#F1E6D8]/75 leading-[1.5]">
+      <p className="font-sans text-[13px] sm:text-[15px] font-normal text-[#FBF1F2]/75 leading-[1.5]">
         {desc}
       </p>
     </div>
@@ -108,8 +109,8 @@ export default function FeaturesCollageSection() {
 
   return (
     <section className="relative w-full max-w-[1560px] mx-auto px-2 sm:px-3 py-1.5">
-      {/* Outer Card: bg #2D3622, r: 24px, overflow-clip allows sticky children to follow scroll */}
-      <div className="relative w-full rounded-[24px] overflow-clip bg-[#2D3622] py-12 sm:py-20 lg:py-24 px-4 sm:px-8 lg:px-12 flex flex-col justify-between">
+      {/* Outer Card: bg #4D2E33, r: 24px, overflow-clip allows sticky children to follow scroll */}
+      <div className="relative w-full rounded-[24px] overflow-clip bg-[#4D2E33] py-12 sm:py-20 lg:py-24 px-4 sm:px-8 lg:px-12 flex flex-col justify-between">
         
         {/* Top Header Row */}
         <div className="relative z-20 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 pb-10 lg:pb-16 max-w-[1360px] mx-auto w-full">
@@ -127,8 +128,8 @@ export default function FeaturesCollageSection() {
                 "kulit",
               ]}
               className="font-sans text-2xl sm:text-3xl lg:text-[36px] leading-[1.24] tracking-[-0.01em]"
-              activeColor="#F1E6D8"
-              highlightColor="#F1E6D8"
+              activeColor="#FBF1F2"
+              highlightColor="#FBF1F2"
             />
           </div>
 
@@ -136,7 +137,7 @@ export default function FeaturesCollageSection() {
             <Magnetic strength={0.22}>
               <Link
                 href="/pembelian"
-                className="group/roll px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#F1E6D8]/20 hover:bg-[#F1E6D8] text-[#F1E6D8] hover:text-[#201914] backdrop-blur-[10px] font-sans text-[14px] sm:text-[16px] font-medium transition-all duration-300 inline-block"
+                className="group/roll px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#FBF1F2]/20 hover:bg-[#FBF1F2] text-[#FBF1F2] hover:text-[#2B1B1D] backdrop-blur-[10px] font-sans text-[14px] sm:text-[16px] font-medium transition-all duration-300 inline-block"
               >
                 <RollingText text={home.promisesCtaText} />
               </Link>
@@ -156,7 +157,7 @@ export default function FeaturesCollageSection() {
                   y: smoothBottleY,
                   scale: bottleScale,
                 }}
-                className="w-[820px] xl:w-[872px] h-[78vh] min-h-[580px] max-h-[860px] rounded-[24px] overflow-hidden bg-[#201914] shadow-2xl relative"
+                className="w-[820px] xl:w-[872px] h-[78vh] min-h-[580px] max-h-[860px] rounded-[24px] overflow-hidden bg-[#2B1B1D] shadow-2xl relative"
               >
                 <Image
                   src="/images/glam/jar-ingredients-wood.jpg"
@@ -183,7 +184,7 @@ export default function FeaturesCollageSection() {
                     className="w-full h-auto transition-all duration-150"
                   >
                     <path
-                      fill="#F1E6D8"
+                      fill="#FBF1F2"
                       fillOpacity=".45"
                       d="m87.014.64 4.6 3.287.546-5.627zM235.257 610.9a.49.49 0 0 0 .464.513l4.401.223a.49.49 0 0 0 .05-.978l-3.912-.198.198-3.912a.49.49 0 1 0-.978-.05zM91.424 1.068l-.05.487C241.825 17.1 329.636 122.49 353.946 247.449c24.313 124.98-14.915 269.48-118.529 363.112l.329.363.328.363c103.891-93.881 143.206-238.74 118.832-364.024C330.531 121.957 242.427 16.177 91.474.582z"
                     />
@@ -249,7 +250,7 @@ export default function FeaturesCollageSection() {
           {/* ================= TABLET & MOBILE RESPONSIVE LAYOUT (< xl) ================= */}
           <div className="xl:hidden flex flex-col items-center gap-8 w-full">
             {/* Centered Compact Bottle Image with Smooth Scale */}
-            <div className="relative w-full max-w-[420px] h-[300px] sm:h-[400px] rounded-[20px] overflow-hidden bg-[#201914] shadow-xl">
+            <div className="relative w-full max-w-[420px] h-[300px] sm:h-[400px] rounded-[20px] overflow-hidden bg-[#2B1B1D] shadow-xl">
               <motion.div style={{ scale: bottleScale }} className="w-full h-full relative">
                 <Image
                   src="/images/glam/jar-ingredients-wood.jpg"

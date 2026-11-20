@@ -26,7 +26,7 @@ export function ScrollProgressBar() {
   return (
     <motion.div
       style={{ scaleX }}
-      className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#2D3622] via-[#D4A359] to-[#201914] origin-left z-[100] pointer-events-none"
+      className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#9E5E63] via-[#E7B6B4] to-[#4D2E33] origin-left z-[100] pointer-events-none"
     />
   );
 }
@@ -187,7 +187,7 @@ export function CharReveal({
  * 2c. Orvéli Animated Expanding Horizontal Line (`Closed` framer-E5xbt: width 1% -> 100%)
  */
 export function ExpandLine({
-  className = "bg-[#F1E6D8]/24",
+  className = "bg-[#FBF1F2]/24",
   delay = 0.1,
 }: {
   className?: string;
@@ -339,8 +339,8 @@ export function ScrollWordReveal({
   text,
   highlightWords = [],
   className = "",
-  activeColor = "#F1E6D8",
-  highlightColor = "#F1E6D8",
+  activeColor = "#FBF1F2",
+  highlightColor = "#FBF1F2",
 }: WordRevealProps) {
   const containerRef = useRef<HTMLParagraphElement>(null);
   const { scrollYProgress } = useScroll({
@@ -497,7 +497,7 @@ export function AnimatedCurveArc({ className = "" }: { className?: string }) {
     >
       <path
         d="M5.55079 1.25155e-05L7.53085 5.29584L1.9545 4.36271L5.55079 1.25155e-05ZM556.405 301.582C556.67 301.638 556.838 301.899 556.781 302.163L555.854 306.471C555.797 306.736 555.536 306.904 555.272 306.847C555.007 306.79 554.839 306.53 554.896 306.265L555.72 302.436L551.891 301.612C551.627 301.555 551.459 301.294 551.515 301.03C551.572 300.765 551.833 300.597 552.097 300.654L556.405 301.582ZM4.81953 4.36997L5.30295 4.44781C-18.7425 153.778 60.2407 265.938 174.604 321.852C288.987 377.776 438.717 377.405 556.037 301.649L556.302 302.06L556.568 302.472C438.934 378.431 288.837 378.793 174.174 322.732C59.4923 266.662 -19.7893 154.119 4.33612 4.29213L4.81953 4.36997Z"
-        fill="#F1E6D8"
+        fill="#FBF1F2"
         fillOpacity="0.42"
       />
     </motion.svg>
@@ -507,7 +507,13 @@ export function AnimatedCurveArc({ className = "" }: { className?: string }) {
 /**
  * 9. Exact Orvéli Botanical Lotus Mark (`SVG [39]`, 66x44)
  */
-export function BotanicalMarkDraw({ className = "" }: { className?: string }) {
+export function BotanicalMarkDraw({
+  className = "",
+  fill = "#FBF1F2",
+}: {
+  className?: string;
+  fill?: string;
+}) {
   return (
     <motion.svg
       viewBox="0 0 65.96 43.931"
@@ -521,7 +527,7 @@ export function BotanicalMarkDraw({ className = "" }: { className?: string }) {
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.9, ease: LUXURY_EASE }}
     >
-      <g fill="#F1E6D8">
+      <g fill={fill}>
         <path d="M35.95 43.666a.4.4 0 0 1-.37-.258 28 28 0 0 1-1.7-8.611 28 28 0 0 1 .588-6.926 28.1 28.1 0 0 1 6.199-12.473 28 28 0 0 1 3.869-3.706l.027-.019a28 28 0 0 1 6.709-3.919.396.396 0 1 1 .3.733 27.1 27.1 0 0 0-6.569 3.846 27.34 27.34 0 0 0-9.76 15.702 27.3 27.3 0 0 0-.572 6.732c.11 2.879.666 5.694 1.651 8.366a.396.396 0 0 1-.371.533" />
         <path d="M34.261 33.48a.396.396 0 0 1-.394-.368c-.773-10.645-.23-15.5 1.937-17.316 1.722-1.445 4.288-.796 7.536.025 5.376 1.36 12.737 3.223 22.021-2.321a.396.396 0 1 1 .406.68c-4.232 2.527-8.447 3.789-12.884 3.857-3.787.058-7.086-.777-9.737-1.448-3.147-.796-5.42-1.372-6.834-.187-1.893 1.587-2.388 6.567-1.656 16.653a.397.397 0 0 1-.395.424" />
         <path d="M61.283 17.417a4.4 4.4 0 0 1-2.011-.478.396.396 0 0 1 .387-.69c.012.006 1.208.654 2.617.23 1.15-.344 2.138-1.294 2.937-2.823a.396.396 0 1 1 .701.367c-.904 1.73-2.057 2.814-3.425 3.22a4.2 4.2 0 0 1-1.206.174" />
@@ -573,7 +579,7 @@ export function FeatureArrowDraw({ className = "" }: { className?: string }) {
       transition={{ duration: 1.5, ease: LUXURY_EASE, delay: 0.2 }}
     >
       <path
-        fill="#F1E6D8"
+        fill="#FBF1F2"
         fillOpacity=".42"
         d="m87.014.64 4.6 3.287.546-5.627zM235.257 610.9a.49.49 0 0 0 .464.513l4.401.223a.49.49 0 0 0 .05-.978l-3.912-.198.198-3.912a.49.49 0 1 0-.978-.05zM91.424 1.068l-.05.487C241.825 17.1 329.636 122.49 353.946 247.449c24.313 124.98-14.915 269.48-118.529 363.112l.329.363.328.363c103.891-93.881 143.206-238.74 118.832-364.024C330.531 121.957 242.427 16.177 91.474.582z"
       />

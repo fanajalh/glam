@@ -128,12 +128,12 @@ export default async function BatchVerificationPage({
   }
 
   return (
-    <div className="w-full bg-[#F1E6D8] pt-24 sm:pt-28 pb-1.5 min-h-[82vh]">
+    <div className="w-full bg-[#FBF1F2] pt-24 sm:pt-28 pb-1.5 min-h-[82vh]">
       <div className="w-full max-w-[1560px] mx-auto px-2 sm:px-3 space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-3 px-1">
           <Link
             href="/produk"
-            className="inline-flex items-center gap-2 font-inter text-[13px] font-medium text-[#201914]/75 hover:text-[#201914] transition-colors"
+            className="inline-flex items-center gap-2 font-inter text-[13px] font-medium text-[#2B1B1D]/75 hover:text-[#2B1B1D] transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Kembali ke Katalog Produk</span>
@@ -146,8 +146,8 @@ export default async function BatchVerificationPage({
                 href={`/batch/${encodeURIComponent(code)}`}
                 className={`px-3 py-1 rounded-full font-mono text-[11px] border transition-colors ${
                   code === batchCode
-                    ? "bg-[#201914] text-[#F1E6D8] border-[#201914]"
-                    : "bg-white text-[#201914]/75 border-[#201914]/15 hover:border-[#201914]"
+                    ? "bg-[#2B1B1D] text-[#FBF1F2] border-[#2B1B1D]"
+                    : "bg-white text-[#2B1B1D]/75 border-[#2B1B1D]/15 hover:border-[#2B1B1D]"
                 }`}
               >
                 {code}
@@ -157,40 +157,40 @@ export default async function BatchVerificationPage({
         </div>
 
         {!batch ? (
-          <div className="rounded-[24px] bg-[#201914] text-[#F1E6D8] p-8 sm:p-12 text-center space-y-4">
-            <div className="w-14 h-14 rounded-full bg-white/[0.08] text-[#D4A359] flex items-center justify-center mx-auto">
+          <div className="rounded-[24px] bg-[#2B1B1D] text-[#FBF1F2] p-8 sm:p-12 text-center space-y-4">
+            <div className="w-14 h-14 rounded-full bg-white/[0.08] text-[#E7B6B4] flex items-center justify-center mx-auto">
               <ShieldAlert className="w-7 h-7" />
             </div>
             <h1 className="font-sans text-2xl sm:text-4xl font-normal">
               Kode Batch Tidak Ditemukan
             </h1>
-            <p className="font-inter text-[14px] text-[#F1E6D8]/70 max-w-md mx-auto">
+            <p className="font-inter text-[14px] text-[#FBF1F2]/70 max-w-md mx-auto">
               Data uji laboratorium untuk kode{" "}
-              <strong className="font-mono text-[#D4A359]">{batchCode}</strong>{" "}
+              <strong className="font-mono text-[#E7B6B4]">{batchCode}</strong>{" "}
               belum tercatat dalam sistem.
             </p>
             <div className="pt-2">
               <Link
                 href="/batch/GG-BL-2026-01"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#F1E6D8] text-[#201914] font-inter text-[13px] font-semibold"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#FBF1F2] text-[#2B1B1D] font-inter text-[13px] font-semibold"
               >
                 <span>Lihat Contoh Batch GG-BL-2026-01</span>
               </Link>
             </div>
           </div>
         ) : (
-          <div className="rounded-[24px] bg-[#201914] text-[#F1E6D8] p-6 sm:p-10 lg:p-12 space-y-8 border border-white/[0.08] shadow-xl">
+          <div className="rounded-[24px] bg-[#2B1B1D] text-[#FBF1F2] p-6 sm:p-10 lg:p-12 space-y-8 border border-white/[0.08] shadow-xl">
             {/* Header Certificate */}
             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-6 border-b border-white/[0.08]">
               <div className="space-y-2.5">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.08] text-[#D4A359] font-inter text-[11px] uppercase tracking-[0.12em]">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.08] text-[#E7B6B4] font-inter text-[11px] uppercase tracking-[0.12em]">
                   <FlaskConical className="w-3.5 h-3.5" />
                   <span>Sertifikat Uji Mutu Teknologi Farmasi</span>
                 </div>
                 <h1 className="font-sans text-2xl sm:text-4xl font-normal tracking-[-0.02em]">
                   {batch.productName}
                 </h1>
-                <p className="font-mono text-[14px] text-[#D4A359]">
+                <p className="font-mono text-[14px] text-[#E7B6B4]">
                   Batch: {batch.batchCode}
                 </p>
               </div>
@@ -208,8 +208,8 @@ export default async function BatchVerificationPage({
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   <span>{BATCH_STATUS_META[batch.qcStatus].label}</span>
                 </span>
-                <span className="font-inter text-[12px] text-[#F1E6D8]/60 flex items-center gap-1.5">
-                  <UserCheck className="w-3.5 h-3.5 text-[#D4A359]" />
+                <span className="font-inter text-[12px] text-[#FBF1F2]/60 flex items-center gap-1.5">
+                  <UserCheck className="w-3.5 h-3.5 text-[#E7B6B4]" />
                   <span>{batch.formulatorName}</span>
                 </span>
               </div>
@@ -217,31 +217,31 @@ export default async function BatchVerificationPage({
 
             {/* Key Lab Metrics */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="p-5 rounded-[18px] bg-[#2D3622] border border-white/[0.08] space-y-1">
-                <span className="font-inter text-[11px] uppercase tracking-[0.1em] text-[#D4A359]">
+              <div className="p-5 rounded-[18px] bg-[#4D2E33] border border-white/[0.08] space-y-1">
+                <span className="font-inter text-[11px] uppercase tracking-[0.1em] text-[#E7B6B4]">
                   Tingkat Keasaman (pH)
                 </span>
-                <div className="font-sans text-3xl font-semibold text-[#F1E6D8]">
+                <div className="font-sans text-3xl font-semibold text-[#FBF1F2]">
                   pH {batch.phLevel}
                 </div>
-                <p className="font-inter text-[12px] text-[#F1E6D8]/70">
+                <p className="font-inter text-[12px] text-[#FBF1F2]/70">
                   Ideal untuk pH fisiologis kulit tubuh (4.5 – 6.5)
                 </p>
               </div>
 
               <div className="p-5 rounded-[18px] bg-white/[0.04] border border-white/[0.08] space-y-2">
-                <span className="font-inter text-[11px] uppercase tracking-[0.1em] text-[#D4A359]">
+                <span className="font-inter text-[11px] uppercase tracking-[0.1em] text-[#E7B6B4]">
                   Skor Uji Hedonik Panelis
                 </span>
-                <div className="font-sans text-3xl font-semibold text-[#F1E6D8]">
+                <div className="font-sans text-3xl font-semibold text-[#FBF1F2]">
                   {batch.hedonicScore.toFixed(1)}{" "}
-                  <span className="text-base font-normal text-[#F1E6D8]/55">
+                  <span className="text-base font-normal text-[#FBF1F2]/55">
                     / 5.0
                   </span>
                 </div>
                 <div className="w-full h-2 rounded-full bg-white/[0.08] overflow-hidden">
                   <div
-                    className="h-full bg-[#D4A359] rounded-full"
+                    className="h-full bg-[#E7B6B4] rounded-full"
                     style={{
                       width: `${Math.min(100, Math.max(0, (batch.hedonicScore / 5) * 100))}%`,
                     }}
@@ -250,11 +250,11 @@ export default async function BatchVerificationPage({
               </div>
 
               <div className="p-5 rounded-[18px] bg-white/[0.04] border border-white/[0.08] space-y-2 font-inter text-[13px]">
-                <div className="flex items-center gap-2 text-[#D4A359] text-[11px] uppercase tracking-[0.1em]">
+                <div className="flex items-center gap-2 text-[#E7B6B4] text-[11px] uppercase tracking-[0.1em]">
                   <Calendar className="w-3.5 h-3.5" />
                   <span>Periode Sediaan (BUD)</span>
                 </div>
-                <div className="space-y-1 text-[#F1E6D8]/85">
+                <div className="space-y-1 text-[#FBF1F2]/85">
                   <p>
                     Produksi:{" "}
                     <strong className="text-white">
@@ -274,51 +274,51 @@ export default async function BatchVerificationPage({
             {/* Detail Organoleptik & Keamanan */}
             <div className="space-y-4">
               <h2 className="font-sans text-xl font-normal flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-[#D4A359]" />
+                <ShieldCheck className="w-5 h-5 text-[#E7B6B4]" />
                 <span>Parameter Evaluasi Fisik &amp; Organoleptik</span>
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-inter text-[13px]">
                 <div className="p-4 rounded-[16px] bg-white/[0.04] border border-white/[0.06] space-y-1">
-                  <span className="text-[#F1E6D8]/55 text-[11px] uppercase tracking-wider block">
+                  <span className="text-[#FBF1F2]/55 text-[11px] uppercase tracking-wider block">
                     Warna Sediaan
                   </span>
-                  <p className="text-[#F1E6D8] leading-relaxed">
+                  <p className="text-[#FBF1F2] leading-relaxed">
                     {batch.colorResult}
                   </p>
                 </div>
 
                 <div className="p-4 rounded-[16px] bg-white/[0.04] border border-white/[0.06] space-y-1">
-                  <span className="text-[#F1E6D8]/55 text-[11px] uppercase tracking-wider block">
+                  <span className="text-[#FBF1F2]/55 text-[11px] uppercase tracking-wider block">
                     Aroma Rempah
                   </span>
-                  <p className="text-[#F1E6D8] leading-relaxed">
+                  <p className="text-[#FBF1F2] leading-relaxed">
                     {batch.aromaResult}
                   </p>
                 </div>
 
                 <div className="p-4 rounded-[16px] bg-white/[0.04] border border-white/[0.06] space-y-1">
-                  <span className="text-[#F1E6D8]/55 text-[11px] uppercase tracking-wider block">
+                  <span className="text-[#FBF1F2]/55 text-[11px] uppercase tracking-wider block">
                     Tekstur &amp; Konsistensi
                   </span>
-                  <p className="text-[#F1E6D8] leading-relaxed">
+                  <p className="text-[#FBF1F2] leading-relaxed">
                     {batch.textureResult}
                   </p>
                 </div>
 
                 <div className="p-4 rounded-[16px] bg-white/[0.04] border border-white/[0.06] space-y-1">
-                  <span className="text-[#F1E6D8]/55 text-[11px] uppercase tracking-wider block">
+                  <span className="text-[#FBF1F2]/55 text-[11px] uppercase tracking-wider block">
                     Homogenitas &amp; Uji Iritasi
                   </span>
-                  <p className="text-[#F1E6D8] leading-relaxed">
+                  <p className="text-[#FBF1F2] leading-relaxed">
                     {batch.homogeneity} • {batch.irritationTest}
                   </p>
                 </div>
               </div>
 
               {batch.notes && (
-                <div className="p-4 rounded-[16px] bg-[#2D3622]/60 border border-white/[0.08] font-inter text-[13px] text-[#F1E6D8]/85 leading-relaxed">
-                  <span className="text-[#D4A359] font-semibold block mb-1">
+                <div className="p-4 rounded-[16px] bg-[#4D2E33]/60 border border-white/[0.08] font-inter text-[13px] text-[#FBF1F2]/85 leading-relaxed">
+                  <span className="text-[#E7B6B4] font-semibold block mb-1">
                     Catatan Formulator:
                   </span>
                   {batch.notes}
@@ -328,20 +328,20 @@ export default async function BatchVerificationPage({
 
             {/* Bottom CTAs */}
             <div className="pt-4 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3">
-              <p className="font-inter text-[12px] text-[#F1E6D8]/60">
+              <p className="font-inter text-[12px] text-[#FBF1F2]/60">
                 Produk riset kolaborasi PLB Rekayasa Perangkat Lunak &amp;
                 Teknologi Farmasi.
               </p>
               <div className="flex flex-wrap items-center gap-3">
                 <Link
                   href="/panduan"
-                  className="px-5 py-2.5 rounded-full bg-white/[0.08] hover:bg-white/[0.14] text-[#F1E6D8] font-inter text-[13px] font-medium transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-white/[0.08] hover:bg-white/[0.14] text-[#FBF1F2] font-inter text-[13px] font-medium transition-colors"
                 >
                   Panduan &amp; Patch Test
                 </Link>
                 <Link
                   href="/pesan"
-                  className="px-5 py-2.5 rounded-full bg-[#F1E6D8] hover:bg-white text-[#201914] font-inter text-[13px] font-semibold inline-flex items-center gap-1.5 transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-[#FBF1F2] hover:bg-white text-[#2B1B1D] font-inter text-[13px] font-semibold inline-flex items-center gap-1.5 transition-colors"
                 >
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Pesan Batch Ini</span>

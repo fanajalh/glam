@@ -47,14 +47,14 @@ function TextField({
 }) {
   return (
     <div className="space-y-1.5">
-      <label className="block font-inter text-[12px] font-medium text-[#201914]/80">
+      <label className="block font-inter text-[12px] font-medium text-[#2B1B1D]/80">
         {label}
       </label>
       <input
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full h-[42px] px-3.5 rounded-[12px] bg-[#F1E6D8]/35 border border-[#201914]/15 font-inter text-[13px] text-[#201914] focus:outline-none focus:border-[#2D3622] focus:bg-white transition-colors"
+        className="w-full h-[42px] px-3.5 rounded-[12px] bg-[#FBF1F2]/35 border border-[#2B1B1D]/15 font-inter text-[13px] text-[#2B1B1D] focus:outline-none focus:border-[#4D2E33] focus:bg-white transition-colors"
       />
     </div>
   );
@@ -73,14 +73,14 @@ function TextAreaField({
 }) {
   return (
     <div className="space-y-1.5">
-      <label className="block font-inter text-[12px] font-medium text-[#201914]/80">
+      <label className="block font-inter text-[12px] font-medium text-[#2B1B1D]/80">
         {label}
       </label>
       <textarea
         rows={rows}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full p-3 rounded-[12px] bg-[#F1E6D8]/35 border border-[#201914]/15 font-inter text-[13px] text-[#201914] focus:outline-none focus:border-[#2D3622] focus:bg-white transition-colors resize-y"
+        className="w-full p-3 rounded-[12px] bg-[#FBF1F2]/35 border border-[#2B1B1D]/15 font-inter text-[13px] text-[#2B1B1D] focus:outline-none focus:border-[#4D2E33] focus:bg-white transition-colors resize-y"
       />
     </div>
   );
@@ -150,7 +150,7 @@ export default function AdminPagesEditor({
           <h1 className="font-sans text-2xl sm:text-4xl font-normal tracking-[-0.02em]">
             Editor Konten Halaman Web
           </h1>
-          <p className="font-inter text-[13px] sm:text-[14px] text-[#201914]/65">
+          <p className="font-inter text-[13px] sm:text-[14px] text-[#2B1B1D]/65">
             Ubah teks, judul, nomor rekening, tarif biaya, hingga poin panduan di
             seluruh halaman website langsung dari sini.
           </p>
@@ -161,7 +161,7 @@ export default function AdminPagesEditor({
             <Link
               href={currentTab.previewHref}
               target="_blank"
-              className="px-4 py-2.5 rounded-full bg-white border border-[#201914]/15 hover:border-[#201914] font-inter text-[12px] font-medium inline-flex items-center gap-1.5 transition-colors"
+              className="px-4 py-2.5 rounded-full bg-white border border-[#2B1B1D]/15 hover:border-[#2B1B1D] font-inter text-[12px] font-medium inline-flex items-center gap-1.5 transition-colors"
             >
               <ExternalLink className="w-3.5 h-3.5" />
               <span>Buka Halaman</span>
@@ -171,7 +171,7 @@ export default function AdminPagesEditor({
             type="button"
             disabled={saving}
             onClick={handleReset}
-            className="px-4 py-2.5 rounded-full bg-white border border-[#201914]/15 hover:border-red-400 text-[#201914]/80 hover:text-red-700 font-inter text-[12px] font-medium inline-flex items-center gap-1.5 transition-colors disabled:opacity-50"
+            className="px-4 py-2.5 rounded-full bg-white border border-[#2B1B1D]/15 hover:border-red-400 text-[#2B1B1D]/80 hover:text-red-700 font-inter text-[12px] font-medium inline-flex items-center gap-1.5 transition-colors disabled:opacity-50"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>Reset Bawaan</span>
@@ -180,9 +180,9 @@ export default function AdminPagesEditor({
             type="button"
             disabled={saving}
             onClick={handleSave}
-            className="px-5 py-2.5 rounded-full bg-[#201914] hover:bg-[#2D3622] text-[#F1E6D8] font-inter text-[13px] font-semibold inline-flex items-center gap-2 transition-colors disabled:opacity-50"
+            className="px-5 py-2.5 rounded-full bg-[#2B1B1D] hover:bg-[#4D2E33] text-[#FBF1F2] font-inter text-[13px] font-semibold inline-flex items-center gap-2 transition-colors disabled:opacity-50"
           >
-            <Save className="w-4 h-4 text-[#D4A359]" />
+            <Save className="w-4 h-4 text-[#E7B6B4]" />
             <span>{saving ? "Menyimpan..." : "Simpan Halaman"}</span>
           </button>
         </div>
@@ -199,16 +199,16 @@ export default function AdminPagesEditor({
               onClick={() => setSectionKey(tab.key)}
               className={`px-4 py-2.5 rounded-full font-inter text-[13px] font-medium whitespace-nowrap transition-colors border inline-flex items-center gap-1.5 ${
                 active
-                  ? "bg-[#201914] text-[#F1E6D8] border-[#201914]"
-                  : "bg-white text-[#201914]/75 border-[#201914]/12 hover:bg-white/80"
+                  ? "bg-[#2B1B1D] text-[#FBF1F2] border-[#2B1B1D]"
+                  : "bg-white text-[#2B1B1D]/75 border-[#2B1B1D]/12 hover:bg-white/80"
               }`}
             >
               {tab.key === "payment" ? (
-                <Wallet className="w-3.5 h-3.5 text-[#D4A359]" />
+                <Wallet className="w-3.5 h-3.5 text-[#E7B6B4]" />
               ) : tab.key === "general" ? (
-                <Globe className="w-3.5 h-3.5 text-[#D4A359]" />
+                <Globe className="w-3.5 h-3.5 text-[#E7B6B4]" />
               ) : (
-                <FileEdit className="w-3.5 h-3.5 text-[#D4A359]" />
+                <FileEdit className="w-3.5 h-3.5 text-[#E7B6B4]" />
               )}
               <span>{tab.label}</span>
             </button>
@@ -217,7 +217,7 @@ export default function AdminPagesEditor({
       </div>
 
       {/* Section Editor Forms */}
-      <div className="rounded-[22px] bg-white border border-[#201914]/10 p-5 sm:p-7 space-y-6">
+      <div className="rounded-[22px] bg-white border border-[#2B1B1D]/10 p-5 sm:p-7 space-y-6">
         {sectionKey === "home" && (
           <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -255,7 +255,7 @@ export default function AdminPagesEditor({
               }
             />
 
-            <div className="pt-4 border-t border-[#201914]/10 space-y-4">
+            <div className="pt-4 border-t border-[#2B1B1D]/10 space-y-4">
               <h3 className="font-sans text-lg font-medium">Bagian Misi &amp; Komitmen</h3>
               <TextAreaField
                 label="Teks Pernyataan Misi"
@@ -282,7 +282,7 @@ export default function AdminPagesEditor({
                 {draft.home.promises.map((item, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-[14px] bg-[#F1E6D8]/35 border border-[#201914]/10 space-y-2"
+                    className="p-4 rounded-[14px] bg-[#FBF1F2]/35 border border-[#2B1B1D]/10 space-y-2"
                   >
                     <TextField
                       label={`Komitmen ${idx + 1} - Judul`}
@@ -314,7 +314,7 @@ export default function AdminPagesEditor({
               </div>
             </div>
 
-            <div className="pt-4 border-t border-[#201914]/10 space-y-4">
+            <div className="pt-4 border-t border-[#2B1B1D]/10 space-y-4">
               <h3 className="font-sans text-lg font-medium">
                 Statement Pill, Bahan &amp; Program Tani
               </h3>
@@ -395,7 +395,7 @@ export default function AdminPagesEditor({
                 {draft.home.testimonials.map((t, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-[14px] bg-[#F1E6D8]/35 border border-[#201914]/10 space-y-2"
+                    className="p-4 rounded-[14px] bg-[#FBF1F2]/35 border border-[#2B1B1D]/10 space-y-2"
                   >
                     <div className="grid grid-cols-2 gap-2">
                       <TextField
@@ -468,7 +468,7 @@ export default function AdminPagesEditor({
                 updateSection("tentangKami", (s) => ({ ...s, heroSubtitle: v }))
               }
             />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[#201914]/10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[#2B1B1D]/10">
               <TextField
                 label="Badge Asal Produk"
                 value={draft.tentangKami.originBadge}
@@ -542,7 +542,7 @@ export default function AdminPagesEditor({
                 }
               />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[#201914]/10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[#2B1B1D]/10">
               <TextField
                 label="Label Standar Kami"
                 value={draft.tentangKami.standardsEyebrow}
@@ -569,7 +569,7 @@ export default function AdminPagesEditor({
               {draft.tentangKami.values.map((val, idx) => (
                 <div
                   key={idx}
-                  className="p-4 rounded-[14px] bg-[#F1E6D8]/35 border border-[#201914]/10 space-y-2"
+                  className="p-4 rounded-[14px] bg-[#FBF1F2]/35 border border-[#2B1B1D]/10 space-y-2"
                 >
                   <TextField
                     label={`Nilai ${idx + 1} - Judul`}
@@ -671,13 +671,13 @@ export default function AdminPagesEditor({
               }
             />
 
-            <div className="pt-4 border-t border-[#201914]/10 space-y-3">
+            <div className="pt-4 border-t border-[#2B1B1D]/10 space-y-3">
               <h3 className="font-sans text-lg font-medium">5 Bahan Alami</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {draft.produk.ingredients.map((ing, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-[14px] bg-[#F1E6D8]/35 border border-[#201914]/10 space-y-2"
+                    className="p-4 rounded-[14px] bg-[#FBF1F2]/35 border border-[#2B1B1D]/10 space-y-2"
                   >
                     <div className="grid grid-cols-2 gap-2">
                       <TextField
@@ -766,11 +766,11 @@ export default function AdminPagesEditor({
               }
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-4 border-t border-[#201914]/10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-4 border-t border-[#2B1B1D]/10">
               {draft.panduan.steps.map((step, idx) => (
                 <div
                   key={idx}
-                  className="p-4 rounded-[14px] bg-[#F1E6D8]/35 border border-[#201914]/10 space-y-2"
+                  className="p-4 rounded-[14px] bg-[#FBF1F2]/35 border border-[#2B1B1D]/10 space-y-2"
                 >
                   <div className="grid grid-cols-2 gap-2">
                     <TextField
@@ -815,7 +815,7 @@ export default function AdminPagesEditor({
               ))}
             </div>
 
-            <div className="pt-4 border-t border-[#201914]/10 space-y-3">
+            <div className="pt-4 border-t border-[#2B1B1D]/10 space-y-3">
               <TextField
                 label="Judul Penyimpanan"
                 value={draft.panduan.storageTitle}
@@ -831,7 +831,7 @@ export default function AdminPagesEditor({
                 }
               />
               <div className="space-y-2">
-                <label className="block font-inter text-[12px] font-medium text-[#201914]/80">
+                <label className="block font-inter text-[12px] font-medium text-[#2B1B1D]/80">
                   5 Poin Perhatian Penggunaan
                 </label>
                 {draft.panduan.cautions.map((c, idx) => (
@@ -847,7 +847,7 @@ export default function AdminPagesEditor({
                         ),
                       }))
                     }
-                    className="w-full h-[40px] px-3.5 rounded-[12px] bg-[#F1E6D8]/35 border border-[#201914]/15 font-inter text-[13px] text-[#201914] focus:outline-none focus:border-[#2D3622]"
+                    className="w-full h-[40px] px-3.5 rounded-[12px] bg-[#FBF1F2]/35 border border-[#2B1B1D]/15 font-inter text-[13px] text-[#2B1B1D] focus:outline-none focus:border-[#4D2E33]"
                   />
                 ))}
               </div>
@@ -903,7 +903,7 @@ export default function AdminPagesEditor({
               }
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[#201914]/10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[#2B1B1D]/10">
               <TextField
                 label="Judul Kartu Sosial"
                 value={draft.pesan.socialTitle}
@@ -1019,7 +1019,7 @@ export default function AdminPagesEditor({
               </div>
             </div>
 
-            <div className="pt-4 border-t border-[#201914]/10 space-y-3">
+            <div className="pt-4 border-t border-[#2B1B1D]/10 space-y-3">
               <h3 className="font-sans text-lg font-medium">
                 Nomor Rekening Transfer Bank (BCA / BRI / Mandiri)
               </h3>
@@ -1027,7 +1027,7 @@ export default function AdminPagesEditor({
                 {draft.payment.bankAccounts.map((bank, idx) => (
                   <div
                     key={bank.id}
-                    className="p-4 rounded-[14px] bg-[#F1E6D8]/35 border border-[#201914]/10 space-y-2"
+                    className="p-4 rounded-[14px] bg-[#FBF1F2]/35 border border-[#2B1B1D]/10 space-y-2"
                   >
                     <TextField
                       label="Nama Bank"
@@ -1070,7 +1070,7 @@ export default function AdminPagesEditor({
               </div>
             </div>
 
-            <div className="pt-4 border-t border-[#201914]/10 space-y-3">
+            <div className="pt-4 border-t border-[#2B1B1D]/10 space-y-3">
               <h3 className="font-sans text-lg font-medium">
                 Nomor Tujuan E-Wallet (GoPay / DANA / OVO)
               </h3>
@@ -1078,7 +1078,7 @@ export default function AdminPagesEditor({
                 {draft.payment.ewalletAccounts.map((wallet, idx) => (
                   <div
                     key={wallet.id}
-                    className="p-4 rounded-[14px] bg-[#F1E6D8]/35 border border-[#201914]/10 space-y-2"
+                    className="p-4 rounded-[14px] bg-[#FBF1F2]/35 border border-[#2B1B1D]/10 space-y-2"
                   >
                     <TextField
                       label="Penyedia"
@@ -1197,9 +1197,9 @@ export default function AdminPagesEditor({
           </div>
         )}
 
-        <div className="pt-4 border-t border-[#201914]/10 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2 font-inter text-[12px] text-[#201914]/65">
-            <CheckCircle2 className="w-4 h-4 text-[#2D3622] shrink-0" />
+        <div className="pt-4 border-t border-[#2B1B1D]/10 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2 font-inter text-[12px] text-[#2B1B1D]/65">
+            <CheckCircle2 className="w-4 h-4 text-[#4D2E33] shrink-0" />
             <span>
               Setiap perubahan disimpan dan langsung berlaku pada halaman publik.
             </span>
@@ -1208,9 +1208,9 @@ export default function AdminPagesEditor({
             type="button"
             disabled={saving}
             onClick={handleSave}
-            className="px-6 py-2.5 rounded-full bg-[#201914] hover:bg-[#2D3622] text-[#F1E6D8] font-inter text-[13px] font-semibold inline-flex items-center gap-2 transition-colors disabled:opacity-50"
+            className="px-6 py-2.5 rounded-full bg-[#2B1B1D] hover:bg-[#4D2E33] text-[#FBF1F2] font-inter text-[13px] font-semibold inline-flex items-center gap-2 transition-colors disabled:opacity-50"
           >
-            <Save className="w-4 h-4 text-[#D4A359]" />
+            <Save className="w-4 h-4 text-[#E7B6B4]" />
             <span>{saving ? "Menyimpan..." : "Simpan Halaman"}</span>
           </button>
         </div>
