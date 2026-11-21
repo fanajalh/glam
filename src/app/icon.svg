@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="gg-bg" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4D2E33" />
+      <stop offset="100%" stop-color="#2B1B1D" />
+    </linearGradient>
+    <linearGradient id="gg-rose" x1="16" y1="14" x2="48" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FBF1F2" />
+      <stop offset="55%" stop-color="#E7B6B4" />
+      <stop offset="100%" stop-color="#C98A8B" />
+    </linearGradient>
+  </defs>
+
+  <!-- Squircle Badge -->
+  <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#gg-bg)" />
+  <rect x="2.75" y="2.75" width="58.5" height="58.5" rx="17.25" stroke="#E7B6B4" stroke-opacity="0.32" stroke-width="1.5" />
+
+  <!-- Outer Botanical Ring -->
+  <circle cx="32" cy="34" r="17.5" stroke="url(#gg-rose)" stroke-width="1.5" stroke-opacity="0.45" />
+
+  <!-- Center Lotus Crown / Glow Leaf Emblem -->
+  <path
+    d="M32 14C34.9 18.8 36.2 22.7 36.2 26.2C36.2 29.7 34.4 32.5 32 34.4C29.6 32.5 27.8 29.7 27.8 26.2C27.8 22.7 29.1 18.8 32 14Z"
+    fill="url(#gg-rose)"
+  />
+  <path
+    d="M19.5 23.5C24.2 24.4 27.8 26.8 29.8 30.6C31.2 33.2 31.3 36.4 30.1 39.2C25.4 38.2 21.8 35.8 20.1 31.9C18.8 29.1 18.7 26.2 19.5 23.5Z"
+    fill="url(#gg-rose)"
+    fill-opacity="0.9"
+  />
+  <path
+    d="M44.5 23.5C39.8 24.4 36.2 26.8 34.2 30.6C32.8 33.2 32.7 36.4 33.9 39.2C38.6 38.2 42.2 35.8 43.9 31.9C45.2 29.1 45.3 26.2 44.5 23.5Z"
+    fill="url(#gg-rose)"
+    fill-opacity="0.9"
+  />
+
+  <!-- Soft Curve Base / Bowl of Scrub -->
+  <path
+    d="M18.5 41.5C21.8 46.2 26.7 49 32 49C37.3 49 42.2 46.2 45.5 41.5"
+    stroke="url(#gg-rose)"
+    stroke-width="2.4"
+    stroke-linecap="round"
+  />
+
+  <!-- Subtle Glow Sparkle -->
+  <path
+    d="M49 12.5L49.9 15.1L52.5 16L49.9 16.9L49 19.5L48.1 16.9L45.5 16L48.1 15.1L49 12.5Z"
+    fill="#FBF1F2"
+  />
+</svg>
+

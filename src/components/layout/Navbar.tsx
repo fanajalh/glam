@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ShoppingBag, Search, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -62,6 +63,13 @@ export default function Navbar() {
       >
         {/* Left: Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
+          <Image
+            src="/logo.svg"
+            alt="Logo Glam & Glow"
+            width={34}
+            height={34}
+            className="w-7 h-7 sm:w-8 sm:h-8 rounded-[9px] shrink-0"
+          />
           <span className="font-sans font-semibold text-lg sm:text-[21px] tracking-[0.08em] text-[#FBF1F2] uppercase">
             {general.brandName}
           </span>

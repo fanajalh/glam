@@ -30,6 +30,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://glamandglow.id"),
   title: `${PRODUCT_INFO.name} • Lulur Rempah Tradisional Alami 400g`,
   description: PRODUCT_INFO.description,
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   keywords: [
     "Lulur Badda Lotong",
     "Glam & Glow",
